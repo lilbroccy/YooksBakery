@@ -271,7 +271,7 @@ a:focus {
 
 
 /* service section */
-.service_section .card .card-img-top {
+/*.service_section .card .card-img-top {
   width: 50px;
   margin: 55px auto 5px auto;
 }
@@ -280,6 +280,7 @@ a:focus {
   text-align: center;
   box-sizing: border-box;
   position: relative;
+  grid-template-columns: 20px;
 }
 
 .service_section .card .card-title {
@@ -307,7 +308,7 @@ a:focus {
 
 .service_section .card:hover::after {
   background-color: #fc5d35;
-}
+}*/
 
 /* end service section */
 

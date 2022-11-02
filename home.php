@@ -52,10 +52,10 @@
                   <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="fruit.html"> Roti</a>
+                  <a class="nav-link" href="fruit.html">Menu</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Services </a>
+                  <a class="nav-link" href="service.html">Promo</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html">Contact us</a>
@@ -64,12 +64,19 @@
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_shop-btn" href="">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                </button>
+              </form>
             </div>
-            <div class="quote_btn-container ml-0 ml-lg-4 d-flex justify-content-center">
+            <!--<div class="quote_btn-container ml-0 ml-lg-4 d-flex justify-content-center">
               <a href="">
                 Get A quote
               </a>
-            </div>
+            </div>-->
           </div>
         </nav>
       </div>
@@ -212,13 +219,13 @@
 
   <section class="service_section layout_padding ">
     <div class="container">
-      <h2 class="custom_heading">Produk Kami</h2>
+      <h2 class="custom_heading">Produk Andalan Kami</h2>
       <p class="custom_heading-text">
-        Kami juga menyediakan Produk lain, yang dapat dinikmati bersama keluarga dan teman
+        Berikut beberapa Menu Roti yang menjadi Best Seller di Toko Yooks
       </p>
       <div class=" layout_padding2">
         <div class="card-deck">
-          <div class="card">
+          <!--<div class="card">
             <img class="card-img-top" src="images/card-item-1.png" alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">Roti</h5>
@@ -246,14 +253,46 @@
                 Tradisional dari daerah Jember dan sekitarnya
               </p>
             </div>
+          </div>-->
+          <div class="card" style="width: 18rem;">
+            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-center">Roti Mentega</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn custom_orange-btn">Beli</a>
+              </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-center">Roti Mentega</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn custom_orange-btn">Beli</a>
+              </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-center">Roti Mentega</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn custom_orange-btn">Beli</a>
+              </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-center">Roti Mentega</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn custom_orange-btn">Beli</a>
+              </div>
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center">
+      <!--<div class="d-flex justify-content-center">
         <a href="" class="custom_dark-btn">
           Read More
         </a>
-      </div>
+      </div>-->
     </div>
   </section>
 
@@ -286,7 +325,7 @@
         </div>
         <div class="col-md-4 d-flex justify-content-center align-items-center">
           <div class="fruit_img-box d-flex justify-content-center align-items-center">
-            <img src="images/coffeebun.jpg" alt="" class="" width="250px" />
+            <img src="images/coffeebun.jpg" alt="" class="" width="200px" height="200px"/>
           </div>
         </div>
       </div>
@@ -308,7 +347,7 @@
         </div>
         <div class="col-md-4 d-flex justify-content-center align-items-center">
           <div class="fruit_img-box d-flex justify-content-center ">
-            <img src="images/rotimeseskeju.jfif" alt="" class="" width="230px" />
+            <img src="images/rotimeseskeju.jfif" alt="" class="" width="200px" height="200px"/>
           </div>
         </div>
       </div>
@@ -330,7 +369,7 @@
         </div>
         <div class="col-md-4 d-flex justify-content-center align-items-center">
           <div class="fruit_img-box d-flex justify-content-center align-items-center">
-            <img src="images/pizzamini.jpg" alt="" class="" width="200px" />
+            <img src="images/pizzamini.jpg" alt="" class="" width="200px" height="200px"/>
           </div>
         </div>
       </div>
