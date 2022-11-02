@@ -262,30 +262,6 @@
                 <a href="#" class="btn custom_orange-btn">Beli</a>
               </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title text-center">Roti Mentega</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn custom_orange-btn">Beli</a>
-              </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title text-center">Roti Mentega</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn custom_orange-btn">Beli</a>
-              </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title text-center">Roti Mentega</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn custom_orange-btn">Beli</a>
-              </div>
-          </div>
         </div>
       </div>
       <!--<div class="d-flex justify-content-center">
@@ -300,7 +276,7 @@
 
   <!-- fruits section -->
 
-  <section class="fruit_section">
+  <!--<section class="fruit_section">
     <div class="container">
       <h2 class="custom_heading">Fresh Bread</h2>
       <p class="custom_heading-text">
@@ -374,7 +350,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
 
   <!-- end fruits section -->
 
@@ -395,8 +371,7 @@
     <div class="container">
       <h2 class="custom_heading">Testimonial</h2>
       <p class="custom_heading-text">
-        There are many variations of passages of Lorem Ipsum available, but
-        the majority have
+        Ini adalah contoh dari kepuasan pembeli kami
       </p>
       <div>
         <div id="carouselExampleControls-2" class="carousel slide" data-ride="carousel">
