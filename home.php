@@ -259,7 +259,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Mentega</h5>
                 <p class="card-text"></p>
-                <a href="#" class="btn custom_orange-btn">Beli</a>
+                <a href="#" class="d-grid gap-2 d-md-block btn custom_orange-btn">Beli</a>
               </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -267,7 +267,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Pizza Mini</h5>
                 <p class="card-text"></p>
-                <a href="#" class="btn custom_orange-btn">Beli</a>
+                <a href="#" class="d-grid gap-2 d-md-block btn custom_orange-btn">Beli</a>
               </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -275,7 +275,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Donat</h5>
                 <p class="card-text"></p>
-                <a href="#" class="btn custom_orange-btn">Beli</a>
+                <a href="#" class="d-grid gap-2 d-md-block btn custom_orange-btn">Beli</a>
               </div>
           </div>
         </div>
