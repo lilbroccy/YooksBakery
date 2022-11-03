@@ -255,7 +255,7 @@
             </div>
           </div>-->
           <div class="card" style="width: 18rem;">
-            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="...">
+            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg" class="card-img-top" alt="..." width="200px" height="200px">
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Mentega</h5>
                 <p class="card-text"></p>
@@ -263,7 +263,7 @@
               </div>
           </div>
           <div class="card" style="width: 18rem;">
-            <img src="https://i.pinimg.com/564x/9c/66/f7/9c66f7205900e82cb6a60f4bf99fb05a.jpg" class="card-img-top" alt="...">
+            <img src="https://i.pinimg.com/564x/9c/66/f7/9c66f7205900e82cb6a60f4bf99fb05a.jpg" class="card-img-top" alt="..." width="200px" height="200px">
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Pizza Mini</h5>
                 <p class="card-text"></p>
@@ -271,7 +271,7 @@
               </div>
           </div>
           <div class="card" style="width: 18rem;">
-            <img src="https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2020/11/Featured_Cara-Membuat-Donat-Varian-Lezat-dan-Tips-Agar-Empuk.jpg" class="card-img-top" alt="...">
+            <img src="https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2020/11/Featured_Cara-Membuat-Donat-Varian-Lezat-dan-Tips-Agar-Empuk.jpg" class="card-img-top" alt="..." width="200px" height="200px">
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Donat</h5>
                 <p class="card-text"></p>
