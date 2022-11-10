@@ -194,7 +194,7 @@ button{
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="txt_password">
-        <button name="submit">Log In</button><br><br>
+        <button name="submit">LogIn</button><br><br>
             <div class="text-center">
                 <a class="small" href="register.php">Belum punya akun? Daftar sekarang!</a>
             </div>
