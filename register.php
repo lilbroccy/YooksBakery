@@ -154,7 +154,7 @@ button{
         <div class="shape"></div>
     </div>
     <form action="register.php" method="post">
-        <h3>Login</h3>
+        <h3>Register</h3>
         
         <label for="nama">Nama Panjang</label>
         <input type="text" placeholder="Fullname" id="fullname" name="txt_nama">
