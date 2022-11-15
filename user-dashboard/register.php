@@ -31,6 +31,7 @@ if( isset($_POST['register']) ){
 }
 body{
     background-color: #ffffff;
+    background-image: url('images/formregister.jpg');
 }
 .background{
     width: 430px;
@@ -64,7 +65,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 520px;
+    height: 600px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
