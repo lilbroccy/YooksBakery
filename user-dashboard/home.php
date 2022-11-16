@@ -71,6 +71,10 @@
                   </svg>
                 </button>
               </form>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0" type="submit">
+                  <img src="images/user.png" alt="" width="16" height="16" href="login.php"/>
+                </button>
             </div>
             <!--<div class="quote_btn-container ml-0 ml-lg-4 d-flex justify-content-center">
               <a href="">
@@ -259,7 +263,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Mentega</h5>
                 <p class="card-text"></p>
-                <a href="#" class="d-grid gap-2 d-md-block btn custom_orange-btn">Beli</a>
+                <a href="#" class="d-grid gap-2 col-6 mx-auto custom_orange-btn">Beli</a>
               </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -267,7 +271,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Pizza Mini</h5>
                 <p class="card-text"></p>
-                <a href="#" class="d-grid gap-2 d-md-block btn custom_orange-btn">Beli</a>
+                <a href="#" class="d-grid gap-2 col-6 mx-auto custom_orange-btn">Beli</a>
               </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -275,7 +279,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">Roti Donat</h5>
                 <p class="card-text"></p>
-                <a href="#" class="d-grid gap-2 d-md-block btn custom_orange-btn">Beli</a>
+                <a href="#" class="d-grid gap-2 col-6 mx-auto custom_orange-btn">Beli</a>
               </div>
           </div>
         </div>
