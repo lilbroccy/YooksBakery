@@ -64,6 +64,8 @@ if (isset($_POST['submit'])) {
 }
 body{
     background-color: #ffffff;
+    background-image: url('images/formregister.jpg');
+    background-size: cover;
 }
 .background{
     width: 430px;
@@ -196,7 +198,7 @@ button{
         <input type="password" placeholder="Password" id="password" name="txt_password">
         <button name="submit">LogIn</button><br><br>
             <div class="text-center">
-                <a class="small" href="register.php">Belum punya akun? Daftar sekarang!</a>
+                Belum punya akun? <a class="small" href="register.php">Daftar sekarang!</a>
             </div>
     </form>
 </body>

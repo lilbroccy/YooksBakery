@@ -1,11 +1,13 @@
 <?php
 require('koneksi.php');
 if( isset($_POST['register']) ){
+    $userName = $_POST['txt_nama'];
+    $userTelp = $_POST['txt_telp'];
+    $userAlamat = $_POST['txt_alamat'];
     $userMail = $_POST['txt_email'];
     $userPass = $_POST['txt_password'];
-    $userName = $_POST['txt_nama'];
 
-    $query = "INSERT INTO user_detail VALUES ('', '$userMail', '$userPass', '$userName', 2)";
+    $query = "INSERT INTO user_detail VALUES ('', '$userName', '$userTelp', '$userTelp', '$userAlamat', '$userMail', '$userPass', 2)";
     $result = mysqli_query($koneksi, $query);
     header('Location: login.php');
 }
@@ -30,6 +32,7 @@ if( isset($_POST['register']) ){
     box-sizing: border-box;
 }
 body{
+    background-size: cover;
     background-color: #ffffff;
     background-image: url('images/formregister.jpg');
 }
@@ -45,7 +48,7 @@ body{
     height: 200px;
     width: 200px;
     position: absolute;
-    border-radius: 50%;
+    border-radius: 50%  ; 
 }
 .shape:first-child{
     background: linear-gradient(
@@ -65,7 +68,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 600px;
+    height: 550px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -77,6 +80,7 @@ form{
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
+    overflow-y: scroll;
 }
 form *{
     font-family: 'Poppins',sans-serif;
@@ -160,8 +164,14 @@ button{
         <label for="nama">Nama Panjang</label>
         <input type="text" placeholder="Fullname" id="fullname" name="txt_nama">
 
+        <label for="username">Nomer Handphone</label>
+        <input type="string" placeholder="Nomer Phone" id="no_telp" name="txt_telp">
+
+        <label for="username">Alamat</label>
+        <input type="text" placeholder="Alamat" id="alamat" name="txt_alamat">
+
         <label for="username">Email</label>
-        <input type="email" placeholder="Email or Phone" id="username" name="txt_email">
+        <input type="email" placeholder="Email" id="username" name="txt_email">
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="txt_password">
