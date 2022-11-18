@@ -1,46 +1,15 @@
-<?php  
+<?php
 require('koneksi.php');
+if( isset($_POST['register']) ){
+    $userName = $_POST['txt_nama'];
+    $userTelp = $_POST['txt_telp'];
+    $userAlamat = $_POST['txt_alamat'];
+    $userMail = $_POST['txt_email'];
+    $userPass = $_POST['txt_password'];
 
-session_start();
-
-if (isset($_POST['submit'])) {
-    $email = $_POST['txt_email'];
-    $pass = $_POST['txt_password'];
-    
-    if (!empty(trim($email)) && !empty(trim($pass))) {
-        $query      = "SELECT * FROM user_detail WHERE user_email = '$email'";
-        $result     = mysqli_query($koneksi, $query);
-        $num        = mysqli_num_rows($result);
-
-        while ($row = mysqli_fetch_array($result)) {
-            $id = $row['id'];
-            $userVal = $row['user_email'];
-            $passVal = $row['user_password'];
-            $userName = $row['user_fullname'];
-            $level = $row['level'];
-
-        }
-
-        if ($num != 0) {
-            if ($userVal==$email && $passVal==$pass) {
-                $_SESSION['id'] = $id;
-                $_SESSION['name'] = $userName;
-                $_SESSION['level'] = $level;
-                header('Location: home.php');
-            }else{
-                $error = 'user atau password salah!!';
-                echo "<script>alert('$error')</script>";
-                header('Location: login.php');
-            }
-        }else{
-            $error = 'user tidak ditemukan!!';
-            echo "<script>alert('$error')</script>";
-            header('Location: login.php');
-        }
-    }else{
-        $error = 'Data tidak boleh kosong!!';
-        echo "<script>alert('$error')</script>";
-    }
+    $query = "INSERT INTO user_detail VALUES ('', '$userName', '$userTelp', '$userTelp', '$userAlamat', '$userMail', '$userPass', 2)";
+    $result = mysqli_query($koneksi, $query);
+    header('Location: login.php');
 }
 ?>
 
@@ -48,7 +17,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Yooks! Login</title>
+    <title>Yooks! Register</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -63,7 +32,9 @@ if (isset($_POST['submit'])) {
     box-sizing: border-box;
 }
 body{
+    background-size: cover;
     background-color: #ffffff;
+    background-image: url('images/formregister.jpg');
 }
 .background{
     width: 430px;
@@ -77,7 +48,7 @@ body{
     height: 200px;
     width: 200px;
     position: absolute;
-    border-radius: 50%;
+    border-radius: 50%  ; 
 }
 .shape:first-child{
     background: linear-gradient(
@@ -97,7 +68,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 520px;
+    height: 550px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -109,6 +80,7 @@ form{
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
+    overflow-y: scroll;
 }
 form *{
     font-family: 'Poppins',sans-serif;
@@ -186,18 +158,29 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="login.php" method="post">
-        <h3>Login</h3>
+    <form action="register.php" method="post">
+        <h3>Register</h3>
+        
+        <label for="nama">Nama Panjang</label>
+        <input type="text" placeholder="Fullname" id="fullname" name="txt_nama">
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" name="txt_email">
+        <label for="username">Nomer Handphone</label>
+        <input type="string" placeholder="Nomer Phone" id="no_telp" name="txt_telp">
+
+        <label for="username">Alamat</label>
+        <input type="text" placeholder="Alamat" id="alamat" name="txt_alamat">
+
+        <label for="username">Email</label>
+        <input type="email" placeholder="Email" id="username" name="txt_email">
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="txt_password">
-        <button name="submit">LogIn</button><br><br>
-            <div class="text-center">
-                <a class="small" href="register.php">Belum punya akun? Daftar sekarang!</a>
-            </div>
+        <button name="register">Register Now</button><br><br>
+
+        <div class="text-center">
+            <a class="small" href="login.php">Already have an account? Login!</a>
+        </div>
     </form>
 </body>
 </html>
+

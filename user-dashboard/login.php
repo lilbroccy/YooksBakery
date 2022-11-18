@@ -1,13 +1,46 @@
-<?php
+<?php  
 require('koneksi.php');
-if( isset($_POST['register']) ){
-    $userMail = $_POST['txt_email'];
-    $userPass = $_POST['txt_password'];
-    $userName = $_POST['txt_nama'];
 
-    $query = "INSERT INTO user_detail VALUES ('', '$userMail', '$userPass', '$userName', 2)";
-    $result = mysqli_query($koneksi, $query);
-    header('Location: login.php');
+session_start();
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['txt_email'];
+    $pass = $_POST['txt_password'];
+    
+    if (!empty(trim($email)) && !empty(trim($pass))) {
+        $query      = "SELECT * FROM user_detail WHERE user_email = '$email'";
+        $result     = mysqli_query($koneksi, $query);
+        $num        = mysqli_num_rows($result);
+
+        while ($row = mysqli_fetch_array($result)) {
+            $id = $row['id'];
+            $userVal = $row['user_email'];
+            $passVal = $row['user_password'];
+            $userName = $row['user_fullname'];
+            $level = $row['level'];
+
+        }
+
+        if ($num != 0) {
+            if ($userVal==$email && $passVal==$pass) {
+                $_SESSION['id'] = $id;
+                $_SESSION['name'] = $userName;
+                $_SESSION['level'] = $level;
+                header('Location: home.php');
+            }else{
+                $error = 'user atau password salah!!';
+                echo "<script>alert('$error')</script>";
+                header('Location: login.php');
+            }
+        }else{
+            $error = 'user tidak ditemukan!!';
+            echo "<script>alert('$error')</script>";
+            header('Location: login.php');
+        }
+    }else{
+        $error = 'Data tidak boleh kosong!!';
+        echo "<script>alert('$error')</script>";
+    }
 }
 ?>
 
@@ -15,7 +48,7 @@ if( isset($_POST['register']) ){
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Yooks! Register</title>
+    <title>Yooks! Login</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -32,6 +65,7 @@ if( isset($_POST['register']) ){
 body{
     background-color: #ffffff;
     background-image: url('images/formregister.jpg');
+    background-size: cover;
 }
 .background{
     width: 430px;
@@ -65,7 +99,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 600px;
+    height: 520px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -154,23 +188,18 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="register.php" method="post">
-        <h3>Register</h3>
-        
-        <label for="nama">Nama Panjang</label>
-        <input type="text" placeholder="Fullname" id="fullname" name="txt_nama">
+    <form action="login.php" method="post">
+        <h3>Login</h3>
 
-        <label for="username">Email</label>
-        <input type="email" placeholder="Email or Phone" id="username" name="txt_email">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username" name="txt_email">
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="txt_password">
-        <button name="register">Register Now</button><br><br>
-
-        <div class="text-center">
-            <a class="small" href="login.php">Already have an account? Login!</a>
-        </div>
+        <button name="submit">LogIn</button><br><br>
+            <div class="text-center">
+                Belum punya akun? <a class="small" href="register.php">Daftar sekarang!</a>
+            </div>
     </form>
 </body>
 </html>
-
