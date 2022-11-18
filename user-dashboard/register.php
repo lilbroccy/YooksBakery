@@ -7,7 +7,7 @@ if( isset($_POST['register']) ){
     $userMail = $_POST['txt_email'];
     $userPass = $_POST['txt_password'];
 
-    $query = "INSERT INTO user_detail VALUES ('', '$userName', '$userTelp', '$userTelp', '$userAlamat', '$userMail', '$userPass', 2)";
+    $query = "INSERT INTO user_detail VALUES ('', '$userName', '$userTelp', '$userAlamat', '$userMail', '$userPass', 2)";
     $result = mysqli_query($koneksi, $query);
     header('Location: login.php');
 }
@@ -70,6 +70,7 @@ body{
 form{
     height: 550px;
     width: 400px;
+    overflow-y: scroll;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -94,6 +95,7 @@ form h3{
     font-weight: 500;
     line-height: 42px;
     text-align: center;
+    color: white;
 }
 
 label{
@@ -101,7 +103,7 @@ label{
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
-    color:rgb(0, 0, 0)
+    color:white;
 }
 input{
     display: block;
@@ -150,7 +152,10 @@ button{
 .social i{
   margin-right: 4px;
 }
-
+a[href]{
+    color:white;
+    text-align: center;
+}
     </style>
 </head>
 <body>
@@ -163,6 +168,12 @@ button{
         
         <label for="nama">Nama Panjang</label>
         <input type="text" placeholder="Fullname" id="fullname" name="txt_nama">
+        
+        <label for="telp">No. Telepon</label>
+        <input type="text" placeholder="085xxxxxx" id="telp" name="txt_telp">
+
+        <label for="alamat">Alamat</label>
+        <input type="text" placeholder="Alamat" id="alamat" name="txt_alamat">
 
         <label for="username">Nomer Handphone</label>
         <input type="string" placeholder="Nomer Phone" id="no_telp" name="txt_telp">
