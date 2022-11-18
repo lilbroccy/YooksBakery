@@ -4,21 +4,21 @@ html{
     -webkit-font-smoothing: antialiased;
     padding: 10px;
 }
-header{
+article{
     text-align: center;
     width: 90%;
     max-width: 1240px;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
-.container{
+.menu{
     width: 90%;
     max-width: 1240px;
-    margin: 0 auto;
+    margin:60px auto;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns:repeat(3, 1fr);
     grid-gap: 20px;
+    column-gap: 48px;
 }
 
 @media (min-width: 30em){
