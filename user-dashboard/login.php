@@ -114,7 +114,7 @@ form{
 }
 form *{
     font-family: 'Poppins',sans-serif;
-    color: #000000;
+    color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -131,7 +131,7 @@ label{
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
-    color:rgb(0, 0, 0)
+    color:#ffffff
 }
 input{
     display: block;
@@ -143,6 +143,7 @@ input{
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
+    color:#000000;
 }
 ::placeholder{
     color: #000000;
@@ -180,7 +181,10 @@ button{
 .social i{
   margin-right: 4px;
 }
-
+a[href]{
+    color:#ff7f00;
+    text-align: center;
+}
     </style>
 </head>
 <body>

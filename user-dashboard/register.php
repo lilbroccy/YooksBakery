@@ -14,7 +14,7 @@ if( isset($_POST['register']) ){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
   <!-- Design by foolishdeveloper.com -->
     <title>Yooks! Register</title>
@@ -85,7 +85,7 @@ form{
 }
 form *{
     font-family: 'Poppins',sans-serif;
-    color: #000000;
+    color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -153,27 +153,19 @@ button{
   margin-right: 4px;
 }
 a[href]{
-    color:white;
+    color:#ff7f00;
     text-align: center;
 }
     </style>
 </head>
 <body>
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
     </div>
     <form action="register.php" method="post">
         <h3>Register</h3>
         
         <label for="nama">Nama Panjang</label>
         <input type="text" placeholder="Fullname" id="fullname" name="txt_nama">
-        
-        <label for="telp">No. Telepon</label>
-        <input type="text" placeholder="085xxxxxx" id="telp" name="txt_telp">
-
-        <label for="alamat">Alamat</label>
-        <input type="text" placeholder="Alamat" id="alamat" name="txt_alamat">
 
         <label for="username">Nomer Handphone</label>
         <input type="string" placeholder="Nomer Phone" id="no_telp" name="txt_telp">
@@ -189,7 +181,7 @@ a[href]{
         <button name="register">Register Now</button><br><br>
 
         <div class="text-center">
-            <a class="small" href="login.php">Already have an account? Login!</a>
+            Already have an account? <a class="small" href="login.php">Login!</a>
         </div>
     </form>
 </body>
