@@ -22,11 +22,19 @@ if (isset($_POST['submit'])) {
         }
 
         if ($num != 0) {
-            if ($userVal==$email && $passVal==$pass) {
+            if ($userVal==$email && $passVal==$pass && $level==2) {
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $userName;
                 $_SESSION['level'] = $level;
                 header('Location: home.php');
+                die();
+            }
+            else if ($userVal==$email && $passVal==$pass && $level==1) {
+                $_SESSION['id'] = $id;
+                $_SESSION['name'] = $userName;
+                $_SESSION['level'] = $level;
+                header('Location: /YooksBakery/admin-dashboard/data_member.html');
+                die();
             }else{
                 $error = 'user atau password salah!!';
                 echo "<script>alert('$error')</script>";
