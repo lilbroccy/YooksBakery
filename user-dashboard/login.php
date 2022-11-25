@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $userName;
                 $_SESSION['level'] = $level;
-                header('Location: /YooksBakery/admin-dashboard/data_member.html');
+                header('Location: /YooksBakery/admin-dashboard/dashboard.html');
                 die();
             }else{
                 $error = 'user atau password salah!!';

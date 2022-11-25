@@ -1,3 +1,10 @@
+<?php
+require("koneksi.php");
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -11,10 +18,10 @@
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
+    <title>Data Member Yooks Bakery</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/Logo.png">
     <!-- Custom CSS -->
    <link href="css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -53,13 +60,13 @@
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="plugins/images/logo-icon.png" alt="homepage" />
+                            <img src="plugins/images/yooks-icon.png" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="plugins/images/logo-text.png" alt="homepage" />
+                            <img src="plugins/images/yooks-text.png" alt="homepage" />
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -174,11 +181,6 @@
                                 <span class="hide-menu">Error 404</span>
                             </a>
                         </li>
-                        <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
-                                class="btn d-grid btn-danger text-white" target="_blank">
-                                Upgrade to Pro</a>
-                        </li>
                     </ul>
 
                 </nav>
@@ -201,7 +203,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Data Member</h4>
                     </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
@@ -210,7 +212,7 @@
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
                                 to Pro</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -228,61 +230,45 @@
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h3 class="box-title">Data Member</h3>
-                            <p class="text-muted">Add class <code>.table</code></p>
                             <div class="table-responsive">
                                 <table class="table text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">#</th>
-                                            <th class="border-top-0">First Name</th>
-                                            <th class="border-top-0">Last Name</th>
-                                            <th class="border-top-0">Username</th>
-                                            <th class="border-top-0">Role</th>
+                                            <th class="border-top-0">No</th>
+                                            <th class="border-top-0">Nama Panjang</th>
+                                            <th class="border-top-0">No. Telp</th>
+                                            <th class="border-top-0">Email</th>
+                                            <th class="border-top-0">Alamat</th>
+                                            <th class="border-top-0">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $query = "SELECT * FROM user_detail";
+                                            $result = mysqli_query($koneksi, $query); 
+                                            $no = 1;      
+                                            while ($row = mysqli_fetch_array($result)){
+                                                $userFullname =  $row['user_fullname'];
+                                                $userTelp = $row['user_telp'];
+                                                $userMail = $row['user_email'];
+                                                $userAlamat = $row['user_alamat'];
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Deshmukh</td>
-                                            <td>Prohaska</td>
-                                            <td>@Genelia</td>
-                                            <td>admin</td>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $userFullname; ?></td>
+                                            <td><?php echo $userTelp; ?></td>
+                                            <td><?php echo $userMail; ?></td>
+                                            <td><?php echo $userAlamat; ?></td>
+                                            <td>
+                                            <a href="#" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+
+                                            <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Deshmukh</td>
-                                            <td>Gaylord</td>
-                                            <td>@Ritesh</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sanghani</td>
-                                            <td>Gusikowski</td>
-                                            <td>@Govinda</td>
-                                            <td>developer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Roshan</td>
-                                            <td>Rogahn</td>
-                                            <td>@Hritik</td>
-                                            <td>supporter</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Joshi</td>
-                                            <td>Hickle</td>
-                                            <td>@Maruti</td>
-                                            <td>member</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nigam</td>
-                                            <td>Eichmann</td>
-                                            <td>@Sonu</td>
-                                            <td>supporter</td>
-                                        </tr>
+                                        <?php
+                                            $no++;
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -306,8 +292,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
-                    href="https://www.wrappixel.com/">wrappixel.com</a>
+            <footer class="footer text-center"> 2022 © Yooks Bakery
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
