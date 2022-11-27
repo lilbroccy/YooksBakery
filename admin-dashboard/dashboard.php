@@ -1,3 +1,17 @@
+<?php
+require("koneksi.php");
+
+session_start();
+
+if(!isset($_SESSION['id'])){
+    $_SESSION['msg'] = 'anda harus login terlebih dahulu untuk mengakses halaman ini';
+    header('Location: /YooksBakery/user-dashboard/login.php');
+}
+$sesID = $_SESSION['id'];
+$sesName = $_SESSION['name'];
+$sesLvl = $_SESSION['level'];
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 

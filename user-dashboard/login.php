@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $num        = mysqli_num_rows($result);
 
         while ($row = mysqli_fetch_array($result)) {
-            $id = $row['id'];
+            $id = $row['id_user'];
             $userVal = $row['user_email'];
             $passVal = $row['user_password'];
             $userName = $row['user_fullname'];
@@ -27,14 +27,12 @@ if (isset($_POST['submit'])) {
                 $_SESSION['name'] = $userName;
                 $_SESSION['level'] = $level;
                 header('Location: home.php');
-                die();
             }
             else if ($userVal==$email && $passVal==$pass && $level==1) {
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $userName;
                 $_SESSION['level'] = $level;
-                header('Location: /YooksBakery/admin-dashboard/dashboard.html');
-                die();
+                header('Location: /YooksBakery/admin-dashboard/dashboard.php');
             }else{
                 $error = 'user atau password salah!!';
                 echo "<script>alert('$error')</script>";
