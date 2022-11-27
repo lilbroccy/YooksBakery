@@ -27,8 +27,6 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  <!-- card style -->
-  <link href="css/menu.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -37,7 +35,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a class="navbar-brand" href="home.php">
+          <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="" /><span>
               Tropiko
             </span>
@@ -51,10 +49,10 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="fruit.html">Menu</a>
+                  <a class="nav-link" href="menu.html"> Menu</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="service.html"> Services </a>
@@ -81,62 +79,46 @@
   </div>
 
 
-  <!-- fruits section -->
 
-  <section>
-    <article>
-        <h1>Menu</h1>
-        <p>Kami juga menyediakan banyak menu yang dapat dinikmati</p>
-    </article>
-    <div class="menu">
-        <div class="menu-1">
-            <div class="card">
-                <div class="thumb" style="background-image: url(https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/kulinear/2021/07/WhatsApp-Image-2021-07-06-at-17.55.28.jpeg);"></div>
-                <article>
-                    <h1>Roti Mentega</h1>
-                    <p>Roti bun dengan olesan krim kopi dan isisan mentega</p>
-                    <p>Rp 8.000</p>
-                    <button type="button" class="custom_orange-btn d-grid gap-2 col-6 mx-auto">Beli</button>
-                </article>
+  <!-- contact section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <h2 class="font-weight-bold">
+        Contact Us
+      </h2>
+      <div class="row">
+        <div class="col-md-8 mr-auto">
+          <form action="">
+            <div class="contact_form-container">
+              <div>
+                <div>
+                  <input type="text" placeholder="Name">
+                </div>
+                <div>
+                  <input type="text" placeholder="Phone Number">
+                </div>
+                <div>
+                  <input type="email" placeholder="Email">
+                </div>
+
+                <div class="mt-5">
+                  <input type="text" placeholder="Message">
+                </div>
+                <div class="mt-5">
+                  <button type="submit">
+                    send
+                  </button>
+                </div>
+              </div>
+
             </div>
+
+          </form>
         </div>
-        <div class="menu-2">
-            <div class="card">
-                <div class="thumb" style="background-image: url(https://thumb.intipseleb.com/media/frontend/thumbs3/2022/05/24/628cc6f0dca24-resep-kue-lapis_1265_711.jpg);"></div>
-                <article>
-                    <h1>Roti Lapis</h1>
-                    <p>Roti berapa lapis? Ratusan</p>
-                    <p>Rp 6.000</p>
-                    <button type="button" class="custom_orange-btn d-grid gap-2 col-6 mx-auto">Beli</button>
-                </article>
-            </div>
-        </div>
-        <div class="menu-3">
-            <div class="card">
-                <div class="thumb" style="background-image: url(https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2020/11/Featured_Cara-Membuat-Donat-Varian-Lezat-dan-Tips-Agar-Empuk.jpg);"></div>
-                <article>
-                    <h1>Roti Donat</h1>
-                    <p>Terbuat dari kentang dan tepung pilihan dengan aneka ragam topping</p>
-                    <p>Rp 5.000</p>
-                    <button type="button" class="custom_orange-btn d-grid gap-2 col-6 mx-auto">Beli</button>
-                </article>
-            </div>
-        </div>
-        <div class="menu-4">
-            <div class="card">
-                <div class="thumb" style="background-image: url(https://i.pinimg.com/564x/9c/66/f7/9c66f7205900e82cb6a60f4bf99fb05a.jpg);"></div>
-                <article>
-                    <h1>Roti Pizza Mini</h1>
-                    <p>Roti dengan Topping Saus, Sosis dan potongan sayur mirip pizza dengan ukuran yang lebih kecil</p>
-                    <p>Rp 7.000</p>
-                    <button type="button" class="custom_orange-btn d-grid gap-2 col-6 mx-auto">Beli</button>
-                </article>
-            </div>
-        </div>
+      </div>
     </div>
   </section>
-
-  <!-- end fruits section -->
+  <!-- end contact section -->
 
 
   <section class="info_section layout_padding">

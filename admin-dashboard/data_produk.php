@@ -3,13 +3,6 @@ require("koneksi.php");
 
 session_start();
 
-if(!isset($_SESSION['id'])){
-    $_SESSION['msg'] = 'anda harus login terlebih dahulu untuk mengakses halaman ini';
-    header('Location: /YooksBakery/user-dashboard/login.php');
-}
-$sesID = $_SESSION['id'];
-$sesName = $_SESSION['name'];
-$sesLvl = $_SESSION['level'];
 ?>
 
 <!DOCTYPE html>
@@ -161,6 +154,13 @@ $sesLvl = $_SESSION['level'];
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_produk.php"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Data Produk</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
@@ -208,7 +208,7 @@ $sesLvl = $_SESSION['level'];
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Data Member</h4>
+                        <h4 class="page-title">Data Produk</h4>
                     </div>
                     <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -236,46 +236,82 @@ $sesLvl = $_SESSION['level'];
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Data Member</h3>
+                            <style type="text/css">
+                                * {
+                                    font-family: "Trebuchet MS";
+                                }
+                                h3 {
+                                    text-transform: uppercase;
+                                    color: salmon;
+                                }
+                                table {
+                                    border: 1px solid #ddeeee;
+                                    border-collapse: collapse;
+                                    border-spacing: 0;
+                                    width: 70%;
+                                    margin: 10px auto 10px auto;
+                                }
+                                table thead th{
+                                    background-color: #ddefef;
+                                    border: 1px solid #ddeeee;
+                                    color: #336b6b;
+                                    padding: 10px;
+                                    text-align: left;
+                                    text-shadow: 1px 1px 1px #fff;
+                                }
+                                table tbody td{
+                                    border: 1px solid #ddeeee;
+                                    color:  #333;
+                                    padding: 10px;
+                                }
+                            </style>
+                            <h3 class="box-title">Tambah Produk</h3>
+                            <center><a href="tambah_produk.php">+ &nbsp;; Tambah Produk</a></center>
                             <div class="table-responsive">
-                                <table class="table text-nowrap">
+                                <table>
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">No</th>
-                                            <th class="border-top-0">Nama Panjang</th>
-                                            <th class="border-top-0">No. Telp</th>
-                                            <th class="border-top-0">Email</th>
-                                            <th class="border-top-0">Alamat</th>
-                                            <th class="border-top-0">Action</th>
+                                            <td>
+                                                <th class="border-top-0">No</th>
+                                                <th class="border-top-0">Produk</th>
+                                                <th class="border-top-0">Deskripsi</th>
+                                                <th class="border-top-0">Harga</th>
+                                                <th class="border-top-0">Gambar</th>
+                                                <th class="border-top-0">Action</th>
+                                            </td>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        
+                                    <tbody>
                                         <?php
-                                            $query = "SELECT * FROM user_detail";
-                                            $result = mysqli_query($koneksi, $query); 
-                                            $no = 1;      
-                                            while ($row = mysqli_fetch_array($result)){
-                                                $userFullname =  $row['user_fullname'];
-                                                $userTelp = $row['user_telp'];
-                                                $userMail = $row['user_email'];
-                                                $userAlamat = $row['user_alamat'];
+                                            $query = "SELECT * FROM produk_umum";
+                                            $result = mysqli_query($koneksi, $query);       
+                                            if(!$result){
+                                                die("Query Error: ".mysqli_errno($koneksi)." = ".mysqli_error($koneksi));
+                                            }
+                                            $no = 1;
+
+                                            while ($row = mysqli_fetch_assoc($result)){
                                         ?>
                                         <tr>
+                                            <td></td>
                                             <td><?php echo $no; ?></td>
-                                            <td><?php echo $userFullname; ?></td>
-                                            <td><?php echo $userTelp; ?></td>
-                                            <td><?php echo $userMail; ?></td>
-                                            <td><?php echo $userAlamat; ?></td>
+                                            <td><?php echo $row['nama_roti']; ?></td>
+                                            <td><?php echo $row['deskripsi']; ?></td>
+                                            <td>Rp <?php echo number_format($row['harga_satuan_roti'], 0,`,`,`.`); ?></td>
+                                            <td><img src="admin-dashboard/gambar/" alt=""><?php echo $row['gambar']; ?></td>
                                             <td>
-                                            <a href="#" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
-
-                                            <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                            <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                            &nbsp;&nbsp;
+                                            <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-danger btn-circle" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini')"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php
                                             $no++;
                                             } 
                                         ?>
+                                    </tbody>
                                     </tbody>
                                 </table>
                             </div>
