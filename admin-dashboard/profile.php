@@ -1,3 +1,20 @@
+<?php
+require("koneksi.php");
+
+session_start();
+
+if(!isset($_SESSION['id'])){
+    $_SESSION['msg'] = 'anda harus login terlebih dahulu untuk mengakses halaman ini';
+    header('Location: /YooksBakery/user-dashboard/login.php');
+}
+$sesID = $_SESSION['id'];
+$sesName = $_SESSION['name'];
+$sesLvl = $_SESSION['level'];
+$sesEmail = $_SESSION['email'];
+$sesTelp = $_SESSION['telp'];
+$sesAlamat = $_SESSION['alamat'];
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -49,17 +66,17 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="plugins/images/logo-icon.png" alt="homepage" />
+                            <img src="plugins/images/yooks-icon.png" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="plugins/images/logo-text.png" alt="homepage" />
+                            <img src="plugins/images/yooks-text.png" alt="homepage" />
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -74,7 +91,7 @@
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color:#fc5d35;">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
                             <a class="nav-toggler nav-link waves-effect waves-light text-white"
@@ -103,7 +120,7 @@
                         <li>
                             <a class="profile-pic" href="#">
                                 <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
+                                    class="img-circle"><span class="text-white font-medium"><?php echo $sesName?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -126,24 +143,24 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.php"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.php"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_member.php"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Basic Table</span>
+                                <span class="hide-menu">Data Member</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -234,8 +251,8 @@
                                     <div class="user-content">
                                         <a href="javascript:void(0)"><img src="plugins/images/users/genu.jpg"
                                                 class="thumb-lg img-circle" alt="img"></a>
-                                        <h4 class="text-white mt-2">User Name</h4>
-                                        <h5 class="text-white mt-2">info@myadmin.com</h5>
+                                        <h4 class="text-white mt-2"><?php echo $sesName?></h4>
+                                        <h5 class="text-white mt-2"><?php echo $sesEmail?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -261,13 +278,13 @@
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Full Name</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" placeholder="Johnathan Doe"
+                                            <input type="text" placeholder="<?php echo $sesName?>"
                                                 class="form-control p-0 border-0"> </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label for="example-email" class="col-md-12 p-0">Email</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="email" placeholder="johnathan@admin.com"
+                                            <input type="email" placeholder="<?php echo $sesEmail?>"
                                                 class="form-control p-0 border-0" name="example-email"
                                                 id="example-email">
                                         </div>
@@ -281,14 +298,14 @@
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Phone No</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" placeholder="123 456 7890"
+                                            <input type="text" placeholder="<?php echo $sesTelp?>"
                                                 class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Message</label>
+                                        <label class="col-md-12 p-0">Alamat</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <textarea rows="5" class="form-control p-0 border-0"></textarea>
+                                            <textarea rows="5" class="form-control p-0 border-0" placeholder="<?php echo $sesAlamat?>"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
