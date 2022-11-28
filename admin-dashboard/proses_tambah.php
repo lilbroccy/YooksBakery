@@ -15,7 +15,7 @@
         $nama_gambar_baru = $angka_acak.'-'.$gambar;
 
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-            move_uploaded_file($file_tmp, 'admin-dashboard/gambar/'.$nama_gambar_baru);
+            move_uploaded_file($file_tmp, 'admin-dashboard/gambar'.$nama_gambar_baru);
 
             $query = "INSERT INTO produk_umum (nama_roti, gambar, harga_satuan_roti, deskripsi) VALUES ('$nama_roti', 
             '$nama_gambar_baru', '$harga_satuan_roti', '$deskripsi')";

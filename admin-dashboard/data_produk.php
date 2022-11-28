@@ -147,7 +147,7 @@ session_start();
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_member.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_member.php"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Data Member</span>
