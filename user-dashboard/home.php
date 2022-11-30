@@ -35,7 +35,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="home.php">
             <img src="images/logo.png" alt="" /><span>
               Yooks!
             </span>
@@ -49,16 +49,16 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="menu.html">Menu</a>
+                  <a class="nav-link" href="menu.php">Menu</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html">Promo</a>
+                  <a class="nav-link" href="service.php">Service</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact us</a>
+                  <a class="nav-link" href="contact.php">Contact us</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
@@ -106,10 +106,10 @@
                             Kami menyediakan Roti fresh, yang baru diangkat dari oven!
                           </p>
                           <div class="d-flex">
-                            <a href="" class="text-uppercase custom_orange-btn mr-3">
+                            <a href="menu.php" class="text-uppercase custom_orange-btn mr-3">
                               Shop Now
                             </a>
-                            <a href="" class="text-uppercase custom_dark-btn">
+                            <a href="contact.php" class="text-uppercase custom_dark-btn">
                               Contact Us
                             </a>
                           </div>
