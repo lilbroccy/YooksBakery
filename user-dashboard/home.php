@@ -35,8 +35,8 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a class="navbar-brand" href="index.html">
-            <img src="images/logo.png" alt="" /><span>
+          <a class="navbar-brand" href="home.php">
+            <img src="images/new_logo.png" alt="" /><span>
               Yooks!
             </span>
           </a>
@@ -49,16 +49,16 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="menu.html">Menu</a>
+                  <a class="nav-link" href="menu.php">Menu</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html">Promo</a>
+                  <a class="nav-link" href="service.php">Service</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact us</a>
+                  <a class="nav-link" href="contact.php">Contact us</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
@@ -106,10 +106,10 @@
                             Kami menyediakan Roti fresh, yang baru diangkat dari oven!
                           </p>
                           <div class="d-flex">
-                            <a href="" class="text-uppercase custom_orange-btn mr-3">
+                            <a href="menu.php" class="text-uppercase custom_orange-btn mr-3">
                               Shop Now
                             </a>
-                            <a href="" class="text-uppercase custom_dark-btn">
+                            <a href="contact.php" class="text-uppercase custom_dark-btn">
                               Contact Us
                             </a>
                           </div>
@@ -515,8 +515,7 @@
 
   <!-- map section -->
   <section class="map_section">
-    <div id="map" class="h-100 w-100 ">
-    </div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15797.832094821582!2d113.7219910908538!3d-8.156522332653402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695af1c582453%3A0xa3453a4a0c1c830!2sTaman%20Makam%20Pahlawan!5e0!3m2!1sid!2sid!4v1669860377415!5m2!1sid!2sid" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
   <!-- end map section -->
@@ -655,10 +654,9 @@
       </div>
     </div>
   </section>
-
-
-
+  
   <!-- footer section -->
+  
   <section class="container-fluid footer_section">
     <p>
       Copyright &copy; 2019 All Rights Reserved By
@@ -670,7 +668,7 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
 
-  <script>
+  <!--<script>
     // This example adds a marker to indicate the position of Bondi Beach in Sydney,
     // Australia.
     function initMap() {
@@ -694,9 +692,9 @@
     }
   </script>
   <!-- google map js -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
-  </script>
-  <!-- end google map js -->
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
+  </script>--> 
+  <!-- end google map js --> 
 </body>
 
 </html>

@@ -171,7 +171,7 @@ $sesLvl = $_SESSION['level'];
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="orderan.php"
                                 aria-expanded="false">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="hide-menu">Orderan</span>
+                                <span class="hide-menu">Transaksi</span>
                             </a>
                         </li>
                         <!--<li class="sidebar-item">
@@ -196,8 +196,8 @@ $sesLvl = $_SESSION['level'];
                             </a>
                         </li>-->
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="/YooksBakery/user-dashboard/login.php"
-                                class="btn d-grid btn-danger text-white" target="_blank">
+                            <a href="/YooksBakery/user-dashboard/logout.php"
+                                class="btn d-grid btn-danger text-white">
                                 Logout</a>
                         </li>
                     </ul>
@@ -249,6 +249,7 @@ $sesLvl = $_SESSION['level'];
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h3 class="box-title">Data Member</h3>
+                            <center><a href="tambah_admin.php">Tambah Admin</a></center>
                             <div class="table-responsive">
                                 <table class="table text-nowrap">
                                     <thead>

@@ -10,25 +10,6 @@ if(!isset($_SESSION['id'])){
 $sesID = $_SESSION['id'];
 $sesName = $_SESSION['name'];
 $sesLvl = $_SESSION['level'];
-$sesEmail = $_SESSION['email'];
-$sesTelp = $_SESSION['telp'];
-$sesAlamat = $_SESSION['alamat'];
-$sesPass = $_SESSION['password'];
-
-
-if( isset($_POST['update']) ){
-    $userId     = $_POST['txt_id'];
-    $userName     = $_POST['txt_name'];
-    $userMail   = $_POST['txt_email'];
-    $userPass   = $_POST['txt_pass'];
-    $userTelp  = $_POST['txt_telp'];
-    $userAlamat = $_POST['txt_alamat'];
-
-    $query = "UPDATE user_detail SET user_fullname='$userName', user_telp='$userTelp', user_alamat='$userAlamat', user_email='$userMail', user_password='$userPass' WHERE id_user='$userId'";
-    echo $query;
-    $result = mysqli_query($koneksi, $query);
-    header('Location: profile.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -38,13 +19,13 @@ if( isset($_POST['update']) ){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords"
         content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Profile Admin</title>
+    <title>Data Member Yooks Bakery</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/Logo.png">
@@ -107,7 +88,7 @@ if( isset($_POST['update']) ){
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color:#fc5d35;">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color: #fc5d35;">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
                             <a class="nav-toggler nav-link waves-effect waves-light text-white"
@@ -215,8 +196,8 @@ if( isset($_POST['update']) ){
                             </a>
                         </li>-->
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="/YooksBakery/user-dashboard/logout.php"
-                                class="btn d-grid btn-danger text-white">
+                            <a href="/YooksBakery/user-dashboard/login.php"
+                                class="btn d-grid btn-danger text-white" target="_blank">
                                 Logout</a>
                         </li>
                     </ul>
@@ -239,158 +220,63 @@ if( isset($_POST['update']) ){
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Profile page</h4>
+                        <h4 class="page-title">Selamat Datang <?php echo $sesName ?>!</h4>
                     </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto">
                                 <li><a href="#" class="fw-normal">Dashboard</a></li>
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
+                                to</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-4 col-xlg-3 col-md-12">
-                        <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="plugins/images/large/img1.jpg">
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                        <a href="javascript:void(0)"><img src="plugins/images/users/genu.jpg"
-                                                class="thumb-lg img-circle" alt="img"></a>
-                                        <h4 class="text-white mt-2"><?php echo $sesName?></h4>
-                                        <h5 class="text-white mt-2"><?php echo $sesEmail?></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box mt-5 d-md-flex">
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <h1>258</h1>
-                                </div>
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <h1>125</h1>
-                                </div>
-                                <div class="col-md-4 col-sm-4 text-center">
-                                    <h1>556</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <form class="form-horizontal form-material" action="profile.php" method="POST">
-                                    <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Id</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesID?>" name="txt_id" class="form-control p-0 border-0" readonly></div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Full Name</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesName?>" name="txt_name" class="form-control p-0 border-0"> </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="example-email" class="col-md-12 p-0">Email</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="email" value="<?php echo $sesEmail?>" name="txt_email" class="form-control p-0 border-0" id="example-email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Password</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesPass?>" name="txt_pass" class="form-control p-0 border-0">
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">No HP</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesTelp?>" name = "txt_telp" class="form-control p-0 border-0">
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Alamat</label>
-                                        <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesAlamat?>" name = "txt_alamat" class="form-control p-0 border-0">
-                                        </div>
-                                    </div>
-                                    <!--<div class="form-group mb-4">
-                                        <label class="col-sm-12">Select Country</label>
+            <div class="container">
+        <div class="card o-hidden border-0 shadow-lg justify-content-center align-items-center">
+            <div class="card-body w-75 vh-50 ">
+                <!-- Nested Row within Card Body -->
 
-                                        <div class="col-sm-12 border-bottom">
-                                            <select class="form-select shadow-none p-0 border-0 form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>-->
-                                
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success" name="update">Update Profile</button>
-                                        </div>
-                                    </div>
-                                </form>
+
+                        <div class="p-2">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Edit User</h1>
                             </div>
+                            <form class="user" action="edit.php" method="POST">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control form-control-user" id="exampleInputId" name="txt_id" value="<?php echo $id; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="txt_email" value="<?php echo $userMail; ?>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" name="txt_pass" value="<?php echo $userPass; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername" name="txt_nama" value="<?php echo $userName; ?>">
+                                </div>
+                                <hr>
+                                <div class="form-group row" style="position: relative; float: right; ">
+                                    <div class="px-3" style="width: 150px;">
+                                        <button type="submit" name="update" class="btn btn-primary btn-user btn-block">Update</button>
+                                    </div>
+                                    <div style="width: 125px;">
+                                        <a href="tables.php" class="btn btn-secondary btn-user btn-block">Kembali</a>
+                                    </div>
+                                </div>
+                            </form>
+                            
                         </div>
                     </div>
-                    <!-- Column -->
-                </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center"> 2022 © Yooks Bakery
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/app-style-switcher.js"></script>

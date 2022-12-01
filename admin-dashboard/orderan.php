@@ -81,7 +81,7 @@ session_start();
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color: #fc5d35">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
                             <a class="nav-toggler nav-link waves-effect waves-light text-white"
@@ -164,7 +164,7 @@ session_start();
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="orderan.php"
                                 aria-expanded="false">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="hide-menu">Orderan</span>
+                                <span class="hide-menu">Transaksi</span>
                             </a>
                         </li>
                         <!--<li class="sidebar-item">
@@ -189,8 +189,8 @@ session_start();
                             </a>
                         </li>-->
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="/YooksBakery/user-dashboard/login.php"
-                                class="btn d-grid btn-danger text-white" target="_blank">
+                            <a href="/YooksBakery/user-dashboard/logout.php"
+                                class="btn d-grid btn-danger text-white">
                                 Logout</a>
                         </li>
                     </ul>
@@ -271,7 +271,7 @@ session_start();
                                 }
                             </style>
                             <h3 class="box-title">Tambah Produk</h3>
-                            <center><a href="tambah_produk.php">+ &nbsp;; Tambah Produk</a></center>
+                            <center><a href="tambah_produk.php">Tambah Transaksi</a></center>
                             <div class="table-responsive">
                                 <table>
                                     <thead>
