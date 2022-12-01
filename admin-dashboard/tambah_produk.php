@@ -44,26 +44,26 @@
 </head>
 <body>
     <center><h1>Tambah Produk</h1></center>
-    <form action="proses_tambah.php" method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" action="proses_tambah.php">
     <section class="base">
         <div>
             <label>Nama Produk</label>
-            <input type="text" name="nama_roti" outofocus="" required="">
+            <input type="text" name="nama_roti" id="nama_roti" outofocus="" required="">
         </div>
         <div>
             <label>Deskripsi</label>
-            <input type="text" name="deskripsi" outofocus="" required="">
+            <input type="text" name="deskripsi" id="deskripsi" outofocus="" required="">
         </div>
         <div>
             <label>Harga</label>
-            <input type="text" name="harga_satuan_roti" outofocus="" required="">
+            <input type="text" name="harga_satuan_roti" id="harga_satuan_roti" outofocus="" required="">
         </div>
         <div>
             <label>Gambar</label>
-            <input type="file" name="gambar" outofocus="" required="">
+            <input type="file" name="gambar" id="gambar" outofocus="" required>
         </div>
         <div>
-            <button type="submit">Simpan Produk</button>
+            <button type="submit" id="simpan-produk">Simpan Produk</button>
             </div>
     </section>
     </form>
