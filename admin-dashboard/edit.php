@@ -3,6 +3,13 @@ require("koneksi.php");
 
 session_start();
 
+if(!isset($_SESSION['id'])){
+    $_SESSION['msg'] = 'anda harus login terlebih dahulu untuk mengakses halaman ini';
+    header('Location: /YooksBakery/user-dashboard/login.php');
+}
+$sesID = $_SESSION['id'];
+$sesName = $_SESSION['name'];
+$sesLvl = $_SESSION['level'];
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +63,7 @@ session_start();
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -81,7 +88,7 @@ session_start();
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="background-color: #fc5d35;">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
                             <a class="nav-toggler nav-link waves-effect waves-light text-white"
@@ -110,7 +117,7 @@ session_start();
                         <li>
                             <a class="profile-pic" href="#">
                                 <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Hendy Mawarid</span></a>
+                                    class="img-circle"><span class="text-white font-medium"><?php echo $sesName?></span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -213,7 +220,7 @@ session_start();
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Data Produk</h4>
+                        <h4 class="page-title">Selamat Datang <?php echo $sesName ?>!</h4>
                     </div>
                     <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
@@ -222,141 +229,54 @@ session_start();
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
+                                to</a>
                         </div>
                     </div> -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="white-box">
-                            <style type="text/css">
-                                * {
-                                    font-family: "Trebuchet MS";
-                                }
-                                h3 {
-                                    text-transform: uppercase;
-                                    color: salmon;
-                                }
-                                table {
-                                    border: 1px solid #ddeeee;
-                                    border-collapse: collapse;
-                                    border-spacing: 0;
-                                    width: 70%;
-                                    margin: 10px auto 10px auto;
-                                }
-                                table thead th{
-                                    background-color: #ddefef;
-                                    border: 1px solid #ddeeee;
-                                    color: #336b6b;
-                                    padding: 10px;
-                                    text-align: left;
-                                    text-shadow: 1px 1px 1px #fff;
-                                }
-                                table tbody td{
-                                    border: 1px solid #ddeeee;
-                                    color:  #333;
-                                    padding: 10px;
-                                }
-                            </style>
-                            <h3 class="box-title">Tambah Produk</h3>
-                            <center><a href="tambah_produk.php">+ &nbsp;; Tambah Produk</a></center>
-                            <div class="table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <td>
-                                                <th class="border-top-0">No</th>
-                                                <th class="border-top-0">Produk</th>
-                                                <th class="border-top-0">Deskripsi</th>
-                                                <th class="border-top-0">Harga</th>
-                                                <th class="border-top-0">Gambar</th>
-                                                <th class="border-top-0">Action</th>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                    <tbody>
-                                        <?php
-                                            $query = "SELECT * FROM produk_umum";
-                                            $result = mysqli_query($koneksi, $query);       
-                                            if(!$result){
-                                                die("Query Error: ".mysqli_errno($koneksi)." = ".mysqli_error($koneksi));
-                                            }
-                                            $no = 1;
+            <div class="container">
+        <div class="card o-hidden border-0 shadow-lg justify-content-center align-items-center">
+            <div class="card-body w-75 vh-50 ">
+                <!-- Nested Row within Card Body -->
 
-                                            while ($row = mysqli_fetch_assoc($result)){
-                                        ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $row['nama_roti']; ?></td>
-                                            <td><?php echo $row['deskripsi']; ?></td>
-                                            <td>Rp <?php echo number_format($row['harga_satuan_roti'], 0,`,`,`.`); ?></td>
-                                            <td><img src="admin-dashboard/gambar/" alt=""><?php echo $row['gambar']; ?></td>
-                                            <td>
-                                            <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
-                                            <br>
-                                            <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-danger btn-circle" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                            $no++;
-                                            } 
-                                        ?>
-                                    </tbody>
-                                    </tbody>
-                                </table>
+
+                        <div class="p-2">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Edit User</h1>
                             </div>
+                            <form class="user" action="edit.php" method="POST">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control form-control-user" id="exampleInputId" name="txt_id" value="<?php echo $id; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="txt_email" value="<?php echo $userMail; ?>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="text" class="form-control form-control-user" id="exampleInputPassword" name="txt_pass" value="<?php echo $userPass; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername" name="txt_nama" value="<?php echo $userName; ?>">
+                                </div>
+                                <hr>
+                                <div class="form-group row" style="position: relative; float: right; ">
+                                    <div class="px-3" style="width: 150px;">
+                                        <button type="submit" name="update" class="btn btn-primary btn-user btn-block">Update</button>
+                                    </div>
+                                    <div style="width: 125px;">
+                                        <a href="tables.php" class="btn btn-secondary btn-user btn-block">Kembali</a>
+                                    </div>
+                                </div>
+                            </form>
+                            
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center"> 2022 © Yooks Bakery
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/app-style-switcher.js"></script>

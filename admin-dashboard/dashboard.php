@@ -148,7 +148,7 @@ $sesLvl = $_SESSION['level'];
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_member.php"
                                 aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <i class="fa fa-address-card" aria-hidden="true"></i>
                                 <span class="hide-menu">Data Member</span>
                             </a>
                         </li>
@@ -160,13 +160,13 @@ $sesLvl = $_SESSION['level'];
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="orderan.php"
                                 aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Icon</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="hide-menu">Orderan</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <!--<li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
@@ -186,11 +186,11 @@ $sesLvl = $_SESSION['level'];
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Error 404</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
+                            <a href="/YooksBakery/user-dashboard/login.php"
                                 class="btn d-grid btn-danger text-white" target="_blank">
-                                Upgrade to Pro</a>
+                                Logout</a>
                         </li>
                     </ul>
 

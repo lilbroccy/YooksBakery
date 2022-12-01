@@ -110,7 +110,7 @@ session_start();
                         <li>
                             <a class="profile-pic" href="#">
                                 <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Hendy Mawarid</span></a>
+                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -308,7 +308,7 @@ session_start();
                                             <td><img src="admin-dashboard/gambar/" alt=""><?php echo $row['gambar']; ?></td>
                                             <td>
                                             <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
-                                            <br>
+                                            &nbsp;&nbsp;
                                             <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-danger btn-circle" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini')"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>

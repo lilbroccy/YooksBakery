@@ -13,6 +13,22 @@ $sesLvl = $_SESSION['level'];
 $sesEmail = $_SESSION['email'];
 $sesTelp = $_SESSION['telp'];
 $sesAlamat = $_SESSION['alamat'];
+$sesPass = $_SESSION['password'];
+
+
+if( isset($_POST['update']) ){
+    $userId     = $_POST['txt_id'];
+    $userName     = $_POST['txt_name'];
+    $userMail   = $_POST['txt_email'];
+    $userPass   = $_POST['txt_pass'];
+    $userTelp  = $_POST['txt_telp'];
+    $userAlamat = $_POST['txt_alamat'];
+
+    $query = "UPDATE user_detail SET user_fullname='$userName', user_telp='$userTelp', user_alamat='$userAlamat', user_email='$userMail', user_password='$userPass' WHERE id_user='$userId'";
+    echo $query;
+    $result = mysqli_query($koneksi, $query);
+    header('Location: profile.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -159,18 +175,25 @@ $sesAlamat = $_SESSION['alamat'];
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_member.php"
                                 aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <i class="fa fa-address-card" aria-hidden="true"></i>
                                 <span class="hide-menu">Data Member</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_produk.php"
                                 aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Icon</span>
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Data Produk</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="orderan.php"
+                                aria-expanded="false">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="hide-menu">Orderan</span>
+                            </a>
+                        </li>
+                        <!--<li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
@@ -190,11 +213,11 @@ $sesAlamat = $_SESSION['alamat'];
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Error 404</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
+                            <a href="/YooksBakery/user-dashboard/login.php"
                                 class="btn d-grid btn-danger text-white" target="_blank">
-                                Upgrade to Pro</a>
+                                Logout</a>
                         </li>
                     </ul>
 
@@ -274,41 +297,42 @@ $sesAlamat = $_SESSION['alamat'];
                     <div class="col-lg-8 col-xlg-9 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" action="profile.php" method="POST">
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Id</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text" value="<?php echo $sesID?>" name="txt_id" class="form-control p-0 border-0" readonly></div>
+                                    </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Full Name</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" placeholder="<?php echo $sesName?>"
-                                                class="form-control p-0 border-0"> </div>
+                                            <input type="text" value="<?php echo $sesName?>" name="txt_name" class="form-control p-0 border-0"> </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label for="example-email" class="col-md-12 p-0">Email</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="email" placeholder="<?php echo $sesEmail?>"
-                                                class="form-control p-0 border-0" name="example-email"
-                                                id="example-email">
+                                            <input type="email" value="<?php echo $sesEmail?>" name="txt_email" class="form-control p-0 border-0" id="example-email">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Password</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="password" value="password" class="form-control p-0 border-0">
+                                            <input type="text" value="<?php echo $sesPass?>" name="txt_pass" class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label class="col-md-12 p-0">Phone No</label>
+                                        <label class="col-md-12 p-0">No HP</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" placeholder="<?php echo $sesTelp?>"
-                                                class="form-control p-0 border-0">
+                                            <input type="text" value="<?php echo $sesTelp?>" name = "txt_telp" class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Alamat</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <textarea rows="5" class="form-control p-0 border-0" placeholder="<?php echo $sesAlamat?>"></textarea>
+                                            <input type="text" value="<?php echo $sesAlamat?>" name = "txt_alamat" class="form-control p-0 border-0">
                                         </div>
                                     </div>
-                                    <div class="form-group mb-4">
+                                    <!--<div class="form-group mb-4">
                                         <label class="col-sm-12">Select Country</label>
 
                                         <div class="col-sm-12 border-bottom">
@@ -320,10 +344,10 @@ $sesAlamat = $_SESSION['alamat'];
                                                 <option>Thailand</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="form-group mb-4">
+                                    </div>-->
+                                
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <button class="btn btn-success" name="update">Update Profile</button>
                                         </div>
                                     </div>
                                 </form>
@@ -350,8 +374,7 @@ $sesAlamat = $_SESSION['alamat'];
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
-                    href="https://www.wrappixel.com/">wrappixel.com</a>
+            <footer class="footer text-center"> 2022 © Yooks Bakery
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

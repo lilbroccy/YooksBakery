@@ -156,18 +156,25 @@ $sesLvl = $_SESSION['level'];
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_member.php"
                                 aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <i class="fa fa-address-card" aria-hidden="true"></i>
                                 <span class="hide-menu">Data Member</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="data_produk.php"
                                 aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Icon</span>
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Data Produk</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="orderan.php"
+                                aria-expanded="false">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="hide-menu">Orderan</span>
+                            </a>
+                        </li>
+                        <!--<li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
                                 aria-expanded="false">
                                 <i class="fa fa-globe" aria-hidden="true"></i>
@@ -187,6 +194,11 @@ $sesLvl = $_SESSION['level'];
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 <span class="hide-menu">Error 404</span>
                             </a>
+                        </li>-->
+                        <li class="text-center p-20 upgrade-btn">
+                            <a href="/YooksBakery/user-dashboard/login.php"
+                                class="btn d-grid btn-danger text-white" target="_blank">
+                                Logout</a>
                         </li>
                     </ul>
 
@@ -217,7 +229,7 @@ $sesLvl = $_SESSION['level'];
                             </ol>
                             <a href="https://www.wrappixel.com/templates/ampleadmin/" target="_blank"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Upgrade
-                                to Pro</a>
+                                to</a>
                         </div>
                     </div> -->
                 </div>
@@ -242,6 +254,7 @@ $sesLvl = $_SESSION['level'];
                                     <thead>
                                         <tr>
                                             <th class="border-top-0">No</th>
+                                            <th class="border-top-0">Id</th>
                                             <th class="border-top-0">Nama Panjang</th>
                                             <th class="border-top-0">No. Telp</th>
                                             <th class="border-top-0">Email</th>
@@ -255,6 +268,7 @@ $sesLvl = $_SESSION['level'];
                                             $result = mysqli_query($koneksi, $query); 
                                             $no = 1;      
                                             while ($row = mysqli_fetch_array($result)){
+                                                $userId = $row['id_user'];
                                                 $userFullname =  $row['user_fullname'];
                                                 $userTelp = $row['user_telp'];
                                                 $userMail = $row['user_email'];
@@ -262,6 +276,7 @@ $sesLvl = $_SESSION['level'];
                                         ?>
                                         <tr>
                                             <td><?php echo $no; ?></td>
+                                            <td><?php echo $userId;?></td>
                                             <td><?php echo $userFullname; ?></td>
                                             <td><?php echo $userTelp; ?></td>
                                             <td><?php echo $userMail; ?></td>
@@ -269,7 +284,7 @@ $sesLvl = $_SESSION['level'];
                                             <td>
                                             <a href="#" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
 
-                                            <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                            <a href="#" class="btn btn-danger btn-circle" onClick="confirmModal('delete.php?&id_user=<?php echo $row['id_user']; ?>');"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php
@@ -315,6 +330,32 @@ $sesLvl = $_SESSION['level'];
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+
+    <!--Delete Modal-->
+    <div class="modal fade" id="modalDelete">
+        <div class="modal-dialog">
+            <div class="modal-content" style="margin-top:100px;">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align:center;">Hapus data ini?</h4>
+                    <button type="button" class="close" data-dismiss="modal" ariahidden="true">&times;</button>
+                </div>
+                <div class="modal-body">Pilih "Hapus" dibawah jika anda yakin ingin menghapus data.</div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-danger btn-sm" id="delete_link">Hapus</a>
+                    <button type="button" class="btn btn-success btn-sm" datadismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript untuk popup modal Delete-->
+    <script type="text/javascript">
+    function confirmModal(delete_url){
+        $('#modalDelete').modal('show', {backdrop: 'static'});
+        document.getElementById('delete_link').setAttribute('href' , delete_url);
+    }
+    </script>
+
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
