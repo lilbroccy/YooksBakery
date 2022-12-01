@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['email'] = $userVal;
                 $_SESSION['telp'] = $userTelp;
                 $_SESSION['alamat'] = $userAlamat;
+                $_SESSION['password'] = $passVal;
                 header('Location: home.php');
             }
             else if ($userVal==$email && $passVal==$pass && $level==1) {
@@ -40,6 +41,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['email'] = $userVal;
                 $_SESSION['telp'] = $userTelp;
                 $_SESSION['alamat'] = $userAlamat;
+                $_SESSION['password'] = $passVal;
                 header('Location: /YooksBakery/admin-dashboard/dashboard.php');
             }else{
                 $error = 'user atau password salah!!';
