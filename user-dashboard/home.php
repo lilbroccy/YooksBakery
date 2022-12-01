@@ -36,7 +36,7 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
           <a class="navbar-brand" href="home.php">
-            <img src="images/logo.png" alt="" /><span>
+            <img src="images/new_logo.png" alt="" /><span>
               Yooks!
             </span>
           </a>
