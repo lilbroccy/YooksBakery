@@ -305,7 +305,7 @@ session_start();
                                             <td><?php echo $row['nama_roti']; ?></td>
                                             <td><?php echo $row['deskripsi']; ?></td>
                                             <td>Rp <?php echo number_format($row['harga_satuan_roti'], 0,`,`,`.`); ?></td>
-                                            <td><img src="admin-dashboard/gambar/" alt=""><?php echo $row['gambar']; ?></td>
+                                            <td><img src="./plugins/images/produk/<?php echo $row['gambar']; ?>" alt="img" width="150px" height="150px"></td>
                                             <td>
                                             <a href="edit_produk.php?id=<?php echo $row['id_roti'] ?>" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
                                             <br>
@@ -366,6 +366,15 @@ session_start();
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            if ("<?= $_GET['message'] ?>" != "") {
+                alert("<?= $_GET['message'] ?>")
+                window.location = 'data_produk.php';
+            }
+        });
+    </script>
 </body>
 
 </html>
