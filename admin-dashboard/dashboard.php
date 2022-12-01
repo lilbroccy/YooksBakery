@@ -5,7 +5,7 @@ session_start();
 
 if(!isset($_SESSION['id'])){
     $_SESSION['msg'] = 'anda harus login terlebih dahulu untuk mengakses halaman ini';
-    header('Location: /YooksBakery/user-dashboard/login.php');
+    include('/YooksBakery/user-dashboard/login.php');
 }
 $sesID = $_SESSION['id'];
 $sesName = $_SESSION['name'];
@@ -25,10 +25,10 @@ $sesLvl = $_SESSION['level'];
     <meta name="description"
         content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
+    <title>Dashboard</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/Logo.png">
     <!-- Custom CSS -->
     <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
@@ -163,7 +163,7 @@ $sesLvl = $_SESSION['level'];
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="orderan.php"
                                 aria-expanded="false">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span class="hide-menu">Orderan</span>
+                                <span class="hide-menu">Transaksi</span>
                             </a>
                         </li>
                         <!--<li class="sidebar-item">
@@ -188,8 +188,8 @@ $sesLvl = $_SESSION['level'];
                             </a>
                         </li>-->
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="/YooksBakery/user-dashboard/login.php"
-                                class="btn d-grid btn-danger text-white" target="_blank">
+                            <a href="/YooksBakery/user-dashboard/logout.php"
+                                class="btn d-grid btn-danger text-white">
                                 Logout</a>
                         </li>
                     </ul>
