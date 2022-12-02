@@ -1,3 +1,4 @@
+<?php require("koneksi.php"); ?>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -140,13 +141,13 @@
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="email" class="form-label" >Email</label>
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
+                    name="email"
+                    placeholder="example@gmail.com"
                     autofocus
                   />
                 </div>
@@ -216,3 +217,33 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
+
+<?php
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = sha1($_POST['password']);
+
+    //cek akun ke tabel admin
+    $ambil = $koneksi->query("SELECT * FROM user WHERE email_user='$email' AND password_user='$password' ");
+    $cekuser = $ambil->fetch_assoc();
+
+    if (empty($cekuser)) {
+        echo "<script>alert('Gagal akun tidak ditemukan !..')</script>";
+        echo "<script>location='index.php'</script>";
+    }
+    else {
+        //menyimpan data plogin dalam session agar sistem tau siapa yang pakai dia
+        $_SESSION['User'] = $cekuser;
+        $_SESSION['Admin'] = $cekuser;
+
+        if ($cekuser['level_user']=="Admin"){
+            echo "<script>alert('Sukses login')</script>";
+            echo "<script>location='admin/html/index.php'</script>";
+        }
+        else if ($cekuser['level_user']=="User") {
+            echo "<script>alert('Sukses login')</script>";
+            echo "<script>location='user/index.php'</script>";
+        }
+    }
+}
+?>
