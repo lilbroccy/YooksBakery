@@ -396,17 +396,17 @@
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Form Elements</div>
+                <div data-i18n="Form Elements">Data Perusahaan</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item active">
                   <a href="forms-basic-inputs.html" class="menu-link">
-                    <div data-i18n="Basic Inputs">Basic Inputs</div>
+                    <div data-i18n="Basic Inputs">Data Supplier</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="forms-input-groups.html" class="menu-link">
-                    <div data-i18n="Input groups">Input groups</div>
+                    <div data-i18n="Input groups">Data Toko</div>
                   </a>
                 </li>
               </ul>

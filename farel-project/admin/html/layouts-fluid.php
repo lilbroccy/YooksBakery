@@ -1,3 +1,5 @@
+<?php require("koneksi.php"); ?>
+
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -71,7 +73,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="index.php" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -140,7 +142,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -150,33 +152,18 @@
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <div data-i18n="Layouts">Data Perusahaan</div>
               </a>
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
+                  <a href="layouts-container.php" class="menu-link">
+                    <div data-i18n="Container">Data Toko</div>
                   </a>
                 </li>
                 <li class="menu-item active">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
+                  <a href="layouts-fluid.php" class="menu-link">
+                    <div data-i18n="Fluid">Data Supplier</div>
                   </a>
                 </li>
               </ul>
@@ -192,17 +179,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
+                  <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="pages-account-settings-notifications.php" class="menu-link">
                     <div data-i18n="Notifications">Notifications</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-connections.html" class="menu-link">
+                  <a href="pages-account-settings-connections.php" class="menu-link">
                     <div data-i18n="Connections">Connections</div>
                   </a>
                 </li>
@@ -215,17 +202,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                  <a href="auth-login-basic.php" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Login</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
+                  <a href="auth-register-basic.php" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Register</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
+                  <a href="auth-forgot-password-basic.php" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Forgot Password</div>
                   </a>
                 </li>
@@ -238,12 +225,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
+                  <a href="pages-misc-error.php" class="menu-link">
                     <div data-i18n="Error">Error</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
+                  <a href="pages-misc-under-maintenance.php" class="menu-link">
                     <div data-i18n="Under Maintenance">Under Maintenance</div>
                   </a>
                 </li>
@@ -253,7 +240,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
             <!-- Cards -->
             <li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
+              <a href="cards-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Cards</div>
               </a>
@@ -266,97 +253,97 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="ui-accordion.html" class="menu-link">
+                  <a href="ui-accordion.php" class="menu-link">
                     <div data-i18n="Accordion">Accordion</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-alerts.html" class="menu-link">
+                  <a href="ui-alerts.php" class="menu-link">
                     <div data-i18n="Alerts">Alerts</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-badges.html" class="menu-link">
+                  <a href="ui-badges.php" class="menu-link">
                     <div data-i18n="Badges">Badges</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-buttons.html" class="menu-link">
+                  <a href="ui-buttons.php" class="menu-link">
                     <div data-i18n="Buttons">Buttons</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-carousel.html" class="menu-link">
+                  <a href="ui-carousel.php" class="menu-link">
                     <div data-i18n="Carousel">Carousel</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-collapse.html" class="menu-link">
+                  <a href="ui-collapse.php" class="menu-link">
                     <div data-i18n="Collapse">Collapse</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-dropdowns.html" class="menu-link">
+                  <a href="ui-dropdowns.php" class="menu-link">
                     <div data-i18n="Dropdowns">Dropdowns</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-footer.html" class="menu-link">
+                  <a href="ui-footer.php" class="menu-link">
                     <div data-i18n="Footer">Footer</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-list-groups.html" class="menu-link">
+                  <a href="ui-list-groups.php" class="menu-link">
                     <div data-i18n="List Groups">List groups</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-modals.html" class="menu-link">
+                  <a href="ui-modals.php" class="menu-link">
                     <div data-i18n="Modals">Modals</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-navbar.html" class="menu-link">
+                  <a href="ui-navbar.php" class="menu-link">
                     <div data-i18n="Navbar">Navbar</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-offcanvas.html" class="menu-link">
+                  <a href="ui-offcanvas.php" class="menu-link">
                     <div data-i18n="Offcanvas">Offcanvas</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-pagination-breadcrumbs.html" class="menu-link">
+                  <a href="ui-pagination-breadcrumbs.php" class="menu-link">
                     <div data-i18n="Pagination &amp; Breadcrumbs">Pagination &amp; Breadcrumbs</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-progress.html" class="menu-link">
+                  <a href="ui-progress.php" class="menu-link">
                     <div data-i18n="Progress">Progress</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-spinners.html" class="menu-link">
+                  <a href="ui-spinners.php" class="menu-link">
                     <div data-i18n="Spinners">Spinners</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-tabs-pills.html" class="menu-link">
+                  <a href="ui-tabs-pills.php" class="menu-link">
                     <div data-i18n="Tabs &amp; Pills">Tabs &amp; Pills</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-toasts.html" class="menu-link">
+                  <a href="ui-toasts.php" class="menu-link">
                     <div data-i18n="Toasts">Toasts</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-tooltips-popovers.html" class="menu-link">
+                  <a href="ui-tooltips-popovers.php" class="menu-link">
                     <div data-i18n="Tooltips & Popovers">Tooltips &amp; popovers</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-typography.html" class="menu-link">
+                  <a href="ui-typography.php" class="menu-link">
                     <div data-i18n="Typography">Typography</div>
                   </a>
                 </li>
@@ -371,12 +358,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
+                  <a href="extended-ui-perfect-scrollbar.php" class="menu-link">
                     <div data-i18n="Perfect Scrollbar">Perfect scrollbar</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="extended-ui-text-divider.html" class="menu-link">
+                  <a href="extended-ui-text-divider.php" class="menu-link">
                     <div data-i18n="Text Divider">Text Divider</div>
                   </a>
                 </li>
@@ -384,7 +371,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="icons-boxicons.html" class="menu-link">
+              <a href="icons-boxicons.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-crown"></i>
                 <div data-i18n="Boxicons">Boxicons</div>
               </a>
@@ -400,12 +387,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="forms-basic-inputs.html" class="menu-link">
+                  <a href="forms-basic-inputs.php" class="menu-link">
                     <div data-i18n="Basic Inputs">Basic Inputs</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="forms-input-groups.html" class="menu-link">
+                  <a href="forms-input-groups.php" class="menu-link">
                     <div data-i18n="Input groups">Input groups</div>
                   </a>
                 </li>
@@ -418,12 +405,12 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="form-layouts-vertical.html" class="menu-link">
+                  <a href="form-layouts-vertical.php" class="menu-link">
                     <div data-i18n="Vertical Form">Vertical Form</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="form-layouts-horizontal.html" class="menu-link">
+                  <a href="form-layouts-horizontal.php" class="menu-link">
                     <div data-i18n="Horizontal Form">Horizontal Form</div>
                   </a>
                 </li>
@@ -431,7 +418,7 @@
             </li>
             <!-- Tables -->
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
@@ -494,15 +481,9 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                  <a
-                    class="github-button"
-                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                    data-icon="octicon-star"
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >Star</a
-                  >
+                <a>
+                    Hi, <?php echo $_SESSION['User']['nama_user'] ?>
+                  </a>
                 </li>
 
                 <!-- User -->
@@ -522,8 +503,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block"><?php echo $_SESSION['User']['nama_user'] ?></span>
+                            <small class="text-muted"><?php echo $_SESSION['User']['level_user'] ?></small>
                           </div>
                         </div>
                       </a>
@@ -556,7 +537,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="auth-login-basic.php">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -575,23 +556,232 @@
             <!-- Content -->
 
             <div class="container-fluid flex-grow-1 container-p-y">
-              <!-- Layout Demo -->
-              <div class="layout-demo-wrapper">
-                <div class="layout-demo-placeholder">
-                  <img
-                    src="../assets/img/layouts/layout-fluid-light.png"
-                    class="img-fluid"
-                    alt="Layout fluid"
-                    data-app-light-img="layouts/layout-fluid-light.png"
-                    data-app-dark-img="layouts/layout-fluid-dark.png"
-                  />
-                </div>
-                <div class="layout-demo-info">
-                  <h4>Layout fluid</h4>
-                  <p>Fluid layout sets a <code>100% width</code> at each responsive breakpoint.</p>
+              <!-- Basic Bootstrap Table -->
+              <div class="card">
+                <h5 class="card-header">Data Supplier</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Project</th>
+                        <th>Client</th>
+                        <th>Users</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                        <td>Albert Cook</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Lilian Fuller"
+                            >
+                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Sophia Wilkerson"
+                            >
+                              <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Christina Parker"
+                            >
+                              <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>React Project</strong></td>
+                        <td>Barry Hunter</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Lilian Fuller"
+                            >
+                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Sophia Wilkerson"
+                            >
+                              <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Christina Parker"
+                            >
+                              <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-success me-1">Completed</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-2"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>VueJs Project</strong></td>
+                        <td>Trevor Baker</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Lilian Fuller"
+                            >
+                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Sophia Wilkerson"
+                            >
+                              <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Christina Parker"
+                            >
+                              <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-info me-1">Scheduled</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-2"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap Project</strong>
+                        </td>
+                        <td>Jerry Milton</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Lilian Fuller"
+                            >
+                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Sophia Wilkerson"
+                            >
+                              <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Christina Parker"
+                            >
+                              <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-2"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <!--/ Layout Demo -->
+              <!--/ Basic Bootstrap Table -->
             </div>
             <!-- / Content -->
 
