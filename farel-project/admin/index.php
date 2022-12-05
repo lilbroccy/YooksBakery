@@ -1,5 +1,12 @@
 <?php require("koneksi.php"); ?>
-
+<?php
+// Jika belum login, jika tidak ada session user, maka larikan ke halaman login
+if (!isset($_SESSION['User'])) {
+  echo "<script>Alert('Anda Harus Login!')</script>";
+  echo "<script>location='./farel-project/index.php'</script>";
+  exit();
+}
+?>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -160,12 +167,22 @@
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="layouts-container.php" class="menu-link">
-                    <div data-i18n="Container">Data Toko</div>
+                    <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="layouts-produk.php" class="menu-link">
+                    <div data-i18n="Fluid">Data Produk</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="layouts-user.php" class="menu-link">
+                    <div data-i18n="Fluid">Data User</div>
                   </a>
                 </li>
               </ul>
@@ -539,7 +556,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.php">
+                      <a class="dropdown-item" href="logout.php">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
