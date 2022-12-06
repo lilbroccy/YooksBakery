@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Penjualan - Transaksi | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -149,7 +149,7 @@
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data Perusahaan</div>
@@ -161,7 +161,7 @@
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
@@ -180,17 +180,17 @@
             </li>
 
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Data Transaksi</span>
+              <span class="menu-header-text">Pages</span>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Customers</div>
+                <div data-i18n="Account Settings">Account Settings</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="transaksi-penjualan.php" class="menu-link">
-                    <div data-i18n="Account">Customers</div>
+                    <div data-i18n="Account">Customer</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -551,19 +551,21 @@
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Supplier
+                <h5 class="card-header">Data Penjualan
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $supplier =array();
-                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
+                $penjualan =array();
+                $ambil = $koneksi ->query("SELECT * FROM penjualan LEFT JOIN user
+                                         ON penjualan.id_user=user.id_user
+                                         WHERE penjualan.id_toko='$id_toko' ");
                 while($tiap = $ambil -> fetch_assoc()){
-                  $supplier[] = $tiap;
+                  $penjualan[] = $tiap;
                 }
 
                 echo"<pre>";
-                print_r($supplier);
+                print_r($penjualan);
                 echo"</pre>";
                 ?>
                 </h5>
@@ -572,25 +574,37 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Id Supplier</th>
-                        <th>Nama</th>
+                        <th>Id Penjualan</th>
+                        <th>Customers</th>
+                        <th>Tanggal Penjualan</th>
+                        <th>Tanggal Ambil</th>
+                        <th>Total</th>
+                        <th>Bayar</th>
+                        <th>Kembalian</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <?php foreach ($supplier as $key => $value): ?>
+                      <?php foreach ($penjualan as $key => $value): ?>
                       <tr>
                         <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_supplier"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_supplier"] ?></strong></td>
+                        <td><?php echo $value["id_penjualan"] ?></td>
+                        <td>
+                            <?php echo $value["nama_user"] ?> ( <?php echo $value["telepon_user"] ?> )
+                        </td>
+                        <td><?php echo date("d M Y H:i", strtotime($value["tanggal_penjualan"])) ?></td>
+                        <td><?php echo date("d M Y H:i", strtotime($value["tanggal_ambil_penjualan"])) ?></td>
+                        <td>Rp. <?php echo number_format($value["total_penjualan"]) ?></td>
+                        <td>Rp. <?php echo number_format($value["bayar_penjualan"]) ?></td>
+                        <td>Rp. <?php echo number_format($value["kembalian_penjualan"]) ?></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              <a class="dropdown-item" href="transaksi-penjualan-produk.php?page=transaksi-penjualan-produk&id=<?php echo $value["id_penjualan"] ?>"
+                                ><i class="bx bx-edit-alt me-1"></i> Detail</a
                               >
                               <a class="dropdown-item" href="javascript:void(0);"
                                 ><i class="bx bx-trash me-1"></i> Delete</a

@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Container - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -149,7 +149,7 @@
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data Perusahaan</div>
@@ -161,7 +161,7 @@
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
@@ -182,13 +182,13 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Data Transaksi</span>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Customers</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
@@ -437,7 +437,7 @@
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
-            </li>
+            </li>\
           </ul>
         </aside>
         <!-- / Menu -->
@@ -447,7 +447,7 @@
           <!-- Navbar -->
 
           <nav
-            class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -474,7 +474,7 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                <a>
+                  <a>
                     Hi, <?php echo $_SESSION['User']['nama_user'] ?>
                   </a>
                 </li>
@@ -548,59 +548,91 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-fluid flex-grow-1 container-p-y">
+            <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Supplier
-                <?php
+                <h5 class="card-header">Detail Customers
+                <?php 
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $supplier =array();
-                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
-                while($tiap = $ambil -> fetch_assoc()){
-                  $supplier[] = $tiap;
+                //Mendapatkan ID Penjualan yang di detailkan dari URL
+                $id_penjualan = $_GET['id'];
+
+                //Ambil dari tabel Penjualan yang idnya ini
+                $ambil = $koneksi->query("SELECT * FROM penjualan 
+                                        LEFT JOIN user ON penjualan.id_user=user.id_user 
+                                        WHERE penjualan.id_penjualan='$id_penjualan' AND penjualan.id_toko='$id_toko' ");
+                $penjualan = $ambil->fetch_assoc();
+
+                $produk = array();
+                $ambil = $koneksi->query("SELECT * FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
+                while($tiap = $ambil->fetch_assoc()){
+                    $produk[] = $tiap; 
                 }
 
-                echo"<pre>";
-                print_r($supplier);
-                echo"</pre>";
+                echo "<pre>";
+                print_r($penjualan);
+                print_r($produk );
+                echo "<pre>";
                 ?>
                 </h5>
                 <div class="table-responsive text-nowrap">
+                  <table class="table mb-5">
+                    <tr>
+                        <td>Id Penjualan</td>
+                        <td><?php echo $penjualan['id_penjualan'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal</td>
+                        <td><?php echo date("d M Y H:i", strtotime($penjualan["tanggal_penjualan"])) ?></td>
+                    </tr>
+                    <tr>
+                        <td>Customers</td>
+                        <td><?php echo $penjualan["nama_user"] ?> ( <?php echo $penjualan["telepon_user"] ?> )</td>
+                    </tr>
+                  </table>
                   <table class="table">
                     <thead>
-                      <tr>
                         <th>No</th>
-                        <th>Id Supplier</th>
-                        <th>Nama</th>
-                        <th>Actions</th>
-                      </tr>
+                        <th>Produk</th>
+                        <th>Harga Produksi</th>
+                        <th>Harga Jual</th>
+                        <th>Jumlah</th>
+                        <th>Subtotal</th>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <?php foreach ($supplier as $key => $value): ?>
+                      <?php $keuntungan = 0; ?>
+                      <?php foreach ($produk as $key => $value): ?>
+                        <?php $keuntungan += ($value['harga_produk'] - $value['biaya_produk']) * $value['jumlah_produk'] ?>
                       <tr>
                         <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_supplier"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_supplier"] ?></strong></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
+                        <td><?php echo $value["nama_produk"] ?></td>
+                        <td>Rp. <?php echo number_format($value["biaya_produk"]) ?></td>
+                        <td>Rp. <?php echo number_format($value["harga_produk"]) ?></td>
+                        <td><?php echo $value["jumlah_produk"] ?></td>
+                        <td>Rp. <?php echo number_format($value["subtotal_produk"]) ?></td>
                       </tr>
                       <?php endforeach ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>Rp. <?php echo number_format($penjualan['total_penjualan']) ?></td>
+                        </tr>
+                        <tr>
+                            <td>Bayar</td>
+                            <td>Rp. <?php echo number_format($penjualan['bayar_penjualan']) ?></td>
+                        </tr>
+                        <tr>
+                            <td>Kembalian</td>
+                            <td>Rp. <?php echo number_format($penjualan['kembalian_penjualan']) ?></td>
+                        </tr>
+                        <tr>
+                            <td>Keuntungan</td>
+                            <td>Rp. <?php echo number_format($keuntungan) ?></td>
+                        </tr>
+                    </tfoot>
                   </table>
                 </div>
               </div>
@@ -610,14 +642,14 @@
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
-              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
                   ©
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
+                  <a href="" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
                 </div>
               </div>
             </footer>
@@ -656,4 +688,3 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
-
