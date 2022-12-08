@@ -33,6 +33,9 @@
 
     <meta name="description" content="" />
 
+    <!-- Link CSS Table -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -562,15 +565,15 @@
                   $produk[] = $tiap;
                 }
 
-                echo"<pre>";
-                print_r($produk);
-                echo"</pre>";
+                // echo"<pre>";
+                // print_r($produk);
+                // echo"</pre>";
                 ?>
                 </h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr>
+                <div class="table-responsive text-nowrap p-2">
+                <table id="produk" class="table table-bordered display" style="width:100%">
+                <thead>
+                    <tr>
                         <th>No</th>
                         <th>Id Produk</th>
                         <th>Kode Produk</th>
@@ -581,11 +584,11 @@
                         <th>Foto Produk</th>
                         <th>Deskripsi Produk</th>
                         <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <?php foreach ($produk as $key => $value): ?>
-                      <tr>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($produk as $key => $value): ?>
+                    <tr>
                         <td><?php echo $key+1 ?></td>
                         <td><?php echo $value["id_produk"] ?></td>
                         <td><?php echo $value["kode_produk"] ?></td>
@@ -611,9 +614,9 @@
                           </div>
                         </td>
                       </tr>
-                      <?php endforeach ?>
-                    </tbody>
-                  </table>
+                  <?php endforeach ?>
+                </tbody>
+                </table>
                 </div>
               </div>
               <!--/ Basic Bootstrap Table -->
@@ -662,10 +665,20 @@
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
+    <!-- Table JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
     <!-- Page JS -->
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    <script>
+      $(document).ready(function () {
+        $('#produk').DataTable();
+      });
+    </script>
   </body>
 </html>
 

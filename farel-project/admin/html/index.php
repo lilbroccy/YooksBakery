@@ -3,7 +3,7 @@
 // Jika belum login, jika tidak ada session user, maka larikan ke halaman login
 if (!isset($_SESSION['User'])) {
   echo "<script>Alert('Anda Harus Login!')</script>";
-  echo "<script>location='./farel-project/index.php'</script>";
+  echo "<script>location='../../index.php'</script>";
   exit();
 }
 ?>

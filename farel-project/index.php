@@ -31,35 +31,53 @@
         </div>
     </div>
     <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../farel-project/asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+
+    <?php
+        if (isset($_POST['login'])) {
+            $email = $_POST['email'];
+            $password = sha1($_POST['password']);
+
+            //cek akun ke tabel admin
+            $ambil = $koneksi->query("SELECT * FROM user WHERE email_user='$email' AND password_user='$password' ");
+            $cekuser = $ambil->fetch_assoc();
+
+            if (empty($cekuser)) {
+                echo "<script>alert('Gagal akun tidak ditemukan !..')</script>";
+                echo "<script>location='index.php'</script>";
+            }
+            else {
+                //menyimpan data plogin dalam session agar sistem tau siapa yang pakai dia
+                $_SESSION['User'] = $cekuser;
+                $_SESSION['Admin'] = $cekuser;
+
+                if ($cekuser['level_user']=="Admin"){
+                    // echo "<script>location='index.php?level=admin&success=true'</script>";
+                    echo "<script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Horeee...',
+                                text: 'Anda berhasil login!'
+                            }).then((result) => {
+                                window.location.href = 'admin/html/index.php'
+                            })
+                    </script>";
+                }
+                else if ($cekuser['level_user']=="User") {
+                    echo "<script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Horeee...',
+                                text: 'Anda berhasil login!'
+                            }).then((result) => {
+                                window.location.href = 'user/index.php'
+                            })
+                    </script>";
+                }
+            }
+        }
+    ?>
+
 </body>
 </html>
-
-<?php
-if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password = sha1($_POST['password']);
-
-    //cek akun ke tabel admin
-    $ambil = $koneksi->query("SELECT * FROM user WHERE email_user='$email' AND password_user='$password' ");
-    $cekuser = $ambil->fetch_assoc();
-
-    if (empty($cekuser)) {
-        echo "<script>alert('Gagal akun tidak ditemukan !..')</script>";
-        echo "<script>location='index.php'</script>";
-    }
-    else {
-        //menyimpan data plogin dalam session agar sistem tau siapa yang pakai dia
-        $_SESSION['User'] = $cekuser;
-        $_SESSION['Admin'] = $cekuser;
-
-        if ($cekuser['level_user']=="Admin"){
-            echo "<script>alert('Sukses login')</script>";
-            echo "<script>location='admin/html/index.php'</script>";
-        }
-        else if ($cekuser['level_user']=="User") {
-            echo "<script>alert('Sukses login')</script>";
-            echo "<script>location='user/index.php'</script>";
-        }
-    }
-}
-?>
