@@ -668,17 +668,20 @@
     <!-- Table JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- END Table JS -->
 
     <!-- Page JS -->
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     
+    <!-- Fungsi Tabel JS -->
     <script>
       $(document).ready(function () {
         $('#produk').DataTable();
       });
     </script>
+    <!-- END Fungsi Table JS -->
   </body>
 </html>
 

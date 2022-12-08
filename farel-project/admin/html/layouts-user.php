@@ -33,6 +33,9 @@
 
     <meta name="description" content="" />
 
+    <!-- Link CSS Table -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -562,14 +565,14 @@
                   $user[] = $tiap;
                 }
 
-                echo"<pre>";
-                print_r($user);
-                echo"</pre>";
+                // echo"<pre>";
+                // print_r($user);
+                // echo"</pre>";
                 ?>
                 </h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
+                <div class="table-responsive text-nowrap p-2">
+                <table id="user" class="table table-bordered display" style="width:100%">
+                <thead>
                       <tr>
                         <th>No</th>
                         <th>Id User</th>
@@ -581,8 +584,8 @@
                         <th>Deskripsi</th>
                         <th>Action</th>
                       </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
+                </thead>
+                    <tbody>
                       <?php foreach ($user as $key => $value): ?>
                       <tr>
                         <td><?php echo $key+1 ?></td>
@@ -664,6 +667,19 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Table JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- END Table JS -->
+
+    <!-- Fungsi Tabel JS -->
+    <script>
+      $(document).ready(function () {
+        $('#user').DataTable();
+      });
+    </script>
+    <!-- END Fungsi Table JS -->
   </body>
 </html>
 

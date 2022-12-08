@@ -33,6 +33,9 @@
 
     <meta name="description" content="" />
 
+    <!-- Link CSS Table -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -562,14 +565,14 @@
                   $supplier[] = $tiap;
                 }
 
-                echo"<pre>";
-                print_r($supplier);
-                echo"</pre>";
+                // echo"<pre>";
+                // print_r($supplier);
+                // echo"</pre>";
                 ?>
                 </h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
+                <div class="table-responsive text-nowrap p-2">
+                <table id="supplier" class="table table-bordered display" style="width:100%">
+                  <thead>
                       <tr>
                         <th>No</th>
                         <th>Id Supplier</th>
@@ -577,7 +580,7 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody>
                       <?php foreach ($supplier as $key => $value): ?>
                       <tr>
                         <td><?php echo $key+1 ?></td>
@@ -601,6 +604,14 @@
                       </tr>
                       <?php endforeach ?>
                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <td>No</td>
+                        <td>Id Supplier</td>
+                        <td>Nama</td>
+                        <td>Actions</td>
+                      </tr>
+                    </tfoot>
                   </table>
                 </div>
               </div>
@@ -654,6 +665,19 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Table JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- END Table JS -->
+
+    <!-- Fungsi Tabel JS -->
+    <script>
+      $(document).ready(function () {
+        $('#supplier').DataTable();
+      });
+    </script>
+    <!-- END Fungsi Table JS -->
   </body>
 </html>
 

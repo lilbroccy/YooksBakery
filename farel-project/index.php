@@ -44,8 +44,15 @@
             $cekuser = $ambil->fetch_assoc();
 
             if (empty($cekuser)) {
-                echo "<script>alert('Gagal akun tidak ditemukan !..')</script>";
-                echo "<script>location='index.php'</script>";
+                echo "<script>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'SOMETHING WENT WRONG :(',
+                            text: 'Email Atau Password Salah !!!'
+                        }).then((result) => {
+                            window.location.href = 'index.php'
+                        })
+                    </script>";
             }
             else {
                 //menyimpan data plogin dalam session agar sistem tau siapa yang pakai dia
@@ -57,8 +64,8 @@
                     echo "<script>
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Horeee...',
-                                text: 'Anda berhasil login!'
+                                title: 'ANDA BERHASIL LOGIN',
+                                text: 'Semoga Harinya Menyenangkan ❤️'
                             }).then((result) => {
                                 window.location.href = 'admin/html/index.php'
                             })
@@ -68,8 +75,8 @@
                     echo "<script>
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Horeee...',
-                                text: 'Anda berhasil login!'
+                                title: 'ANDA BERHASIL LOGIN',
+                                text: 'Semoga Harinya Menyenangkan ❤️'
                             }).then((result) => {
                                 window.location.href = 'user/index.php'
                             })
