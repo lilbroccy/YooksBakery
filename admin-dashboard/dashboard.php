@@ -5,7 +5,7 @@ session_start();
 
 if(!isset($_SESSION['id'])){
     $_SESSION['msg'] = 'anda harus login terlebih dahulu untuk mengakses halaman ini';
-    include('/YooksBakery/user-dashboard/login.php');
+    header("/YooksBakery/user-dashboard/login.php");
 }
 $sesID = $_SESSION['id'];
 $sesName = $_SESSION['name'];
