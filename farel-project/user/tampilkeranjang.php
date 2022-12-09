@@ -19,9 +19,8 @@ foreach ($keranjang as $key => $perproduk): ?>
  <div class="row">
     <div class="col-md-9">
         <h6><?php echo $perproduk["nama_produk"] ?></h6>
-        <span class="small text-muted">
-            <?php echo number_format($perproduk['jual_produk']) ?> X <?php echo $perproduk['jumlah'] ?>
-        </span>
+        <span class="small text-muted"> <?php echo number_format($perproduk['jual_produk']) ?> </span>
+        <p class="small"> X <?php echo $perproduk['jumlah'] ?> </p>
     </div>
     <div class="col-md-3">
         <button type="button" class="btn btn-outline-primary btn-sm">
