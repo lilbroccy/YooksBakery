@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/style.css">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-4 offset-md-4 mt-5 bg-white shadow p-5 rounded">
+            <div class="col-md-4 offset-md-4 mt-5 shadow p-5 rounded">
                 <div class="text-center">
                     <img src="asset/image/image-admin/Logo.png" width="150">
                 </div>
@@ -25,7 +26,7 @@
                         <label>Password</label>
                         <input type="password" name="password" class="form-control" placeholder="************ ">
                     </div>
-                    <button class="btn btn-primary" name="login">Login</button>
+                    <button class="btn btn-outline" name="login">Login</button>
                 </form>
             </div>
         </div>

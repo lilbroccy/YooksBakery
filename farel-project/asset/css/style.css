@@ -1,0 +1,48 @@
+body{
+    background-color: #e45825;
+}
+
+.bg{
+    position: absolute;
+    width: 1080px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.row .col-md-4{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+label{
+    color: white;
+}
+
+input .form-control{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+form .mb-3{
+    border: none;
+    position: relative;
+    border-bottom: 2px solid white;
+    margin: 30px 0;
+}
+
+.mb-3 input{
+    border: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+.btn{
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    color: #e45825;
+    border: 2px solid #e45825;
+    transition-duration: 0.4s;
+}
+
+.btn:hover{
+    background-color: #e45825;
+    color: white;
+}
