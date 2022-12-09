@@ -15,16 +15,24 @@ $sesTelp = $_SESSION['telp'];
 $sesAlamat = $_SESSION['alamat'];
 $sesPass = $_SESSION['password'];
 
-
+$query = "SELECT * FROM user_detail WHERE id_user = $sesID";
+$result = mysqli_query($koneksi, $query); 
+while ($row = mysqli_fetch_array($result)){
+$userPass = $row['user_password'];
+$userFullname =  $row['user_fullname'];
+$userTelp = $row['user_telp'];
+$userMail = $row['user_email'];
+$userAlamat = $row['user_alamat'];
+}
 if( isset($_POST['update']) ){
-    $userId     = $_POST['txt_id'];
-    $userName     = $_POST['txt_name'];
-    $userMail   = $_POST['txt_email'];
-    $userPass   = $_POST['txt_pass'];
-    $userTelp  = $_POST['txt_telp'];
-    $userAlamat = $_POST['txt_alamat'];
+    $valId     = $_POST['txt_id'];
+    $valEmail   = $_POST['txt_email'];
+    $valPass   = $_POST['txt_pass'];
+    $valFullname   = $_POST['txt_name'];
+    $valTelp   = $_POST['txt_telp'];
+    $valAlamat = $_POST['txt_alamat'];
 
-    $query = "UPDATE user_detail SET user_fullname='$userName', user_telp='$userTelp', user_alamat='$userAlamat', user_email='$userMail', user_password='$userPass' WHERE id_user='$userId'";
+    $query = "UPDATE user_detail SET user_password ='$valPass', user_fullname='$valFullname', user_email='$valEmail', user_telp='$valTelp', user_alamat='$valAlamat' WHERE id_user='$sesID'";
     echo $query;
     $result = mysqli_query($koneksi, $query);
     header('Location: profile.php');
@@ -306,30 +314,30 @@ if( isset($_POST['update']) ){
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Full Name</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesName?>" name="txt_name" class="form-control p-0 border-0"> </div>
+                                            <input type="text" value="<?php echo $userFullname?>" name="txt_name" class="form-control p-0 border-0"> </div>
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="example-email" class="col-md-12 p-0">Email</label>
+                                        <label class="col-md-12 p-0">Email</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="email" value="<?php echo $sesEmail?>" name="txt_email" class="form-control p-0 border-0" id="example-email">
+                                            <input type="email" value="<?php echo $userMail?>" name="txt_email" class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Password</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesPass?>" name="txt_pass" class="form-control p-0 border-0">
+                                            <input type="text" value="<?php echo $userPass?>" name="txt_pass" class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">No HP</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesTelp?>" name = "txt_telp" class="form-control p-0 border-0">
+                                            <input type="text" value="<?php echo $userTelp?>" name = "txt_telp" class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
                                         <label class="col-md-12 p-0">Alamat</label>
                                         <div class="col-md-12 border-bottom p-0">
-                                            <input type="text" value="<?php echo $sesAlamat?>" name = "txt_alamat" class="form-control p-0 border-0">
+                                            <input type="text" value="<?php echo $userAlamat?>" name = "txt_alamat" class="form-control p-0 border-0">
                                         </div>
                                     </div>
                                     <!--<div class="form-group mb-4">

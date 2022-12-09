@@ -288,14 +288,14 @@
                     $produk[] = $tiap;
                 }
 
-                echo"<pre>";
-                print_r($produk);
-                echo"</pre>";
+                // echo"<pre>";
+                // print_r($produk);
+                // echo"</pre>";
                 ?>
             </div>
             <div class="row">
                 <?php foreach ($produk as $key => $value): ?>
-                <div href="#" class="col-lg-4 col-md-6 mb-4" idnya="<?php echo $value["id_produk"] ?>">
+                <div href="#" class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2" >
                         <img class="img-fluid" src="../asset/image/image-admin/produk/<?php echo $value["foto_produk"] ?>" alt="">
                         <div class="p-4">
@@ -304,7 +304,8 @@
                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
                             </div>
-                            <a class="h5 text-decoration-none" href=""><?php echo $value["nama_produk"] ?></a>
+                            <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>">
+                                <?php echo $value["nama_produk"] ?></a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>Stock <small>( <?php echo $value["stock_produk"] ?> )</small></h6>
@@ -325,6 +326,96 @@
     </div>
     <!-- Packages End -->
 
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: 'tampilkeranjang.php',
+                success:function(hasil){
+                    $(".keranjang").html(hasil);
+                }
+            })
+        }) 
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(".link-produk").on("click", function(){
+                // Dapatkan idnya
+                var id_produk = $(this).attr("idnya");
+                $.ajax({
+                    type : 'post',
+                    url : 'masukkeranjang.php',
+                    data : 'id_produk='+id_produk,
+                    success: function(hasil){
+                            $.ajax({
+                                url: 'tampilkeranjang.php',
+                                success:function(hasil){
+                                $(".keranjang").html(hasil);
+                            }
+                        })
+                    }
+                })
+            })
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on("click", ".tambahi", function(){
+                var id_produk = $(this).attr("idnya");
+                $.ajax({
+                    type : 'post',
+                    url : 'tambahkeranjang.php',
+                    data : 'id_produk='+id_produk,
+                    success: function(hasil){
+                            $.ajax({
+                                url: 'tampilkeranjang.php',
+                                success:function(hasil){
+                                $(".keranjang").html(hasil);
+                            }
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on("click", ".kurangi", function(){
+                var id_produk = $(this).attr("idnya");
+                $.ajax({
+                    type : 'post',
+                    url : 'kurangkeranjang.php',
+                    data : 'id_produk='+id_produk,
+                    success: function(hasil){
+                            $.ajax({
+                                url: 'tampilkeranjang.php',
+                                success:function(hasil){
+                                $(".keranjang").html(hasil);
+                            }
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on("keyup", ".bayar", function(){
+                // Dapatkan inputan bayar
+                var bayar =$(this).val();
+
+                // Dapatkan inputan total
+                var total =$(".total").val();
+
+                var kembalian = parseInt(bayar) - parseInt(total);
+
+                $(".kembalian").val(kembalian);
+            })
+        })
+    </script>
 
     <!-- Registration Start -->
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
