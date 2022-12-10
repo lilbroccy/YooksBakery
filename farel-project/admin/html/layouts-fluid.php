@@ -579,6 +579,9 @@
                 // echo"</pre>";
                 ?>
                 </h5>
+                <div class="container col-md-0">
+                  <a href="supplier_tambah.php" class="btn btn-primary">Tambah</a>
+                </div>
                 <div class="table-responsive text-nowrap p-2">
                 <table id="supplier" class="table table-bordered display" style="width:100%">
                   <thead>
