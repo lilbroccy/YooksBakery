@@ -44,3 +44,24 @@ while($tiap = $ambil -> fetch_assoc())
                     </div>
                 </div>
             </div>
+            <script>
+        $(document).ready(function() {
+            $(".link-produk").on("click", function(){
+                // Dapatkan idnya
+                var id_produk = $(this).attr("idnya");
+                $.ajax({
+                    type : 'post',
+                    url : 'masukkeranjang.php',
+                    data : 'id_produk='+id_produk,
+                    success: function(hasil){
+                            $.ajax({
+                                url: 'tampilkeranjang.php',
+                                success:function(hasil){
+                                $(".keranjang").html(hasil);
+                            }
+                        })
+                    }
+                })
+            })
+        });
+    </script>
