@@ -148,6 +148,10 @@
               </a>
             </li>
 
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">PERUSAHAAN</span>
+            </li>
+
             <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -191,6 +195,11 @@
                 <li class="menu-item active">
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="laporan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -577,21 +586,34 @@
                 echo "<pre>";
                 ?>
                 </h5>
+              <div class="container">
                 <div class="table-responsive text-nowrap">
-                  <table class="table mb-5">
-                    <tr>
-                        <td>Id Penjualan</td>
-                        <td><?php echo $penjualan['id_penjualan'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Tanggal</td>
-                        <td><?php echo date("d M Y H:i", strtotime($penjualan["tanggal_penjualan"])) ?></td>
-                    </tr>
-                    <tr>
-                        <td>Customers</td>
-                        <td><?php echo $penjualan["nama_user"] ?> ( <?php echo $penjualan["telepon_user"] ?> )</td>
-                    </tr>
-                  </table>
+                  <div class="row-md-5">
+                    <div class="col-md-5">
+                      <div class="card border-1 shadow">
+                        <div class="card-body">
+                          <table class="table mb-3">
+                            <tr>
+                                <td>Id Penjualan</td>
+                                <td><?php echo $penjualan['id_penjualan'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal</td>
+                                <td><?php echo date("d M Y H:i", strtotime($penjualan["tanggal_penjualan"])) ?></td>
+                            </tr>
+                            <tr>
+                                <td>Customers</td>
+                                <td><?php echo $penjualan["nama_user"] ?> ( <?php echo $penjualan["telepon_user"] ?> )</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <br><br>
+
                   <table class="table">
                     <thead>
                         <th>No</th>
@@ -617,19 +639,19 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Total</td>
+                            <td colspan="5">Total</td>
                             <td>Rp. <?php echo number_format($penjualan['total_penjualan']) ?></td>
                         </tr>
                         <tr>
-                            <td>Bayar</td>
+                            <td colspan="5">Bayar</td>
                             <td>Rp. <?php echo number_format($penjualan['bayar_penjualan']) ?></td>
                         </tr>
                         <tr>
-                            <td>Kembalian</td>
+                            <td colspan="5">Kembalian</td>
                             <td>Rp. <?php echo number_format($penjualan['kembalian_penjualan']) ?></td>
                         </tr>
                         <tr>
-                            <td>Keuntungan</td>
+                            <td colspan="5">Keuntungan</td>
                             <td>Rp. <?php echo number_format($keuntungan) ?></td>
                         </tr>
                     </tfoot>

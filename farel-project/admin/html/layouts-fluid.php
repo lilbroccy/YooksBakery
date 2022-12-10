@@ -151,6 +151,10 @@
               </a>
             </li>
 
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">PERUSAHAAN</span>
+            </li>
+            
             <!-- Layouts -->
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -195,6 +199,11 @@
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
+                <li class="menu-item">
+                  <a href="laporan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan</div>
+                  </a>
+                </li>
                 </li>
                 <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">

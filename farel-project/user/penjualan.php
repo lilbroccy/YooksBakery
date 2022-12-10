@@ -7,11 +7,15 @@ $id_toko = $_SESSION['User']['id_toko'];
 
 $penjualan = array();
 $ambil = $koneksi->query("SELECT * FROM penjualan 
-                        LEFT JOIN user ON penjualan.id_user=user.id_user
+                        LEFT JOIN user ON penjualan.id_user = user.id_user
                         WHERE penjualan.id_user='$id_user' AND penjualan.id_toko='$id_toko'");
 while($tiap = $ambil->fetch_assoc()){
     $penjualan = $tiap;
 }
+
+echo "<pre>";
+print_r($penjualan);
+echo "</pre>";
 ?>
 
 <div class="container">
