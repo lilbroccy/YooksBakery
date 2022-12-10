@@ -317,7 +317,7 @@
     
     <script>
         $(document).ready(function(){
-            $(document).on("click", "btn-cari", function(e){
+            $(document).on("click", ".btn-cari", function(e){
                 e.preventDefault();
                 var cari = $(".input-cari").val();
                 $.ajax({
@@ -332,27 +332,7 @@
         })
     </script>
 
-    <script>
-        $(document).ready(function() {
-            $(".link-produk").on("click", function(){
-                // Dapatkan idnya
-                var id_produk = $(this).attr("idnya");
-                $.ajax({
-                    type : 'post',
-                    url : 'masukkeranjang.php',
-                    data : 'id_produk='+id_produk,
-                    success: function(hasil){
-                            $.ajax({
-                                url: 'tampilkeranjang.php',
-                                success:function(hasil){
-                                $(".keranjang").html(hasil);
-                            }
-                        })
-                    }
-                })
-            })
-        });
-    </script>
+    
 
     <script>
         $(document).ready(function(){
