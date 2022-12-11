@@ -126,7 +126,7 @@
     <!-- About End -->
 
 
-    <!-- Feature Start -->
+    <!-- Feature Start 
     <div class="container-fluid pb-5">
         <div class="container pb-5">
             <div class="row">
@@ -166,7 +166,7 @@
             </div>
         </div>
     </div>
-    <!-- Feature End -->
+    Feature End -->
 
 
     <!-- Destination Start -->
