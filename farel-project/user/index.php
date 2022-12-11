@@ -6,20 +6,20 @@
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
+                    <img class="w-100" src="img/carousel roti-1.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Baking Store</h4>
-                            <h1 class="display-3 text-white mb-md-4">Olahan Roti Untuk Kesehatan</h1>
+                            <h4 class="text-white text-uppercase mb-md-3">Yooks Bakery</h4>
+                            <h1 class="display-3 text-white mb-md-4">Olahan Roti Untuk Segala Acara</h1>
                             <a href="package.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100 img-fluid" src="img/carousel-2.jpg" alt="Image" width="w-100" >
+                    <img class="w-100 img-fluid" src="img/carousel roti-2.jpg" alt="Image" width="w-100">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-md-3">Baking Store</h4>
+                            <h4 class="text-white text-uppercase mb-md-3">Yooks Bakery</h4>
                             <h1 class="display-3 text-white mb-md-4">Warnai Hidupmu Dengan Olahan Tepung</h1>
                             <a href="package.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Selengkapnya</a>
                         </div>
@@ -41,7 +41,7 @@
     <!-- Carousel End -->
 
     <!-- Booking Start -->
-    <div class="container-fluid booking mt-5 pb-5">
+    <!--<div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
                 <div class="row align-items-center" style="min-height: 60px;">
@@ -89,33 +89,35 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- Booking End -->
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="about">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="img/about roti.jpg" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                        <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
-                        <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
-                        <div class="row mb-4">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
+                        <h1 class="mb-3">Tentang Yooks Bakery</h1>
+                        <p>Berdiri sejak tahun 2017, berawal dari membuatkan istri usaha sampai akhirnya menjadi
+                            lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan pasar, serta menerima layanan pesanan kue untuk acara.
+                        </p>
+                        <!--<div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="img/about-1.jpg" alt="">
+                                <img class="img-fluid w-50" src="img/roti meses.jfif" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="img/about-2.jpg" alt="">
+                                <img class="img-fluid w-50" src="img/roti pizza.jpg" alt="">
                             </div>
-                        </div>
-                        <a href="" class="btn btn-primary mt-1">Book Now</a>
+                        </div>-->
+                        <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -134,8 +136,8 @@
                             <i class="fa fa-2x fa-money-check-alt text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Competitive Pricing</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Harga Terjangkau</h5>
+                            <p class="m-0">Harga yang kami tawarkan adalah harga termurah di kota Jember</p>
                         </div>
                     </div>
                 </div>
@@ -145,19 +147,19 @@
                             <i class="fa fa-2x fa-award text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Best Services</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Tersertifikasi</h5>
+                            <p class="m-0">Tentunya roti dari toko kami sudah tersertifikasi layak jual</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex mb-4 mb-lg-0">
                         <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                            <i class="fa fa-2x fa-globe text-white"></i>
+                            <i class="fas fa-2x fa-birthday-cake text-white"></i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h5 class="">Worldwide Coverage</h5>
-                            <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                            <h5 class="">Menerima Pesanan</h5>
+                            <p class="m-0">Kami juga melayani pemesanan kue untuk segala acara</p>
                         </div>
                     </div>
                 </div>
@@ -236,7 +238,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="service">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
