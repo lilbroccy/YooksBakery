@@ -700,11 +700,11 @@
             }
             echo "<script>alert('data tersimpan')</script>";
             echo "<script>location='layouts-produk.php'</script>";
-        } else {
+        } /*else {
             $koneksi->query("INSERT INTO produk (id_toko, id_kategori, id_supplier, nama_produk, 
             kode_produk, biaya_produk, jual_produk, stock_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
             '$nama', '$kode', '$beli', '$jual', '$stock', '$keterangan' )");    
-        }
+        }*/
         ?>
 
 
