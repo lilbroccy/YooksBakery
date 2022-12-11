@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Container - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -57,7 +57,7 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
+    
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -66,6 +66,14 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    
+    <!-- Sweet Alert 2 -->
+    <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -154,7 +162,7 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">PERUSAHAAN</span>
             </li>
-
+            
             <!-- Layouts -->
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -163,12 +171,12 @@
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-container.php" class="menu-link">
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
@@ -464,7 +472,7 @@
           <!-- Navbar -->
 
           <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -491,7 +499,7 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                  <a>
+                <a>
                     Hi, <?php echo $_SESSION['User']['nama_user'] ?>
                   </a>
                 </li>
@@ -565,79 +573,74 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-              <div class="card shadow">
-                <h5 class="card-header">Data Kategori
+            <div class="card shadow">
+                <h5 class="card-header">Data Supplier
                 <?php
                 //Mendapatkan ID Toko user yang login
+                $id_supplier = $_GET['id'];
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $kategori =array();
-                $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ");
-                while($tiap = $ambil -> fetch_assoc()){
-                  $kategori[] = $tiap;
-                }
+                $supplier =array();
+                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_supplier='$id_supplier' AND id_toko='$id_toko' ");
+                $supplier = $ambil -> fetch_assoc();
 
                 // echo"<pre>";
-                // print_r($kategori);
+                // print_r($supplier);
                 // echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0">
-                  <a href="kategori_tambah.php" class="btn btn-primary">Tambah</a>
-                </div>
                 <div class="table-responsive text-nowrap p-2">
-                <table id="kategori" class="table table-bordered display" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id Kategori</th>
-                        <th>Nama</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <?php foreach ($kategori as $key => $value): ?>
-                      <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_kategori"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong><?php echo $value["nama_kategori"] ?></strong></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">Edit Supplier</div>
+                            <div class="card-body">
+                                <form method="POST">
+                                    <div class="mb-3">
+                                        <label>Nama Supplier</label>
+                                        <input type="text" name="nama" class="form-control" value="<?php echo $supplier['nama_supplier'] ?>">
+                                    </div>
+                                    <button class="btn btn-primary" name="simpan">Update</button>
+                                </form>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <?php endforeach ?>
-                    </tbody>
-                  </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
             </div>
+        </div>
             <!-- / Content -->
+        <?php 
+        if(isset($_POST['simpan'])){
+            $nama = $_POST['nama'];
+            $id_toko = $_SESSION['User']['id_toko'];
+
+            $ambil = $koneksi->query("UPDATE supplier SET nama_supplier='$nama' WHERE id_supplier='$id_supplier' AND id_toko='$id_toko'");
+
+            if (isset($ambil)) {
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'EDIT SUPPLIER BERHASIL',
+                            text: 'Data Supplier Telah Terupdate'
+                        }).then((result) => {
+                            window.location.href = 'layouts-fluid.php'
+                        })
+                    </script>";
+            }
+        }
+        ?>
+
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
                   ©
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
                 </div>
               </div>
             </footer>
@@ -683,9 +686,10 @@
     <!-- Fungsi Tabel JS -->
     <script>
       $(document).ready(function () {
-        $('#kategori').DataTable();
+        $('#supplier').DataTable();
       });
     </script>
     <!-- END Fungsi Table JS -->
   </body>
 </html>
+

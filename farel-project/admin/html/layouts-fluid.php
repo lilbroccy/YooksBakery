@@ -199,11 +199,16 @@
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
+                </li>
                 <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
                   </a>
                 </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
+                  </a>
                 </li>
                 <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
@@ -604,10 +609,10 @@
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
+                              <a class="dropdown-item" href="supplier_edit.php?id=<?php echo $value["id_supplier"] ?>"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
-                              <a class="dropdown-item" href="javascript:void(0);"
+                              <a class="dropdown-item" href="supplier_hapus.php?id=<?php echo $value["id_supplier"] ?>"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>

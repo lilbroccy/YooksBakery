@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Container - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Penjualan - Transaksi | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -156,14 +156,14 @@
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data Perusahaan</div>
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-container.php" class="menu-link">
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
@@ -187,9 +187,9 @@
             </li>
 
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Data Transaksi</span>
+              <span class="menu-header-text">DATA TRANSAKSI</span>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Customers</div>
@@ -205,7 +205,7 @@
                     <div data-i18n="Account">Laporan Penjualan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="laporan_keuntungan.php" class="menu-link">
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
@@ -464,7 +464,7 @@
           <!-- Navbar -->
 
           <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -491,7 +491,7 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                  <a>
+                <a>
                     Hi, <?php echo $_SESSION['User']['nama_user'] ?>
                   </a>
                 </li>
@@ -547,7 +547,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.php">
+                      <a class="dropdown-item" href="logout.php">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -565,62 +565,101 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Kategori
+                <h5 class="card-header">Data Penjualan
                 <?php
-                //Mendapatkan ID Toko user yang login
-                $id_toko = $_SESSION['User']['id_toko'];
-
-                $kategori =array();
-                $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ");
-                while($tiap = $ambil -> fetch_assoc()){
-                  $kategori[] = $tiap;
+                //Jika ada inputan tglm dan tgls
+                if (isset($_POST['tglm'])AND $_POST['tgls']) {
+                    $tglm = $_POST['tglm'];
+                    $tgls = $_POST['tgls'];
+                } else {
+                    $tgls = date("Y-m-d");
+                    $tglm = (new Datetime($tgls))->modify("-1 month")->format("Y-m-d");  
                 }
 
-                // echo"<pre>";
-                // print_r($kategori);
-                // echo"</pre>";
+                $laporan = array();
+                $id_toko = $_SESSION['User']['id_toko'];
+
+                $period = new DatePeriod(new DateTime($tglm), new DateInterval('P1D'), new DateTime($tgls));
+                foreach($period as $date){
+
+                  $pertanggal = array();
+                  $tanggal = $date->format("Y-m-d");
+                  $keuntungantanggal = 0;
+                  $transaksitanggal= 0;
+
+                  $ambil = $koneksi->query("SELECT * FROM penjualan_produk 
+                                            LEFT JOIN penjualan ON penjualan_produk.id_penjualan = penjualan.id_penjualan
+                                            WHERE penjualan.id_toko='$id_toko' AND DATE (tanggal_penjualan)='$tanggal' ");
+                  while ($tiap = $ambil->fetch_assoc()) 
+                  {
+                    $transaksitanggal+=$tiap['harga_produk'];
+                    $keuntungantanggal+=($tiap['harga_produk'] - $tiap['biaya-produk']) * $tiap['jumlah_produk'];
+                  }
+                  $pertanggal['tanggal'] = $tanggal;
+                  $pertanggal['keuntungan'] = $keuntungantanggal;
+                  $pertanggal['transaksi'] = $transaksitanggal;
+                  $laporan[] = $pertanggal;
+                }
+                echo"<pre>";
+                print_r($laporan);
+                echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0">
-                  <a href="kategori_tambah.php" class="btn btn-primary">Tambah</a>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Mulai</label>
+                                    <input type="date" name="tglm" class="form-control" value="<?php echo $tglm ?>">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Selesai</label>
+                                    <input type="date" name="tglm" class="form-control" value="<?php echo $tgls ?>">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>&nbsp;</label><br>
+                                    <button class="btn btn-primary" name="filter">Filter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <hr>
                 <div class="table-responsive text-nowrap p-2">
-                <table id="kategori" class="table table-bordered display" style="width:100%">
+                <table id="produk" class="table table-bordered display" style="width:100%">
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Id Kategori</th>
-                        <th>Nama</th>
-                        <th>Actions</th>
+                        <th>Tanggal Penjualan</th>
+                        <th>Transaksi</th>
+                        <th>Keuntungan</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <?php foreach ($kategori as $key => $value): ?>
-                      <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_kategori"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong><?php echo $value["nama_kategori"] ?></strong></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <?php endforeach ?>
+                        <?php $totalkeuntungan = 0; ?>
+                        <?php $totaltransaksi = 0; ?>
+                        <?php foreach ($laporan as $key => $value): ?>
+                            <?php $totalkeuntungan+=$value['keuntungan'] ?>
+                            <?php $totaltransaksi+=$value['transaksi'] ?>
+                            <tr>
+                                <td><?php echo $key+1 ?></td>
+                                <td><?php echo date("d M Y", strtotime($value['tanggal'])) ?></td>
+                                <td><?php echo number_format($value['transaksi']) ?></td>
+                                <td><?php echo number_format($value['keuntungan']) ?></td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td><?php echo number_format($totaltransaksi) ?></td>
+                            <td><?php echo number_format($totalkeuntungan) ?></td>
+                        </tr>
+                    </tfoot>
                   </table>
                 </div>
               </div>
@@ -630,14 +669,14 @@
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
                   ©
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
                 </div>
               </div>
             </footer>
@@ -683,9 +722,10 @@
     <!-- Fungsi Tabel JS -->
     <script>
       $(document).ready(function () {
-        $('#kategori').DataTable();
+        $('#produk').DataTable();
       });
     </script>
     <!-- END Fungsi Table JS -->
   </body>
 </html>
+
