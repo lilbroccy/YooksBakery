@@ -107,7 +107,7 @@
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
                         <h1 class="mb-3">Tentang Yooks Bakery</h1>
                         <p>Berdiri sejak tahun 2017, berawal dari membuatkan istri usaha sampai akhirnya menjadi
-                            lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan pasar, serta menerima layanan pesanan kue untuk acara.
+                            lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan tradisional, serta menerima layanan pesanan kue untuk acara.
                         </p>
                         <!--<div class="row mb-4">
                             <div class="col-6">
@@ -173,38 +173,38 @@
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
-                <h1>Explore Top Destination</h1>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Produk</h6>
+                <h1>Jenis Produk Kami</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-1.jpg" alt="">
+                        <img class="img-fluid" src="img/cake.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">United States</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Cake</h5>
+                            <span></span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-2.jpg" alt="">
+                        <img class="img-fluid" src="img/kue kering.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">United Kingdom</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Kue Kering</h5>
+                            <span></span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-3.jpg" alt="">
+                        <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Australia</h5>
-                            <span>100 Cities</span>
+                            <h5 class="text-white">Jajanan Tradisional</h5>
+                            <span></span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <!--<div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/destination-4.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
@@ -230,7 +230,7 @@
                             <span>100 Cities</span>
                         </a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -242,28 +242,28 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
-                <h1>Tours & Travel Services</h1>
+                <h1>Kenapa Harus Memilih Kami?</h1>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-route mx-auto mb-4"></i>
-                        <h5 class="mb-2">Travel Guide</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                        <i class="fa fa-2x fa-money-check-alt mx-auto mb-4"></i>
+                        <h5 class="mb-2">Harga Terjangkau</h5>
+                        <p class="m-0">Harga yang kami tawarkan adalah harga termurah di kota Jember</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
-                        <h5 class="mb-2">Ticket Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                        <i class="fa fa-2x fa-award mx-auto mb-4"></i>
+                        <h5 class="mb-2">Tersertifikasi</h5>
+                        <p class="m-0">Tentunya roti dari toko kami sudah tersertifikasi layak makan dan layak jual</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
-                        <h5 class="mb-2">Hotel Booking</h5>
-                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est amet labore</p>
+                        <i class="fas fa-2x fa-birthday-cake mx-auto mb-4"></i>
+                        <h5 class="mb-2">Menerima Pesanan</h5>
+                        <p class="m-0">Kami juga melayani pemesanan kue untuk segala acara</p>
                     </div>
                 </div>
             </div>
