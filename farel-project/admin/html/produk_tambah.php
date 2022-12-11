@@ -66,6 +66,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    
   </head>
 
   <body>
@@ -199,11 +200,16 @@
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
+                </li>
                 <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
                   </a>
                 </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
+                  </a>
                 </li>
                 <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">

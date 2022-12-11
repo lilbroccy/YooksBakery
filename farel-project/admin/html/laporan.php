@@ -202,7 +202,12 @@
                 </li>
                 <li class="menu-item active">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -577,9 +582,9 @@
                 $laporan = array();
                 $id_toko = $_SESSION['User']['id_toko'];
                 $id_user = $_SESSION['User']['id_user'];
-                $ambil = $koneksi->query("SELECT * FROM penjualan LEFT JOIN user
-                                            ON penjualan.id_user=user.id_user
-                                            WHERE penjualan.id_toko='$id_toko' AND DATE(tanggal_penjualan) BETWEEN '$tglm' AND '$tgls' ");
+                $ambil = $koneksi->query("SELECT * FROM penjualan 
+                                          LEFT JOIN user ON penjualan.id_user=user.id_user
+                                          WHERE penjualan.id_toko='$id_toko' AND DATE(tanggal_penjualan) BETWEEN '$tglm' AND '$tgls' ");
                 while ($tiap = $ambil->fetch_assoc())
                 {
                     $laporan[] = $tiap;

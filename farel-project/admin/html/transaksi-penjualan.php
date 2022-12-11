@@ -202,7 +202,12 @@
                 </li>
                 <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -571,7 +576,8 @@
                 $penjualan =array();
                 $ambil = $koneksi ->query("SELECT * FROM penjualan LEFT JOIN user
                                          ON penjualan.id_user=user.id_user
-                                         WHERE penjualan.id_toko='$id_toko' ");
+                                         WHERE penjualan.id_toko='$id_toko' 
+                                         ORDER BY penjualan.id_penjualan DESC ");
                 while($tiap = $ambil -> fetch_assoc()){
                   $penjualan[] = $tiap;
                 }

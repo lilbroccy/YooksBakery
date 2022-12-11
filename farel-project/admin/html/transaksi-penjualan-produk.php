@@ -199,7 +199,12 @@
                 </li>
                 <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
                 <li class="menu-item">
