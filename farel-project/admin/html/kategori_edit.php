@@ -57,7 +57,7 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
+    
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -66,6 +66,14 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    
+    <!-- Sweet Alert 2 -->
+    <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -168,7 +176,7 @@
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
@@ -565,76 +573,63 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-              <div class="card shadow">
-                <h5 class="card-header">Data Supplier
+            <div class="card shadow">
+                <h5 class="card-header">Data Kategori
                 <?php
                 //Mendapatkan ID Toko user yang login
+                $id_kategori = $_GET['id'];
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $supplier =array();
-                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
-                while($tiap = $ambil -> fetch_assoc()){
-                  $supplier[] = $tiap;
-                }
+                $kategori =array();
+                $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_kategori='$id_kategori' AND id_toko='$id_toko' ");
+                $kategori = $ambil -> fetch_assoc();
 
                 // echo"<pre>";
                 // print_r($supplier);
                 // echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0">
-                  <a href="supplier_tambah.php" class="btn btn-primary">Tambah</a>
-                </div>
                 <div class="table-responsive text-nowrap p-2">
-                <table id="supplier" class="table table-bordered display" style="width:100%">
-                  <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id Supplier</th>
-                        <th>Nama</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php foreach ($supplier as $key => $value): ?>
-                      <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_supplier"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_supplier"] ?></strong></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="supplier_edit.php?id=<?php echo $value["id_supplier"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="supplier_hapus.php?id=<?php echo $value["id_supplier"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">Edit Kategori</div>
+                            <div class="card-body">
+                                <form method="POST">
+                                    <div class="mb-3">
+                                        <label>Nama Kategori</label>
+                                        <input type="text" name="nama" class="form-control" value="<?php echo $kategori['nama_kategori'] ?>">
+                                    </div>
+                                    <button class="btn btn-primary" name="simpan">Update</button>
+                                </form>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <?php endforeach ?>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td>No</td>
-                        <td>Id Supplier</td>
-                        <td>Nama</td>
-                        <td>Actions</td>
-                      </tr>
-                    </tfoot>
-                  </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
             </div>
+        </div>
             <!-- / Content -->
+        <?php 
+        if(isset($_POST['simpan'])){
+            $nama = $_POST['nama'];
+            $id_toko = $_SESSION['User']['id_toko'];
+
+            $ambil = $koneksi->query("UPDATE kategori SET nama_kategori='$nama' WHERE id_kategori='$id_kategori' AND id_toko='$id_toko'");
+
+            if (isset($ambil)) {
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'EDIT KATEGORI BERHASIL',
+                            text: 'Data Kategori Telah Terupdate'
+                        }).then((result) => {
+                            window.location.href = 'layouts-container.php'
+                        })
+                    </script>";
+            }
+        }
+        ?>
+
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">

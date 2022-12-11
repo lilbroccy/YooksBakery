@@ -202,7 +202,12 @@
                 </li>
                 <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -580,7 +585,7 @@
                 ?>
                 </h5>
                 <div class="container col-md-0">
-                  <a href="kategori_tambah.php" class="btn btn-primary">Tambah</a>
+                  <a href="kategori_tambah.php"class="btn btn-primary">Tambah</a>
                 </div>
                 <div class="table-responsive text-nowrap p-2">
                 <table id="kategori" class="table table-bordered display" style="width:100%">
@@ -604,10 +609,10 @@
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
+                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
-                              <a class="dropdown-item" href="javascript:void(0);"
+                              <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>
@@ -666,7 +671,7 @@
     <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->
-
+    
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -682,5 +687,7 @@
       });
     </script>
     <!-- END Fungsi Table JS -->
+
+  </div>
   </body>
 </html>

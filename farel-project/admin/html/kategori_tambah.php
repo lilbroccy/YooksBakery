@@ -66,6 +66,14 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+
+    <!-- Sweet Alert 2-->
+    <!--<link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!--Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -199,11 +207,16 @@
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
+                </li>
                 <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
                   </a>
                 </li>
+                <li class="menu-item">
+                  <a href="laporan_keuntungan.php" class="menu-link">
+                    <div data-i18n="Account">Laporan Keuntungan</div>
+                  </a>
                 </li>
                 <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
@@ -602,10 +615,19 @@
             $nama = $_POST['nama'];
             $id_toko = $_SESSION['User']['id_toko'];
 
-            $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori) VALUES ('$id_toko', '$nama')");
+            $ambil = $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori) VALUES ('$id_toko', '$nama')");
 
-            echo "<script>alert('data tersimpan')</script>";
-            echo "<script>location='layouts-container.php'</script>";
+            if (isset($ambil)) {
+              echo "<script>
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'INPUT DATA KATEGORI BERHASIL',
+                          text: 'Data Kategori Telah Bertambah'
+                      }).then((result) => {
+                          window.location.href = 'layouts-container.php'
+                      })
+                  </script>";
+          }
         }
         ?>
 

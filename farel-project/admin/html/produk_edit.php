@@ -66,6 +66,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    
   </head>
 
   <body>
@@ -168,12 +169,12 @@
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="layouts-produk.php" class="menu-link">
                     <div data-i18n="Fluid">Data Produk</div>
                   </a>
@@ -561,17 +562,44 @@
 
           <!-- / Navbar -->
 
+              <?php
+                //Mendapatkan ID Toko user yang login
+                $id_toko = $_SESSION['User']['id_toko'];
+
+                // <!-- Data Supplier -->
+                $supplier =array();
+                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
+                while($tiap = $ambil -> fetch_assoc()){
+                  $supplier[] = $tiap;
+                }
+                
+                // <!-- Data Kategori -->
+                $kategori =array();
+                $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ");
+                while($tiap = $ambil -> fetch_assoc()){
+                  $kategori[] = $tiap;
+                }
+
+                // echo"<pre>";
+                // print_r($supplier);
+                // echo"</pre>";
+              ?>
+
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-              <div class="card shadow">
+            <div class="card shadow">
                 <h5 class="card-header">Data Supplier
                 <?php
                 //Mendapatkan ID Toko user yang login
+                $id_produk = $_GET['id'];
                 $id_toko = $_SESSION['User']['id_toko'];
+
+                $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");
+                $produk = $ambil->fetch_assoc();
 
                 $supplier =array();
                 $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
@@ -584,57 +612,110 @@
                 // echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0">
-                  <a href="supplier_tambah.php" class="btn btn-primary">Tambah</a>
-                </div>
                 <div class="table-responsive text-nowrap p-2">
-                <table id="supplier" class="table table-bordered display" style="width:100%">
-                  <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id Supplier</th>
-                        <th>Nama</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php foreach ($supplier as $key => $value): ?>
-                      <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_supplier"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_supplier"] ?></strong></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="supplier_edit.php?id=<?php echo $value["id_supplier"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="supplier_hapus.php?id=<?php echo $value["id_supplier"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">Edit Produk</div>
+                            <div class="card-body">
+                                <form method="POST" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label>Supplier</label>
+                                            <select class="form-control" name="id_suppplier">
+                                                <option value="">Pilih</option>
+                                                <?php foreach ($supplier as $key => $value): ?>
+                                        
+                                                <option value="<?php echo $value["id_supplier"] ?>" <?php echo $value['id_supplier']==$produk['id_supplier']?"selected":"" ?>>
+                                                    <?php echo $value["nama_supplier"] ?>
+                                                </option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Kategori</label>
+                                            <select class="form-control" name="id_kategori">
+                                                <option value="">Pilih</option>
+                                                <?php foreach ($kategori as $key => $value): ?>
+                                                
+                                                <option value="<?php echo $value['id_kategori']?>" <?php echo $value['id_kategori']==$produk['id_kategori']?"selected":"" ?>>
+                                                    <?php echo $value["nama_kategori"] ?>
+                                                </option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Kode Produk</label>
+                                            <input type="text" name="kode" class="form-control" value="<?php echo $produk['kode_produk'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Nama Produk</label>
+                                        <input type="text" name="nama" class="form-control" value="<?php echo $produk['nama_produk'] ?>">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label>Biaya Produksi</label>
+                                            <input type="number" name="beli" class="form-control" value="<?php echo $produk['biaya_produk'] ?>">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Jual Produk</label>
+                                            <input type="number" name="jual" class="form-control" value="<?php echo $produk['jual_produk'] ?>">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Stock Produk</label>
+                                            <input type="stock" name="stock" class="form-control" value="<?php echo $produk['stock_produk'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Foto Sebelumnya</label><br>
+                                        <img src="../../asset/image/image-admin/produk/<?php echo $produk['foto_produk'] ?>" width="200">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Foto Produk</label>
+                                        <input type="file" name="foto" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Keterangan Produk</label>
+                                        <textarea class="form-control" name="keterangan" cols="30" rows="5"><?php echo $produk['keterangan_produk'] ?></textarea>
+                                    </div>
+                                    <button class="btn btn-primary" name="simpan">Simpan</button>
+                                </form>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <?php endforeach ?>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td>No</td>
-                        <td>Id Supplier</td>
-                        <td>Nama</td>
-                        <td>Actions</td>
-                      </tr>
-                    </tfoot>
-                  </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
             </div>
+        </div>
             <!-- / Content -->
+        <?php 
+        if(isset($_POST['simpan'])){
+            $id_toko = $_SESSION['User']['id_toko'];
+            $nama = $_POST['nama'];
+            $id_supplier = $_POST['id_supplier'];
+            $id_kategori = $_POST['id_kategori'];
+            $kode = $_POST['kode'];
+            $beli = $_POST['beli'];
+            $jual = $_POST['jual'];
+            $stock = $_POST['stock'];
+            $keterangan = $_POST['keterangan'];
+            $namafoto = $_FILES['foto']['name'];
+            $lokasifoto = $_FILES['foto']['tmp_name'];
+
+            if(!empty($lokasifoto)){
+                move_uploaded_file($lokasifoto, "../../asset/image/image-admin/produk/".$namafoto);
+                
+                $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
+                                kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
+                                WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
+        } else {
+            $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
+            kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', keterangan_produk='$keterangan'
+            WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
+        }
+            echo "<script>alert('data tersimpan')</script>";
+            echo "<script>location='layouts-produk.php'</script>";
+    }
+        ?>
+
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
