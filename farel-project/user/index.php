@@ -582,7 +582,7 @@
     <!-- Testimonial End -->
 
 
-    <!-- Blog Start -->
+    <!-- Blog Start
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -650,7 +650,7 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
+    Blog End -->
 
     <!-- Footer -->
     <?php include 'footer.php' ?>
