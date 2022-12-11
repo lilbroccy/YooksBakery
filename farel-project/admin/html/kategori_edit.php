@@ -176,7 +176,7 @@
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
@@ -213,7 +213,7 @@
                     <div data-i18n="Account">Laporan Penjualan</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="laporan_keuntungan.php" class="menu-link">
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
