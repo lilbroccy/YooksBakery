@@ -84,7 +84,7 @@ if (!isset($_SESSION['User'])) {
                 <a href="" class="navbar-brand">
                     <h1 class="m-0 text-primary"><span class="text-dark">YOOKS</span>BAKERY</h1>
                 </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <button type="button" class="navbar-toggler" datza-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
