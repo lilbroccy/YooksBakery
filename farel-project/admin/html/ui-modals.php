@@ -648,10 +648,7 @@
                           type="button"
                           class="btn btn-primary"
                           data-bs-toggle="modal"
-                          data-bs-target="#modalCenter"
-                        >
-                          Launch modal
-                        </button>
+                          data-bs-target="#modalCenter">Launch modal</button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">

@@ -433,7 +433,7 @@
                                 title: 'HAPUS KATEGORI BERHASIL',
                                 text: 'Data Kategori Telah Terhapus'
                             }).then((result) => {
-                                window.location.href = 'layouts-fluid.php'
+                                window.location.href = 'layouts-container.php'
                             })
                         </script>";
                 }

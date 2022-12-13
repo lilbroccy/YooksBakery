@@ -410,7 +410,7 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Kategori
+                <h5 class="card-header">Data Kategori</h5>
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
@@ -425,9 +425,15 @@
                 // print_r($kategori);
                 // echo"</pre>";
                 ?>
-                </h5>
                 <div class="container col-md-0">
-                  <a href="kategori_tambah.php"class="btn btn-primary">Tambah</a>
+
+                  <!-- Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#tambahModal">Tambah</button>
+
                 </div>
                 <div class="table-responsive text-nowrap p-2">
                 <table id="kategori" class="table table-bordered display" style="width:100%">
@@ -497,6 +503,60 @@
     </div>
     <!-- / Layout wrapper -->
 
+
+    <!-- Modal Tambah Kategori -->
+    <?php
+    //Mendapatkan ID Toko user yang login
+    $id_toko = $_SESSION['User']['id_toko'];
+
+    $supplier =array();
+    $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
+    while($tiap = $ambil -> fetch_assoc()){
+      $supplier[] = $tiap;
+    }
+
+    // echo"<pre>";
+    // print_r($supplier);
+    // echo"</pre>";
+    ?>
+    <div class="modal fade" id="tambahModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCenterTitle">Tambah Kategori</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form method="POST">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="nameWithTitle" class="form-label">Nama</label>
+                  <input
+                    type="text"
+                    name="nama"
+                    id="nameWithTitle"
+                    class="form-control"
+                    placeholder="Nama Kategori"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary" name="simpan">Update</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
@@ -520,6 +580,7 @@
     <!-- Table JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../../farel-project/asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
     <!-- END Table JS -->
 
     <!-- Fungsi Tabel JS -->
@@ -528,6 +589,28 @@
         $('#kategori').DataTable();
       });
     </script>
+    
+    <?php 
+      if(isset($_POST['simpan'])){
+          $nama = $_POST['nama'];
+          $id_toko = $_SESSION['User']['id_toko'];
+
+          $ambil = $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori) VALUES ('$id_toko', '$nama')");
+
+          if (isset($ambil)) {
+            echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'INPUT DATA KATEGORI BERHASIL',
+                        text: 'Data Kategori Telah Bertambah'
+                    }).then((result) => {
+                        window.location.href = 'layouts-container.php'
+                    })
+                </script>";
+        }
+      }
+    
+    ?>
     <!-- END Fungsi Table JS -->
 
   </div>

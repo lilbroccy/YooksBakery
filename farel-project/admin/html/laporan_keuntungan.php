@@ -438,7 +438,7 @@
                   while ($tiap = $ambil->fetch_assoc()) 
                   {
                     $transaksitanggal+=$tiap['harga_produk'];
-                    $keuntungantanggal+=($tiap['harga_produk'] - $tiap['biaya-produk']) * $tiap['jumlah_produk'];
+                    $keuntungantanggal+=($tiap['harga_produk'] - $tiap['biaya_produk']) * $tiap['jumlah_produk'];
                   }
                   $pertanggal['tanggal'] = $tanggal;
                   $pertanggal['keuntungan'] = $keuntungantanggal;
