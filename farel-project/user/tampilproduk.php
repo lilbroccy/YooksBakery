@@ -38,11 +38,6 @@ while($tiap = $ambil -> fetch_assoc())
                     </div>
                 </div>
                 <?php endforeach ?>
-                <div class="col-md-3">
-                    <div class="card border-0 shadow">
-                        <div class="card-body keranjang"></div>
-                    </div>
-                </div>
             </div>
             <script>
         $(document).ready(function() {
