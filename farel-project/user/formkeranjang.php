@@ -15,12 +15,12 @@
     </div>
     <!-- Header End -->
     <div class="container-fluid py-5">
-    <div class="col-lg-4 col-md-6 mb-4">
+    <!-- <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card border-0 shadow">
                         <div class="card-body keranjang"></div>
                     </div>
-    </div>
-    <div class="col-md-6">
+    </div> -->
+    <div class="col-md-12">
                     <div class="card border-0 shadow">
                         <div class="card-body keranjang"></div>
                     </div>
