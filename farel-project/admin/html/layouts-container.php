@@ -442,6 +442,7 @@
                         <th>No</th>
                         <th>Id Kategori</th>
                         <th>Nama</th>
+                        <th>Foto Produk</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -451,13 +452,14 @@
                         <td><?php echo $key+1 ?></td>
                         <td><?php echo $value["id_kategori"] ?></td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong><?php echo $value["nama_kategori"] ?></strong></td>
+                        <td><?php echo $value["foto_kategori"] ?></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
+                              <a class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
                               <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
@@ -531,17 +533,27 @@
               aria-label="Close"
             ></button>
           </div>
-          <form method="POST">
+          <form method="POST" enctype="multipart/form-data">
             <div class="modal-body">
               <div class="row">
-                <div class="col mb-3">
+                <div class="mb-3">
                   <label for="nameWithTitle" class="form-label">Nama</label>
                   <input
                     type="text"
-                    name="nama"
+                    name="tambah-nama"
                     id="nameWithTitle"
                     class="form-control"
                     placeholder="Nama Kategori"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="nameWithTitle" class="form-label">Foto</label>
+                  <input
+                    type="file"
+                    name="tambah-foto"
+                    id="nameWithTitle"
+                    class="form-control"
+                    placeholder="Foto Kategori"
                   />
                 </div>
               </div>
@@ -550,12 +562,65 @@
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                 Close
               </button>
-              <button type="submit" class="btn btn-primary" name="simpan">Update</button>
+              <button type="submit" class="btn btn-primary" name="tambah-simpan">Submit</button>
             </div>
         </form>
         </div>
       </div>
     </div>
+    <!-- END Modal Tambah Kategori -->
+
+    <!-- Modal Edit Kategori -->
+    <?php
+    //Mendapatkan ID Toko user yang login
+    $id_toko = $_SESSION['User']['id_toko'];
+
+    $kategori =array();
+    $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_kategori='$id_kategori' AND id_toko='$id_toko' ");
+    $kategori = $ambil -> fetch_assoc();
+
+    // echo"<pre>";
+    // print_r($supplier);
+    // echo"</pre>";
+    ?>
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCenterTitle1">Edit Kategori</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form method="POST">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="nameWithTitle1" class="form-label">Nama</label>
+                  <input
+                    type="text"
+                    name="edit-nama"
+                    id="nameWithTitle"
+                    class="form-control"
+                    value="<?php echo $kategori['nama_kategori'] ?>"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary" name="edit-simpan">Update</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- END Modal Edit Kategori -->
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
@@ -589,14 +654,19 @@
         $('#kategori').DataTable();
       });
     </script>
-    
+    <!-- END Fungsi Tabel JS -->
+
+    <!-- Query Tambah Kategori -->
     <?php 
-      if(isset($_POST['simpan'])){
-          $nama = $_POST['nama'];
+      if(isset($_POST['tambah-simpan'])){
+          $nama = $_POST['tambah-nama'];
           $id_toko = $_SESSION['User']['id_toko'];
+          $namafoto = $_FILES['foto']['name'];
+          $lokasifoto = $_FILES['foto']['tmp_name'];
 
-          $ambil = $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori) VALUES ('$id_toko', '$nama')");
-
+        if (!empty($lokasifoto)) {
+          move_uploaded_file($lokasifoto, "../../asset/image/image-admin/kategori/".$namafoto);
+          $ambil = $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori, foto_kategori) VALUES ('$id_toko', '$nama', '$namafoto')");
           if (isset($ambil)) {
             echo "<script>
                     Swal.fire({
@@ -607,11 +677,35 @@
                         window.location.href = 'layouts-container.php'
                     })
                 </script>";
+          }
         }
       }
-    
     ?>
-    <!-- END Fungsi Table JS -->
+    <!-- END Query Tambah Kategori -->
+
+    
+    <!-- Query Edit Kategori -->
+    <?php 
+        if(isset($_POST['edit-simpan'])){
+            $nama = $_POST['edit-nama'];
+            $id_toko = $_SESSION['User']['id_toko'];
+
+            $ambil = $koneksi->query("UPDATE kategori SET nama_kategori='$nama' WHERE id_kategori='$id_kategori' AND id_toko='$id_toko'");
+
+            if (isset($ambil)) {
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'EDIT KATEGORI BERHASIL',
+                            text: 'Data Kategori Telah Terupdate'
+                        }).then((result) => {
+                            window.location.href = 'layouts-container.php'
+                        })
+                    </script>";
+            }
+        }
+        ?>
+    <!-- END Query Edit Kategori -->
 
   </div>
   </body>
