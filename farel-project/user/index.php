@@ -41,7 +41,7 @@
     <!-- Carousel End -->
 
     <!-- Booking Start -->
-    <!--<div class="container-fluid booking mt-5 pb-5">
+    <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
                 <div class="row align-items-center" style="min-height: 60px;">
@@ -109,7 +109,7 @@
                         <p>Berdiri sejak tahun 2017, berawal dari membuatkan istri usaha sampai akhirnya menjadi
                             lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan tradisional, serta menerima layanan pesanan kue untuk acara.
                         </p>
-                        <!--<div class="row mb-4">
+                        <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid w-50" src="img/roti meses.jfif" alt="">
                             </div>
@@ -126,7 +126,7 @@
     <!-- About End -->
 
 
-    <!-- Feature Start 
+    <!-- Feature Start-->
     <div class="container-fluid pb-5">
         <div class="container pb-5">
             <div class="row">
@@ -166,7 +166,7 @@
             </div>
         </div>
     </div>
-    Feature End -->
+    <!--Feature End -->
 
 
     <!-- Kategori Start -->
@@ -194,14 +194,68 @@
             <?php foreach ($kategori as $key => $value): ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
+<<<<<<< Updated upstream
                         <img class="img-fluid" src="../asset/image/image-admin/kategori/<?php echo $value["foto_kategori"] ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white"><?php echo $value["nama_kategori"] ?></h5>
+=======
+                        <img class="img-fluid" src="img/covercake.jpeg" alt="" width="280" height="100">
+                        <a class="destination-overlay text-white text-decoration-none" href="package.php">
+                            <h5 class="text-white">Cake</h5>
                             <span></span>
                         </a>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/kue kering.jpg" alt=""  >
+                        <a class="destination-overlay text-white text-decoration-none" href="package2.php">
+                            <h5 class="text-white">Kue Kering</h5>
+>>>>>>> Stashed changes
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+<<<<<<< Updated upstream
             <?php endforeach ?>
+=======
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="package3.php">
+                            <h5 class="text-white">Jajanan Tradisional</h5>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-4.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">India</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-5.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">South Africa</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Indonesia</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>-->
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>
