@@ -180,7 +180,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/kuee.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
+                        <a class="destination-overlay text-white text-decoration-none" href="package.php">
                             <h5 class="text-white">Cake</h5>
                             <span></span>
                         </a>
@@ -189,7 +189,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/kue kering.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
+                        <a class="destination-overlay text-white text-decoration-none" href="package2.php">
                             <h5 class="text-white">Kue Kering</h5>
                             <span></span>
                         </a>
@@ -198,7 +198,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
+                        <a class="destination-overlay text-white text-decoration-none" href="package3.php">
                             <h5 class="text-white">Jajanan Tradisional</h5>
                             <span></span>
                         </a>
