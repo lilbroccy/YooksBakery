@@ -41,7 +41,7 @@
     <!-- Carousel End -->
 
     <!-- Booking Start -->
-    <!--<div class="container-fluid booking mt-5 pb-5">
+    <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
                 <div class="row align-items-center" style="min-height: 60px;">
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- Booking End -->
 
 
@@ -109,14 +109,14 @@
                         <p>Berdiri sejak tahun 2017, berawal dari membuatkan istri usaha sampai akhirnya menjadi
                             lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan tradisional, serta menerima layanan pesanan kue untuk acara.
                         </p>
-                        <!--<div class="row mb-4">
+                        <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid w-50" src="img/roti meses.jfif" alt="">
                             </div>
                             <div class="col-6">
                                 <img class="img-fluid w-50" src="img/roti pizza.jpg" alt="">
                             </div>
-                        </div>-->
+                        </div>
                         <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
     <!-- About End -->
 
 
-    <!-- Feature Start 
+    <!-- Feature Start-->
     <div class="container-fluid pb-5">
         <div class="container pb-5">
             <div class="row">
@@ -166,24 +166,10 @@
             </div>
         </div>
     </div>
-    Feature End -->
+    <!--Feature End -->
 
 
-    <!-- Kategori Start -->
-    <?php
-        //Mendapatkan ID Toko user yang login
-        $id_toko = $_SESSION['User']['id_toko'];
-
-        $kategori =array();
-        $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ");
-        while($tiap = $ambil -> fetch_assoc()){
-            $kategori[] = $tiap;
-        }
-
-        // echo"<pre>";
-        // print_r($kategori);
-        // echo"</pre>";
-    ?>
+    <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -191,21 +177,64 @@
                 <h1>Jenis Produk Kami</h1>
             </div>
             <div class="row">
-            <?php foreach ($kategori as $key => $value): ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="../asset/image/image-admin/kategori/<?php echo $value["foto_kategori"] ?>" alt="">
+                        <img class="img-fluid" src="img/kuee.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"><?php echo $value["nama_kategori"] ?></h5>
+                            <h5 class="text-white">Cake</h5>
                             <span></span>
                         </a>
                     </div>
                 </div>
-            <?php endforeach ?>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/kue kering.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Kue Kering</h5>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Jajanan Tradisional</h5>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-4.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">India</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-5.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">South Africa</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Indonesia</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Kategori Start -->
+    <!-- Destination Start -->
 
 
     <!-- Service Start -->
@@ -275,6 +304,18 @@
         })
     </script>
     <!-- END Cari Otomatis -->
+
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: 'tampilkeranjang.php',
+                success:function(hasil){
+                    $(".keranjang").html(hasil);
+                }
+            })
+        }) 
+    </script>
+
     
     <script>
         $(document).ready(function(){
@@ -289,6 +330,66 @@
                         $(".letak-produk").html(hasil);
                     }
                 })
+            })
+        })
+    </script>
+
+    
+
+    <script>
+        $(document).ready(function(){
+            $(document).on("click", ".tambahi", function(){
+                var id_produk = $(this).attr("idnya");
+                $.ajax({
+                    type : 'post',
+                    url : 'tambahkeranjang.php',
+                    data : 'id_produk='+id_produk,
+                    success: function(hasil){
+                            $.ajax({
+                                url: 'tampilkeranjang.php',
+                                success:function(hasil){
+                                $(".keranjang").html(hasil);
+                            }
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on("click", ".kurangi", function(){
+                var id_produk = $(this).attr("idnya");
+                $.ajax({
+                    type : 'post',
+                    url : 'kurangkeranjang.php',
+                    data : 'id_produk='+id_produk,
+                    success: function(hasil){
+                            $.ajax({
+                                url: 'tampilkeranjang.php',
+                                success:function(hasil){
+                                $(".keranjang").html(hasil);
+                            }
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on("keyup", ".bayar", function(){
+                // Dapatkan inputan bayar
+                var bayar =$(this).val();
+
+                // Dapatkan inputan total
+                var total =$(".total").val();
+
+                var kembalian = parseInt(bayar) - parseInt(total);
+
+                $(".kembalian").val(kembalian);
             })
         })
     </script>
@@ -324,14 +425,14 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <select class="custom-select px-4" style="height: 47px;">
                                         <option selected>Select a destination</option>
                                         <option value="1">destination 1</option>
                                         <option value="2">destination 1</option>
                                         <option value="3">destination 1</option>
                                     </select>
-                                </div> -->
+                                </div>
                                 <div>
                                     <button class="btn btn-primary btn-block py-3" type="submit">Sign In Now</button>
                                 </div>
@@ -481,7 +582,7 @@
     <!-- Testimonial End -->
 
 
-    <!-- Blog Start
+    <!-- Blog Start-->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
