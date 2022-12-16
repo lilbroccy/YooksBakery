@@ -33,12 +33,14 @@ if (!isset($_SESSION['User'])) {
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        
         <!-- Libraries Stylesheet -->
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        
     </head>
 
     <!-- Topbar Start -->
@@ -92,7 +94,7 @@ if (!isset($_SESSION['User'])) {
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="#about" class="nav-item nav-link">About</a>
                         <a href="#service" class="nav-item nav-link">Services</a>
-                        <a href="package.php" class="nav-item nav-link">Tour Packages</a>
+                        <a href="package.php" class="nav-item nav-link">Menu</a>
                     </div>
                 </div>
             </nav>
