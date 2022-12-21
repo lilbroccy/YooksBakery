@@ -41,7 +41,7 @@
     <!-- Carousel End -->
 
     <!-- Booking Start -->
-    <div class="container-fluid booking mt-5 pb-5">
+    <!-- <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
                 <div class="row align-items-center" style="min-height: 60px;">
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Booking End -->
 
 
@@ -109,7 +109,7 @@
                         <p>Berdiri sejak tahun 2017, berawal dari membuatkan istri usaha sampai akhirnya menjadi
                             lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan tradisional, serta menerima layanan pesanan kue untuk acara.
                         </p>
-                        <div class="row mb-4">
+                        <!-- <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid w-50" src="img/roti meses.jfif" alt="">
                             </div>
@@ -117,7 +117,7 @@
                                 <img class="img-fluid w-50" src="img/roti pizza.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
+                        <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a> -->
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
 
 
     <!-- Feature Start-->
-    <div class="container-fluid pb-5">
+    <!-- <div class="container-fluid pb-5">
         <div class="container pb-5">
             <div class="row">
                 <div class="col-md-4">
@@ -165,7 +165,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Feature End -->
 
 
@@ -204,7 +204,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/destination-4.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
@@ -230,7 +230,7 @@
                             <span>100 Cities</span>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -583,7 +583,7 @@
 
 
     <!-- Blog Start-->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Blog</h6>
@@ -649,7 +649,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     Blog End -->
 
     <!-- Footer -->
