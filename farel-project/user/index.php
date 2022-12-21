@@ -401,7 +401,7 @@
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="mb-4">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
-                        <h1 class="text-white"><span class="text-primary">30% OFF</span> For Honeymoon</h1>
+                        <h1 class="text-white"><span class="text-primary">30% OFFSET</span> For Honeymoon</h1>
                     </div>
                     <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
                         ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
