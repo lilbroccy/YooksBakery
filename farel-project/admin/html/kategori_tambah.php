@@ -438,10 +438,14 @@
                     <div class="card border-0 shadow">
                         <div class="card-header bg-primary text-white">Tambah Kategori</div>
                             <div class="card-body">
-                                <form method="POST">
+                                <form method="POST" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label>Nama Kategori</label>
                                         <input type="text" name="nama" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Foto Produk</label>
+                                        <input type="file" name="foto" class="form-control">
                                     </div>
                                     <button class="btn btn-primary" name="simpan">Simpan</button>
                                 </form>
@@ -456,21 +460,25 @@
         if(isset($_POST['simpan'])){
             $nama = $_POST['nama'];
             $id_toko = $_SESSION['User']['id_toko'];
+            $namafoto = $_FILES['foto']['name'];
+            $lokasifoto = $_FILES['foto']['tmp_name'];
 
-            $ambil = $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori) VALUES ('$id_toko', '$nama')");
-
-            if (isset($ambil)) {
-              echo "<script>
-                      Swal.fire({
-                          icon: 'success',
-                          title: 'INPUT DATA KATEGORI BERHASIL',
-                          text: 'Data Kategori Telah Bertambah'
-                      }).then((result) => {
-                          window.location.href = 'layouts-container.php'
-                      })
-                  </script>";
-          }
-        }
+            if (!empty($lokasifoto)) {
+              move_uploaded_file($lokasifoto, "../../asset/image/image-admin/kategori/".$namafoto);
+              $ambil = $koneksi->query("INSERT INTO kategori (id_toko, nama_kategori, foto_kategori) VALUES ('$id_toko', '$nama', '$namafoto')");
+              if (isset($ambil)) {
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'INPUT DATA KATEGORI BERHASIL',
+                            text: 'Data Kategori Telah Bertambah'
+                        }).then((result) => {
+                            window.location.href = 'layouts-container.php'
+                        })
+                    </script>";
+              }
+            }
+      } 
         ?>
 
 
