@@ -426,14 +426,7 @@
                 // echo"</pre>";
                 ?>
                 <div class="container col-md-0">
-
-                  <!-- Button trigger modal -->
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#tambahModal">Tambah</button>
-
+                  <a href="kategori_tambah.php" class="btn btn-primary">Tambah</a>
                 </div>
                 <div class="table-responsive text-nowrap p-2">
                 <table id="kategori" class="table table-bordered display" style="width:100%">
@@ -459,7 +452,7 @@
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#editModal"
+                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
                               <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
@@ -574,10 +567,10 @@
     <?php
     //Mendapatkan ID Toko user yang login
     $id_toko = $_SESSION['User']['id_toko'];
-    $id_kategori = $_GET['id'];
+    
 
     $kategori =array();
-    $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_kategori='$id_kategori' AND id_toko='$id_toko' ");
+    $ambil = $koneksi ->query("SELECT * FROM kategori WHERE  id_toko='$id_toko' ");
     $kategori = $ambil -> fetch_assoc();
 
     // echo"<pre>";
