@@ -5,11 +5,11 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Menu</h3>
+                <h3 class="display-4 text-white text-uppercase">Packages</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Menu</p>
+                    <p class="m-0 text-uppercase">Packages</p>
                 </div>
             </div>
         </div>
@@ -50,22 +50,21 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Jenis Produk Kami</h6>
-                <h1>Cake</h1>
+                <h1>Kue Kering</h1>
                 
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img src="img/cake12.jpg" alt="" width="250px">
+                        <img src="img/kuekering1.jpg" alt="" width="250px">
                     </div>
                     <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Dark Chocolate</h3>
+              <h3>Chocolate Nuts</h3>
               <ul>
-                <li><strong>Harga </strong><br>Rp90.000</li>
+                <li><strong>Harga </strong><br>Rp40.000</li>
                 <br>
-                <li><strong>Deskripsi </strong><br>
-                  <p>cape
+                <li><strong>Deskripsi </strong><br><p>kue ajah
                   </p>
                 </li>
               </ul>
@@ -75,13 +74,13 @@
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img src="img/cake1.jpg" alt=""  width="250px">
+                        <img src="img/kuekering2.jpg" alt=""  width="250px">
                     </div>
                     <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Dark Chocolate</h3>
               <ul>
-                <li><strong>Harga </strong><br>Rp90.000</li>
+                <li><strong>Harga </strong><br>Rp78.000</li>
                 <br>
                 <li><strong>Deskripsi </strong><br>
                   <p>cape
@@ -93,13 +92,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img src="img/cake3.jpg" alt="" width="250">
+                        <img src="img/kuekering3.jpg" alt="" width="250">
                     </div>
                     <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Dark Chocolate</h3>
               <ul>
-                <li><strong>Harga </strong><br>Rp90.000</li>
+                <li><strong>Harga </strong><br>Rp89.000</li>
                 <br>
                 <li><strong>Deskripsi </strong><br>
                   <p>cape
@@ -111,13 +110,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img src="img/cake4.jpg" alt="" width="250px">
+                        <img src="img/kuekering4.jpg" alt="" width="250px">
                     </div>
                     <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Dark Chocolate</h3>
               <ul>
-                <li><strong>Harga </strong><br>Rp90.000</li>
+                <li><strong>Harga </strong><br>RpRp67.000</li>
                 <br>
                 <li><strong>Deskripsi </strong><br>
                   <p>cape
@@ -129,13 +128,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img src="img/cake5.jpg" alt="" width="250px">
+                        <img src="img/kuekering5.jpg" alt="" width="250px">
                     </div>
                     <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Dark Chocolate</h3>
               <ul>
-                <li><strong>Harga </strong><br>Rp90.000</li>
+                <li><strong>Harga </strong><br>Rp88.000</li>
                 <br>
                 <li><strong>Deskripsi </strong><br>
                   <p>cape
@@ -147,13 +146,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img src="img/cake6.jpg" alt="" width="250x">
+                        <img src="img/kuekering6.jpg" alt="" width="250x">
                     </div>
                     <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Dark Chocolate</h3>
               <ul>
-                <li><strong>Harga </strong><br>Rp90.000</li>
+                <li><strong>Harga </strong><br>Rp45.000</li>
                 <br>
                 <li><strong>Deskripsi </strong><br>
                   <p>cape
