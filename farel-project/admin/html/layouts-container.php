@@ -574,6 +574,7 @@
     <?php
     //Mendapatkan ID Toko user yang login
     $id_toko = $_SESSION['User']['id_toko'];
+    $id_kategori = $_GET['id'];
 
     $kategori =array();
     $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_kategori='$id_kategori' AND id_toko='$id_toko' ");
@@ -661,8 +662,8 @@
       if(isset($_POST['tambah-simpan'])){
           $nama = $_POST['tambah-nama'];
           $id_toko = $_SESSION['User']['id_toko'];
-          $namafoto = $_FILES['foto']['name'];
-          $lokasifoto = $_FILES['foto']['tmp_name'];
+          $namafoto = $_FILES['tambah-foto']['name'];
+          $lokasifoto = $_FILES['tambah-foto']['tmp_name'];
 
         if (!empty($lokasifoto)) {
           move_uploaded_file($lokasifoto, "../../asset/image/image-admin/kategori/".$namafoto);
