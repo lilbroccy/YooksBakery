@@ -40,7 +40,7 @@
     </div>
     <!-- Carousel End -->
 
-    <!-- Booking Start 
+    <!-- Booking Start -->
     <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-    Booking End -->
+    <!-- Booking End -->
 
 
     <!-- About Start -->
@@ -109,14 +109,14 @@
                         <p>Berdiri sejak tahun 2017, berawal dari membuatkan istri usaha sampai akhirnya menjadi
                             lapangan kerja untuk tetangga sekitar. Kami menjual aneka Kue maupun jajanan tradisional, serta menerima layanan pesanan kue untuk acara.
                         </p>
-                        <!-- <div class="row mb-4">
+                        <div class="row mb-4">
                             <div class="col-6">
                                 <img class="img-fluid w-50" src="img/roti meses.jfif" alt="">
                             </div>
                             <div class="col-6">
                                 <img class="img-fluid w-50" src="img/roti pizza.jpg" alt="">
                             </div>
-                        </div> -->
+                        </div>
                         <a href="" class="btn btn-primary mt-1">Pesan Sekarang</a>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
     <!-- About End -->
 
 
-    <!-- Feature Start
+    <!-- Feature Start-->
     <div class="container-fluid pb-5">
         <div class="container pb-5">
             <div class="row">
@@ -166,7 +166,7 @@
             </div>
         </div>
     </div>
-    Feature End -->
+    <!--Feature End -->
 
 
     <!-- Destination Start -->
@@ -180,7 +180,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/kuee.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="package.php">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Cake</h5>
                             <span></span>
                         </a>
@@ -189,7 +189,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/kue kering.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="package2.php">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Kue Kering</h5>
                             <span></span>
                         </a>
@@ -198,13 +198,13 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="package3.php">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Jajanan Tradisional</h5>
                             <span></span>
                         </a>
                     </div>
                 </div>
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid" src="img/destination-4.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
@@ -230,7 +230,7 @@
                             <span>100 Cities</span>
                         </a>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -582,7 +582,7 @@
     <!-- Testimonial End -->
 
 
-    <!-- Blog Start
+    <!-- Blog Start-->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
