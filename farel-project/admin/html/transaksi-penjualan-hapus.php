@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Penjualan - Transaksi | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -57,7 +57,6 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -66,6 +65,14 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+
+    <!-- Sweet Alert 2 -->
+    <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -154,9 +161,9 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">PERUSAHAAN</span>
             </li>
-
+            
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data Perusahaan</div>
@@ -168,7 +175,7 @@
                     <div data-i18n="Container">Data Kategori</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="layouts-fluid.php" class="menu-link">
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
@@ -187,15 +194,15 @@
             </li>
 
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">DATA TRANSAKSI</span>
+              <span class="menu-header-text">Data Transaksi</span>
             </li>
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Customers</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
@@ -389,7 +396,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="logout.php">
+                      <a class="dropdown-item" href="auth-login-basic.php">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -407,79 +414,41 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-              <div class="card shadow">
-                <h5 class="card-header">Data Penjualan
+            <div class="card shadow">
+                <h5 class="card-header">Data Penjualan</h5>
                 <?php
                 //Mendapatkan ID Toko user yang login
+                $id_penjualan = $_GET['id'];
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $penjualan =array();
-                $ambil = $koneksi ->query("SELECT * FROM penjualan LEFT JOIN user
-                                         ON penjualan.id_user=user.id_user
-                                         WHERE penjualan.id_toko='$id_toko' 
-                                         ORDER BY penjualan.id_penjualan DESC ");
-                while($tiap = $ambil -> fetch_assoc()){
-                  $penjualan[] = $tiap;
-                }
+                $produk =array();
+                $ambil = $koneksi->query("SELECT * FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko'");
+                while($tiap = $ambil->fetch_assoc()){
+                    $id_produk = $tiap['id_produk'];
+                    $jumlah_produk = $tiap['jumlah_produk'];
 
+                    // Kembalikan Stock Dari Produk Ini
+                    $koneksi->query("UPDATE produk SET stock_produk = stock_produk+$jumlah_produk WHERE id_produk='$id_produk' ");
+                }
+                
+                $koneksi->query("DELETE FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
+                $koneksi->query("DELETE FROM penjualan WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
+
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'HAPUS TRANSAKSI PENJUALAN BERHASIL',
+                            text: 'Data Transaksi Penjualan Telah Terhapus'
+                        }).then((result) => {
+                            window.location.href = 'transaksi-penjualan.php'
+                        })
+                    </script>";
                 // echo"<pre>";
-                // print_r($penjualan);
+                // print_r($supplier);
                 // echo"</pre>";
                 ?>
-                </h5>
-                <div class="table-responsive text-nowrap p-2">
-                <table id="produk" class="table table-bordered display" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id Penjualan</th>
-                        <th>Customers</th>
-                        <th>Tanggal Penjualan</th>
-                        <th>Tanggal Ambil</th>
-                        <th>Total</th>
-                        <th>Bayar</th>
-                        <th>Kembalian</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <?php foreach ($penjualan as $key => $value): ?>
-                      <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_penjualan"] ?></td>
-                        <td>
-                            <?php echo $value["nama_user"] ?> ( <?php echo $value["telepon_user"] ?> )
-                        </td>
-                        <td><?php echo date("d M Y H:i", strtotime($value["tanggal_penjualan"])) ?></td>
-                        <td><?php echo date("d M Y H:i", strtotime($value["tanggal_ambil_penjualan"])) ?></td>
-                        <td>Rp. <?php echo number_format($value["total_penjualan"]) ?></td>
-                        <td>Rp. <?php echo number_format($value["bayar_penjualan"]) ?></td>
-                        <td>Rp. <?php echo number_format($value["kembalian_penjualan"]) ?></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" data-toggle="modal" data-target="#detailorder" href="transaksi-penjualan-produk.php?id=<?php echo $value["id_penjualan"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Detail</a
-                              >
-                              <a class="dropdown-item" href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <?php endforeach ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
-            </div>
             <!-- / Content -->
 
             <!-- Footer -->
@@ -534,13 +503,6 @@
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <!-- END Table JS -->
 
-    <!-- Fungsi Tabel JS -->
-    <script>
-      $(document).ready(function () {
-        $('#produk').DataTable();
-      });
-    </script>
-    <!-- END Fungsi Table JS -->
   </body>
 </html>
 

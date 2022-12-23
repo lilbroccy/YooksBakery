@@ -29,7 +29,7 @@ else {
 // Simpan Penjualan
 $koneksi->query("INSERT INTO penjualan
     (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan ,bayar_penjualan, kembalian_penjualan) 
-    VALUES('$id_toko', '$id_user', '$tanggal_penjualan', '$tanggal_ambil_penjualan', '$total_penjualan', '$bayar_penjualan', '$kembalian_penjualan');
+    VALUES ('$id_toko', '$id_user', '$tanggal_penjualan', '$tanggal_ambil_penjualan', '$total_penjualan', '$bayar_penjualan', '$kembalian_penjualan');
     ");
 
 // Dapatkan Id Penjualan Barusan
