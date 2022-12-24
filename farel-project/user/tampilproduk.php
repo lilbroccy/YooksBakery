@@ -21,13 +21,12 @@ while($tiap = $ambil -> fetch_assoc())
                     <div class="package-item bg-white mb-2" >
                         <img class="img-fluid" src="../asset/image/image-admin/produk/<?php echo $value["foto_produk"] ?>" alt="" style="height:250px;width=600px;">
                         <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                            <div >
+                                <div class="d-flex justify-content-between">
+                                    <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>"><?php echo $value["nama_produk"] ?></a>
+                                    <h5 class="">2000</h5>
+                                </div>
                             </div>
-                            <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>">
-                                <?php echo $value["nama_produk"] ?></a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>Stock <small>( <?php echo $value["stock_produk"] ?> )</small></h6>
