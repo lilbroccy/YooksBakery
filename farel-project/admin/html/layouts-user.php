@@ -342,7 +342,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/8.png" alt class="w-px-40 h-auto rounded-circle" />
+                    <img src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg" alt class="w-px-40 h-px-40 rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -351,7 +351,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/8.png" alt class="w-px-40 h-auto rounded-circle" />
+                            <img src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg" alt class="w-px-40 h-px-40 rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -400,7 +400,7 @@
               </ul>
             </div>
           </nav>
-
+          
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
@@ -438,6 +438,7 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>Deskripsi</th>
+                        <th>Foto</th>
                         <th>Action</th>
                       </tr>
                 </thead>
@@ -452,6 +453,7 @@
                         <td><?php echo $value["email_user"] ?></td>
                         <td><?php echo $value["password_user"] ?></td>
                         <td><?php echo $value["level_user"] ?></td>
+                        <td><?php echo $value["foto_user"]?></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
