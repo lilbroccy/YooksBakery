@@ -434,7 +434,7 @@
         <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
             <div class="card shadow">
-                <h5 class="card-header">Data Supplier
+                <h5 class="card-header">Data Produk
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
