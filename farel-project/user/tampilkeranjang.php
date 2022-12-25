@@ -17,12 +17,12 @@ if (isset($_SESSION['keranjang']))
 <?php
 foreach ($keranjang as $key => $perproduk): ?>
  <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-11">
         <h6><?php echo $perproduk["nama_produk"] ?></h6>
         <span class="small text-muted"> <?php echo number_format($perproduk['jual_produk']) ?> </span>
         <p class="small"> X <?php echo $perproduk['jumlah'] ?> </p>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-1">
         <button type="button" class="btn btn-outline-primary btn-sm">
             <i class="bi bi-plus tambahi" idnya="<?php echo $perproduk['id_produk'] ?>"></i>
         </button>
@@ -34,7 +34,7 @@ foreach ($keranjang as $key => $perproduk): ?>
  <hr>
 <?php endforeach ?>
 
-<form method="POST" action="checkout.php" target="_blank">
+<form method="POST" action="checkout.php" target="_blank" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="">Total</label>
         <Input type="number" name="total" class="form-control total" value="<?php echo $total ?>" readonly></Input>
@@ -51,5 +51,9 @@ foreach ($keranjang as $key => $perproduk): ?>
         <label for="">Telepon Pelanggan</label>
         <input type="text" name="telepon" class="form-control" placeholder="+62 ">
     </div>
-    <button class="btn btn-primary btn-sm">Checkout</button>
+    <div class="mb-3">
+        <label for="">Bukti Pembayaran</label>
+        <input type="file" id="buktitf" name="bukti" class="form-control bukti" required accept="image/png, image/gif, image/jpeg"></input>
+    </div>
+    <button class="btn btn-primary btn-sm" name="bukti">Checkout</button>
 </form>
