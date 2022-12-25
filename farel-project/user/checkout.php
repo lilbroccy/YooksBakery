@@ -6,6 +6,8 @@ print_r($_POST);
 print_r($_SESSION['keranjang']);
 echo"</pre>";
 
+date_default_timezone_set('Asia/Jakarta');
+
 $total = $_POST['total'];
 $bayar = $_POST['bayar'];
 $kembalian = $_POST['kembalian'];

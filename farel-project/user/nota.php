@@ -1,4 +1,5 @@
-<?php include '../koneksi.php'; ?>
+<?php include '../koneksi.php'; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +21,7 @@
               <div class="card shadow">
                 <h5 class="card-header">Detail Customers
                 <?php 
+                date_default_timezone_set('Asia/Jakarta');
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
 
@@ -48,7 +50,7 @@
                   <table class="table mb-5">
                     <tr>
                         <td>Id Penjualan</td>
-                        <td><?php echo $penjualan['id_penjualan'] ?></td>
+                        <td><?php echo $id_penjualan ?></td>
                     </tr>
                     <tr>
                         <td>Tanggal</td>
