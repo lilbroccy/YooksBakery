@@ -1,6 +1,11 @@
 <?php
 include '../koneksi.php';
 
+echo"<pre>";
+print_r($_POST);
+print_r($_SESSION['keranjang']);
+echo"</pre>";
+
 $total = $_POST['total'];
 $bayar = $_POST['bayar'];
 $kembalian = $_POST['kembalian'];
@@ -28,8 +33,8 @@ else {
 }
 // Simpan Penjualan
 $koneksi->query("INSERT INTO penjualan
-    (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan ,bayar_penjualan, kembalian_penjualan) 
-    VALUES ('$id_toko', '$id_user', '$tanggal_penjualan', '$tanggal_ambil_penjualan', '$total_penjualan', '$bayar_penjualan', '$kembalian_penjualan');
+    (id_toko, id_user, tanggal_penjualan ,total_penjualan ,bayar_penjualan, kembalian_penjualan) 
+    VALUES ('$id_toko', '$id_user', '$tanggal','$total', '$bayar', '$kembalian');
     ");
 
 // Dapatkan Id Penjualan Barusan
@@ -45,9 +50,8 @@ foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
     $nama_jual = $produk['nama_produk'];
     $subtotal_jual = $produk['jual_produk'] * $jumlah;
 	
-    $koneksi->query("INSERT INTO penjualan_produk 
-        (id_penjualan, id_toko, id_produk, harga_beli, harga_jual, nama_jual, subtotal_jual, jumlah_jual) 
-        VALUES ('$id_penjualan', '$id_toko', '$id_produk', '$harga_beli', '$harga_jual, '$nama_jual', '$subtotal_jual', '$jumlah') ");
+    $koneksi->query("INSERT INTO penjualan_produk (id_penjualan, id_produk, id_toko, nama_produk, biaya_produk, harga_produk, jumlah_produk, subtotal_produk)
+        VALUES ('$id_penjualan', '$id_produk', '$id_toko', '$nama_jual', $harga_beli, $harga_jual, $jumlah, $subtotal_jual) ") or die(mysqli_error($koneksi));
 
     // Kurangi Stock Produk itu 
     $koneksi->query("UPDATE produk SET stock_produk=stock_produk-$jumlah WHERE id_produk='$id_produk'"); 

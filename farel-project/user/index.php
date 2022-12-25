@@ -304,7 +304,7 @@
         })
     </script>
     <!-- END Cari Otomatis -->
-
+<!-- 
     <script>
         $(document).ready(function(){
             $.ajax({
@@ -314,7 +314,7 @@
                 }
             })
         }) 
-    </script>
+    </script> -->
 
     
     <script>
@@ -334,7 +334,7 @@
         })
     </script>
 
-    
+<!--     
 
     <script>
         $(document).ready(function(){
@@ -392,7 +392,7 @@
                 $(".kembalian").val(kembalian);
             })
         })
-    </script>
+    </script> -->
 
     <!-- Registration Start -->
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
