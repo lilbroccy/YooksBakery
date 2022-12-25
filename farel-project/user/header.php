@@ -92,9 +92,10 @@ if (!isset($_SESSION['User'])) {
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.php" class="nav-item nav-link">Home</a>
-                        <a href="#about" class="nav-item nav-link">About</a>
-                        <a href="#service" class="nav-item nav-link">Services</a>
+                        <a href="index.php#about" class="nav-item nav-link">About</a>
+                        <a href="index.php#service" class="nav-item nav-link">Services</a>
                         <a href="package.php" class="nav-item nav-link">Menu</a>
+                        <a href="formkeranjang.php" class="nav-item nav-link">Keranjang</a>
                     </div>
                 </div>
             </nav>
