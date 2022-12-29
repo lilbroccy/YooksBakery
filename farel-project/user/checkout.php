@@ -41,7 +41,7 @@ else {
 }
 // Simpan Penjualan
 if(!empty($lokasifoto)){
-    move_uploaded_file($lokasifoto, "../asset/image/image-admin/produk/".$namafoto);
+    move_uploaded_file($lokasifoto, "../asset/image/image-admin/bukti/".$namafoto);
 $koneksi->query("INSERT INTO penjualan
     (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan , bayar_penjualan, kembalian_penjualan, bukti) 
     VALUES ('$id_toko', '$id_user', '$tanggal','$tanggal_ambil $jam','$total', '$bayar', '$kembalian', '$namafoto');
