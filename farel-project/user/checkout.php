@@ -17,7 +17,14 @@ $id_toko = $_SESSION['User']['id_toko'];
 $id_user = $_SESSION['User']['id_user'];
 $tanggal_ambil = $_POST['date'];
 $jam = date("H:i:s");
+$namafoto = $_FILES['foto']['name'];
+$lokasifoto = $_FILES['foto']['tmp_name'];
 
+
+echo "<pre>";
+print_r($_FILES);
+echo "</pre>";
+move_uploaded_file($lokasifoto, "../asset/image/image-admin/bukti/".$namafoto);
 // Jika kosong teleponnya
 if (empty($telepon)) {
     $id_user = null;
@@ -28,19 +35,20 @@ else {
     $user = $ambil->fetch_assoc();
 
     if(empty($user)){
-        $koneksi->query("INSERT INTO user (telepon_user) VALUES('$telepon')");
+        $id_penjualan_user = $id_user-1;
+        $koneksi->query("INSERT INTO user (telepon_user, id_penjualan) VALUES('$telepon', '$id_penjualan_user')");
         $id_user = $koneksi->insert_id;
     }
     else {
         $id_user = $user['id_user'];
+        
     }
 }
 // Simpan Penjualan
 $koneksi->query("INSERT INTO penjualan
-    (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan , bayar_penjualan, kembalian_penjualan) 
-    VALUES ('$id_toko', '$id_user', '$tanggal','$tanggal_ambil $jam','$total', '$bayar', '$kembalian');
+    (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan , bayar_penjualan, kembalian_penjualan, bukti) 
+    VALUES ('$id_toko', '$id_user', '$tanggal','$tanggal_ambil $jam','$total', '$bayar', '$kembalian', '$namafoto');
     ");
-
 // Dapatkan Id Penjualan Barusan
 $id_penjualan = $koneksi->insert_id;
 
@@ -65,5 +73,5 @@ foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
 unset($_SESSION['keranjang']);
 
 // Larikan ke halaman nota
-echo "<script>location='nota.php?id=$id_penjualan'</script>";
+// echo "<script>location='nota.php?id=$id_penjualan'</script>";
 ?>

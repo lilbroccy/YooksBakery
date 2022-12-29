@@ -417,7 +417,7 @@
 
                 $penjualan =array();
                 $ambil = $koneksi ->query("SELECT * FROM penjualan LEFT JOIN user
-                                         ON penjualan.id_user=user.id_user
+                                         ON penjualan.id_user=user.id_user 
                                          WHERE penjualan.id_toko='$id_toko' 
                                          ORDER BY penjualan.id_penjualan DESC ");
                 while($tiap = $ambil -> fetch_assoc()){

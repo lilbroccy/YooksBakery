@@ -73,6 +73,6 @@ foreach ($keranjang as $key => $perproduk): ?>
         <label>Bukti Pembayaran</label>
         <input type="file" name="foto" class="form-control"></input>
     </div>
-    <button class="btn btn-primary btn-sm" name="bukti">Checkout</button>
+    <button class="btn btn-primary btn-sm">Checkout</button>
 </form>
 </body>
