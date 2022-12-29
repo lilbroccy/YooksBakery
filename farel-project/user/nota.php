@@ -57,6 +57,10 @@
                         <td><?php echo date("d M Y H:i", strtotime($penjualan["tanggal_penjualan"])) ?></td>
                     </tr>
                     <tr>
+                        <td>Tanggal Pengambilan</td>
+                        <td><?php echo date("d M Y H:i", strtotime($penjualan["tanggal_ambil_penjualan"])) ?></td>
+                    </tr>
+                    <tr>
                         <td>Customers</td>
                         <td><?php echo $penjualan["nama_user"] ?> ( <?php echo $penjualan["telepon_user"] ?> )</td>
                     </tr>
