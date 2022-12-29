@@ -200,17 +200,21 @@
                     <div data-i18n="Account">Customers</div>
                   </a>
                 </li>
+                <li class="menu-item">
+                  <a href="data-pesanan-pending.php" class="menu-link">
+                    <div data-i18n="Fluid">Data Pesanan Pending</div>
+                  </a>
+                </li>
                 <li class="menu-item active">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan Penjualan</div>
+                    <div data-i18n="Account">Data Pesanan Lunas</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="laporan_keuntungan.php" class="menu-link">
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
-                </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -250,10 +254,10 @@
                 </li>
               </ul>
             </li>=
-            
-            <!-- Forms & Tables -->
+
+            Forms & Tables
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <Forms
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -290,14 +294,14 @@
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 
@@ -426,7 +430,7 @@
                 $id_user = $_SESSION['User']['id_user'];
                 $ambil = $koneksi->query("SELECT * FROM penjualan 
                                           LEFT JOIN user ON penjualan.id_user=user.id_user
-                                          WHERE penjualan.id_toko='$id_toko' AND DATE(tanggal_penjualan) BETWEEN '$tglm' AND '$tgls' ");
+                                          WHERE (penjualan.id_toko='$id_toko' AND status_pesanan='lunas') AND DATE(tanggal_penjualan) BETWEEN '$tglm' AND '$tgls' ");
                 while ($tiap = $ambil->fetch_assoc())
                 {
                     $laporan[] = $tiap;
@@ -463,8 +467,11 @@
                       <tr>
                         <th>No</th>
                         <th>Customers</th>
-                        <th>Tanggal Penjualan</th>
+                        <th>Tanggal Pemesanan</th>
+                        <th>Tanggal Pengambilan</th>
                         <th>Total</th>
+                        <th>Jumlah Bayar</th>
+                        <th>Status Pesanan</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -475,13 +482,16 @@
                                 <td><?php echo $key+1 ?></td>
                                 <td><?php echo $value["nama_user"] ?></td>
                                 <td><?php echo date("d M Y H:i", strtotime($value['tanggal_penjualan'])) ?></td>
+                                <td><?php echo date("d M Y H:i", strtotime($value['tanggal_ambil_penjualan'])) ?></td>
                                 <td><?php echo number_format($value["total_penjualan"]) ?></td>
+                                <td><?php echo number_format($value["bayar_penjualan"])?></td>
+                                <td><?php echo $value["status_pesanan"]?></td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3">Total</td>
+                            <td colspan="4">Total</td>
                             <td><?php echo number_format($grandtotal) ?></td>
                         </tr>
                     </tfoot>
@@ -493,18 +503,6 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
-                </div>
-              </div>
-            </footer>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

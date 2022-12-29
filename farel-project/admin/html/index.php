@@ -207,8 +207,13 @@ if (!isset($_SESSION['User'])) {
                   </a>
                 </li>
                 <li class="menu-item">
+                  <a href="data-pesanan-pending.php" class="menu-link">
+                    <div data-i18n="Fluid">Data Pesanan Pending</div>
+                  </a>
+                </li>
+                <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan Penjualan</div>
+                    <div data-i18n="Account">Data Pesanan Lunas</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -216,7 +221,7 @@ if (!isset($_SESSION['User'])) {
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -254,36 +259,26 @@ if (!isset($_SESSION['User'])) {
                     <div data-i18n="Basic">Forgot Password</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="ui-modals.php" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Modal Contoh</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="ui-offcanvas.php" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Canvas Keluar Kanan Kiri</div>
-                  </a>
-                </li>
               </ul>
-            </li>
+            </li>=
 
-            <!-- Forms & Tables -->
+            Forms & Tables
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <Forms
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Data Perusahaan</div>
+                <div data-i18n="Form Elements">Form Elements</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="forms-basic-inputs.php" class="menu-link">
-                    <div data-i18n="Basic Inputs">Data Supplier</div>
+                    <div data-i18n="Basic Inputs">Basic Inputs</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="forms-input-groups.php" class="menu-link">
-                    <div data-i18n="Input groups">Data Toko</div>
+                    <div data-i18n="Input groups">Input groups</div>
                   </a>
                 </li>
               </ul>
@@ -306,14 +301,14 @@ if (!isset($_SESSION['User'])) {
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 

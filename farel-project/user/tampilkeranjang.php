@@ -71,7 +71,7 @@ foreach ($keranjang as $key => $perproduk): ?>
     </div>
     <div class="mb-3">
         <label>Bukti Pembayaran</label>
-        <input type="file" name="foto" class="form-control"></input>
+        <input type="file" name="foto" class="form-control" accept="image/png, image/gif, image/jpeg"></input>
     </div>
     <button class="btn btn-primary btn-sm">Checkout</button>
 </form>

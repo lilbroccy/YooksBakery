@@ -201,8 +201,13 @@
                   </a>
                 </li>
                 <li class="menu-item">
+                  <a href="data-pesanan-pending.php" class="menu-link">
+                    <div data-i18n="Fluid">Data Pesanan Pending</div>
+                  </a>
+                </li>
+                <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan Penjualan</div>
+                    <div data-i18n="Account">Data Pesanan Lunas</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -210,7 +215,7 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -249,11 +254,11 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li>=
 
-            <!-- Forms & Tables -->
+            Forms & Tables
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <Forms
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -290,14 +295,14 @@
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 
@@ -467,8 +472,7 @@
                                 ><i class="bx bx-edit-alt me-1"></i> Detail</a
                               >
                               <a class="dropdown-item" href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+                                ><i class="bx bx-trash me-1"></i> Delete</a>
                             </div>
                           </div>
                         </td>
