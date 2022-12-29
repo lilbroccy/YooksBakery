@@ -15,6 +15,8 @@ $telepon = $_POST['telepon'];
 $tanggal = date("Y-m-d H:i:s");
 $id_toko = $_SESSION['User']['id_toko'];
 $id_user = $_SESSION['User']['id_user'];
+$tanggal_ambil = $_POST['date'];
+$jam = date("H:i:s");
 
 // Jika kosong teleponnya
 if (empty($telepon)) {
@@ -35,8 +37,8 @@ else {
 }
 // Simpan Penjualan
 $koneksi->query("INSERT INTO penjualan
-    (id_toko, id_user, tanggal_penjualan ,total_penjualan ,bayar_penjualan, kembalian_penjualan) 
-    VALUES ('$id_toko', '$id_user', '$tanggal','$total', '$bayar', '$kembalian');
+    (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan , bayar_penjualan, kembalian_penjualan) 
+    VALUES ('$id_toko', '$id_user', '$tanggal','$tanggal_ambil $jam','$total', '$bayar', '$kembalian');
     ");
 
 // Dapatkan Id Penjualan Barusan

@@ -1,3 +1,17 @@
+<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+  <script src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="bootstrap-datepicker/locales/bootstrap-datepicker.id.min.js"></script>
+
+  <script>
+  $( function() {
+    $( "#date" ).datepicker({
+      autoclose:true,
+      todayHighlight:true,
+      format:'yyyy-mm-dd',
+      language: 'id'
+    });
+  } );
+  </script>
 <?php
 include '../koneksi.php';
 
@@ -52,8 +66,13 @@ foreach ($keranjang as $key => $perproduk): ?>
         <input type="text" name="telepon" class="form-control" placeholder="+62 ">
     </div>
     <div class="mb-3">
-        <label for="">Bukti Pembayaran</label>
-        <input type="file" id="buktitf" name="bukti" class="form-control bukti" required accept="image/png, image/gif, image/jpeg"></input>
+        <label>Tanggal Pengambilan</label>
+        <input type="text" name="date" id="date" class="form-control"></input>
+    </div>
+    <div class="mb-3">
+        <label>Bukti Pembayaran</label>
+        <input type="file" name="foto" class="form-control"></input>
     </div>
     <button class="btn btn-primary btn-sm" name="bukti">Checkout</button>
 </form>
+</body>
