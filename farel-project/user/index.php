@@ -395,11 +395,11 @@
     </script> -->
 
     <!-- Registration Start -->
-    <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
+    <!--<div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-5 mb-lg-0">
-                    <div class="mb-4">
+                     <div class="mb-4">
                         <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
                         <h1 class="text-white"><span class="text-primary">30% OFFSET</span> For Honeymoon</h1>
                     </div>
@@ -442,8 +442,8 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+                </div> 
             </div>
         </div>
     </div>
@@ -451,11 +451,11 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-registration py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
-                <h1>Our Travel Guides</h1>
+                <h1 class="text-light">Our Travel Guides</h1>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
