@@ -650,7 +650,7 @@
             </div>
         </div>
     </div> -->
-    Blog End -->
+    <!-- Blog End --> -->
 
     <!-- Footer -->
     <?php include 'footer.php' ?>
