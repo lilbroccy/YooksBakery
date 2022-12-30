@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Penjualan - Transaksi | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Data Pesanan Pending | Yooks Bakery</title>
 
     <meta name="description" content="" />
 
@@ -474,6 +474,7 @@
                         <th>Jumlah Bayar</th>
                         <th>Bukti Pembayaran</th>
                         <th>Status Pesanan</th>
+                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -489,6 +490,20 @@
                                 <td><?php echo number_format($value["bayar_penjualan"])?></td>
                                 <td><u><a href="../../asset/image/image-admin/bukti/<?php echo $value["bukti"]?>"><?php echo $value["bukti"]?></a></u></td>
                                 <td><?php echo $value["status_pesanan"]?></td>
+                                <td>
+                                  <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                      <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" data-toggle="modal" data-target="#detailorder" href=""
+                                        ><i class="bx bx-check me-1"></i>Tandai Lunas</a
+                                      >
+                                      <a class="dropdown-item" href=""
+                                        ><i class="bx bx-trash me-1"></i>Hapus</a>
+                                    </div>
+                                  </div>
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
