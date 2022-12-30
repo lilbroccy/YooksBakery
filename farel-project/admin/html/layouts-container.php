@@ -34,7 +34,8 @@
     <meta name="description" content="" />
 
     <!-- Link CSS Table -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables/DataTables-1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -643,15 +644,40 @@
 
     <!-- Table JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="../../../farel-project/asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <script src="../../asset/DataTables/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../asset/DataTables/DataTables-1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <!-- Button -->
+    <script src="../../asset/DataTables/buttons-2.3.3/js/dataTables.buttons.min.js"></script>
+    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../asset/DataTables/jszip-2.5.0/jszip.min.js"></script>
+    <script src="../../asset/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="../../asset/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.html5.min.js"></script>
+    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.print.min.js"></script>
+    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.colVis.min.js"></script>
     <!-- END Table JS -->
 
     <!-- Fungsi Tabel JS -->
-    <script>
+    <!-- <script>
       $(document).ready(function () {
         $('#kategori').DataTable();
       });
+    </script> -->
+    <script>
+      $(document).ready(function() {
+          var table = $('#kategori').DataTable( {
+              buttons: [ 'copy', 'excel', 'pdf', 'print', 'csv','colvis' ],
+              lengthMenu:[
+                [5,10,25,50,100,-1],
+                [5,10,25,50,100,"All"]
+              ]
+          } );
+      
+          table.buttons().container()
+              .appendTo( '#kategori_wrapper .col-md-6:eq(0)' );
+      } );
     </script>
     <!-- END Fungsi Tabel JS -->
 
