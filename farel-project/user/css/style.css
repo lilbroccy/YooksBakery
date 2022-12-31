@@ -9482,14 +9482,28 @@ h6,
   height: 28px;
 }
 
-.btn-lg-square {
+.btn-keranjang {
   width: 46px;
   height: 46px;
 }
 
+.btn-keranjang:hover {
+  background: red;
+}
+
+.btn-keranjang .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
 .btn-square,
 .btn-sm-square,
-.btn-lg-square {
+.btn-keranjang {
   padding-left: 0;
   padding-right: 0;
   text-align: center;

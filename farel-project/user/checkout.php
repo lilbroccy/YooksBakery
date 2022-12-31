@@ -1,5 +1,22 @@
+<!-- <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../farel-project/asset/plugins/sweetalert/sweetalert2.all.min.js"></script> -->
+
 <?php
 include '../koneksi.php';
+
+// //cek user
+// if(empty($_SESSION['id_user'])){
+//     echo "<script>
+//                         Swal.fire({
+//                             icon: 'error',
+//                             title: 'SOMETHING WENT WRONG :(',
+//                             text: 'Silahkan login terlebih dahulu !!!'
+//                         }).then((result) => {
+//                             window.location.href = 'index.php'
+//                         })
+//                     </script>";
+// }
 
 echo"<pre>";
 print_r($_POST);

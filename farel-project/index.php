@@ -26,7 +26,10 @@
                         <label>Password</label>
                         <input type="password" name="password" class="form-control" placeholder="************ ">
                     </div>
-                    <button class="btn btn-outline" name="login">Login</button>
+                    <button class="btn btn-outline mb-1" name="login">Login</button>
+                    <div>
+                    <a href="register.php" class="btn">Register</a>
+                    </div>
                 </form>
             </div>
         </div>

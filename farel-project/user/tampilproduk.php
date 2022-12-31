@@ -26,11 +26,19 @@ while($tiap = $ambil -> fetch_assoc())
                                     <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>"><?php echo $value["nama_produk"] ?></a>
                                     <h5 class="">2000</h5>
                                 </div>
+                                <div>
+                                    <p><?php echo $value["keterangan_produk"]?></p>
+                                </div>
                             </div>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>Stock <small>( <?php echo $value["stock_produk"] ?> )</small></h6>
                                     <h5 class="m-0">Rp. <?php echo number_format($value["jual_produk"]) ?></h5>
+                                </div>
+                            </div>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <button class ="btn-primary btn-sm link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>">Masukkan Keranjang</button>
                                 </div>
                             </div>
                         </div>

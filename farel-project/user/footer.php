@@ -68,7 +68,7 @@
     <!-- Footer End -->
     
     <!-- Back to Top -->
-    <a href="formkeranjang.php" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-shopping-cart"></i></a>
+    <a href="formkeranjang.php" class="btn btn-lg btn-primary btn-keranjang back-to-top"><i class="fa fa-shopping-cart"></i></a>
 
 
     <!-- JavaScript Libraries -->

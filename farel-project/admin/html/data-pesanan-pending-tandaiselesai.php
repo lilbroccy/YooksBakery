@@ -1,4 +1,11 @@
-<?php require("koneksi.php"); ?>
+<?php require("koneksi.php"); 
+if(isset($_GET['id_penjualan'])){
+  $id_penjualan=$_GET['id_penjualan'];
+}
+else {
+  die ("Error. No ID Selected!");    
+}
+?>
 
 <!DOCTYPE html>
 
@@ -436,86 +443,21 @@
                 {
                     $laporan[] = $tiap;
                 }
-                echo"<pre>";
-                print_r($laporan);
-                echo"</pre>";
-                ?>
-                </h5>
-                <div class="card border-0">
-                    <div class="card-body">
-                        <form method="POST">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Mulai</label>
-                                    <input type="date" name="tglm" class="form-control" value="<?php echo $tglm ?>">
-                                </div>
-                                <div class="col-md-3">
-                                    <label>Selesai</label>
-                                    <input type="date" name="tglm" class="form-control" value="<?php echo $tgls ?>">
-                                </div>
-                                <div class="col-md-3">
-                                    <label>&nbsp;</label><br>
-                                    <button class="btn btn-primary" name="filter">Filter</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <hr>
-                <div class="table-responsive text-nowrap p-2">
-                <table id="produk" class="table table-bordered display" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id Penjualan</th>
-                        <th>Customers</th>
-                        <th>Tanggal Pemesanan</th>
-                        <th>Tanggal Pengambilan</th>
-                        <th>Total</th>
-                        <th>Jumlah Bayar</th>
-                        <th>Bukti Pembayaran</th>
-                        <th>Status Pesanan</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        <?php $grandtotal = 0; ?>
-                        <?php foreach ($laporan as $key => $value): ?>
-                        <?php $grandtotal+=$value["total_penjualan"] ?>
-                            <tr>
-                                <td><?php echo $key+1 ?></td>
-                                <td><?php echo $value["id_penjualan"]?></td>
-                                <td><?php echo $value["nama_user"] ?></td>
-                                <td><?php echo date("d M Y H:i", strtotime($value['tanggal_penjualan'])) ?></td>
-                                <td><?php echo date("d M Y H:i", strtotime($value['tanggal_ambil_penjualan'])) ?></td>
-                                <td><?php echo number_format($value["total_penjualan"]) ?></td>
-                                <td><?php echo number_format($value["bayar_penjualan"])?></td>
-                                <td><u><a href="../../asset/image/image-admin/bukti/<?php echo $value["bukti"]?>"><?php echo $value["bukti"]?></a></u></td>
-                                <td><?php echo $value["status_pesanan"]?></td>
-                                <td>
-                                  <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                      <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="data-pesanan-pending-tandaiselesai.php?id_penjualan=<?php echo $value["id_penjualan"]?>"
-                                        ><i class="bx bx-check me-1"></i>Tandai Lunas</a
-                                      >
-                                      <a class="dropdown-item" href=""
-                                        ><i class="bx bx-trash me-1"></i>Hapus</a>
-                                    </div>
-                                  </div>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
-            </div>
-            <!-- / Content -->
+                $koneksi->query("UPDATE penjualan SET status_pesanan = 'Lunas' WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
 
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'UPDATE DATA PESANAN BERHASIL',
+                            text: 'Data Pesanan Telah Ditandai Lunas'
+                        }).then((result) => {
+                            window.location.href = 'data-pesanan-pending.php'
+                        })
+                    </script>";
+                ?>
+                
+            <!-- / Content -->
+            
             <!-- Footer -->
             <!-- / Footer -->
 

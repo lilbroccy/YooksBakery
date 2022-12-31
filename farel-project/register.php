@@ -18,22 +18,19 @@
                 </div>
                 <h1>REGISTRASI</h1>
                 <p>Jelajahi toko kami sepuas anda!</p>
-                <form method="POST">
+                <form action="process-register.php" method="POST">
                     <div class="mb-3">
                         <label >Nama</label>
                         <input type="text" name="name" class="form-control" placeholder="Username">
                     </div>
-                <form method="POST">
                     <div class="mb-3">
                         <label >Alamat</label>
                         <input type="text" name="address" class="form-control" placeholder="Address">
                     </div>
-                <form method="POST">
                     <div class="mb-3">
                         <label >No. Telp</label>
                         <input type="text" name="telp" class="form-control" placeholder="0823xxxxxxx">
                     </div>
-                <form method="POST">
                     <div class="mb-3">
                         <label >Email</label>
                         <input type="email" name="email" class="form-control" placeholder="example@gmail.com">

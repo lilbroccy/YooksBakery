@@ -63,7 +63,7 @@ foreach ($keranjang as $key => $perproduk): ?>
     </div>
     <div class="mb-3">
         <label for="">Telepon Pelanggan</label>
-        <input type="text" name="telepon" class="form-control" placeholder="+62 ">
+        <input type="text" name="telepon" class="form-control" placeholder="+62">
     </div>
     <div class="mb-3">
         <label>Tanggal Pengambilan</label>
