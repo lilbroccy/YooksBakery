@@ -65,7 +65,7 @@ if (!isset($_SESSION['User'])) {
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
-
+    
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
 
@@ -330,13 +330,7 @@ if (!isset($_SESSION['User'])) {
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
+                  <i class="bx fs-4 lh-0"></i>
                 </div>
               </div>
               <!-- /Search -->
@@ -425,19 +419,18 @@ if (!isset($_SESSION['User'])) {
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+                          <h5 class="card-title text-primary">Welcome <?php echo $_SESSION['User']['nama_user'] ?></h5>
                           <p class="mb-4">
-                            You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                            your profile.
+                            Selamat bekerja pencari nafkah, awali dengan<span class="fw-bold"> Bismillah</span> akhiri dengan <span class="fw-bold">Alhamdulilah</span>
                           </p>
 
                           <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
+                        <div class="card-body pb-6 px-6 px-md-4">
                           <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
+                            src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg"
                             height="140"
                             alt="View Badge User"
                             data-app-dark-img="illustrations/man-with-laptop-dark.png"
@@ -1001,5 +994,8 @@ if (!isset($_SESSION['User'])) {
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- CDN Grafik Dashboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.min.js" integrity="sha512-MC1YbhseV2uYKljGJb7icPOjzF2k6mihfApPyPhEAo3NsLUW0bpgtL4xYWK1B+1OuSrUkfOTfhxrRKCz/Jp3rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>

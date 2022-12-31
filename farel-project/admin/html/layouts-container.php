@@ -33,9 +33,9 @@
 
     <meta name="description" content="" />
 
-    <!-- Link CSS Table -->
-    <link rel="stylesheet" href="../../asset/DataTables/DataTables-1.13.1/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="../../asset/DataTables/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
+    <!-- Link CSS Table -->\
+    <link rel="stylesheet" href="../../asset/DataTables-5/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables-5/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -431,7 +431,7 @@
                 // print_r($kategori);
                 // echo"</pre>";
                 ?>
-                <div class="container col-md-0">
+                <div class="container col-md-0 px-2">
                   <a href="kategori_tambah.php" class="btn btn-primary">Tambah</a>
                 </div>
                 <div class="table-responsive text-nowrap p-2">
@@ -486,7 +486,7 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
+                  <a href="" target="_blank" class="footer-link fw-bolder">Yooks Bakery</a>
                 </div>
               </div>
             </footer>
@@ -643,35 +643,40 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Table JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- JQuery -->
+    <script src="../../asset/js/jquery.min.js"></script>
     <script src="../../asset/js/bootstrap.bundle.min.js"></script>
-    <script src="../../asset/DataTables/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="../../asset/DataTables/DataTables-1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- Data Table-Bootstrap-5 -->
+    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- Sweet Alert -->
     <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <!-- Button -->
-    <script src="../../asset/DataTables/buttons-2.3.3/js/dataTables.buttons.min.js"></script>
-    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.bootstrap5.min.js"></script>
-    <script src="../../asset/DataTables/jszip-2.5.0/jszip.min.js"></script>
-    <script src="../../asset/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
-    <script src="../../asset/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
-    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.html5.min.js"></script>
-    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.print.min.js"></script>
-    <script src="../../asset/DataTables/buttons-2.3.3/js/buttons.colVis.min.js"></script>
-    <!-- END Table JS -->
 
-    <!-- Fungsi Tabel JS -->
-    <!-- <script>
-      $(document).ready(function () {
-        $('#kategori').DataTable();
-      });
-    </script> -->
+    <!-- Button Bootstrap-5 -->
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/dataTables.buttons.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../asset/DataTables-5/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="../../asset/DataTables-5/pdfmake-0.1.36/pdfmake.js"></script>
+    <script src="../../asset/DataTables-5/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.html5.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.print.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.colVis.min.js"></script>
+
+    <!-- END Table JS -->
     <script>
       $(document).ready(function() {
           var table = $('#kategori').DataTable( {
-              buttons: [ 'copy', 'excel', 'pdf', 'print', 'csv','colvis' ],
+              buttons: [ 'excel', 'csv', 'pdf', 'print' ],
+              dom: 
+              "<'col-md-6 px-0 mb-4'B>"+
+              "<'row'<'col-md-4'l><'col-md-4'f>>"+
+              "<'row'<'col-md-12'tr>>"+
+              "<'row'<'col-md-5'i><'col-md-7'p>>",
               lengthMenu:[
-                [5,10,25,50,100,-1],
-                [5,10,25,50,100,"All"]
+                [6,10,25,50,100,-1],
+                [6,10,25,50,100,"All"]
               ]
           } );
       

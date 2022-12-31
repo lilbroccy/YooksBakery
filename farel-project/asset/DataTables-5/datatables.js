@@ -4,7 +4,7 @@
  *
  * To rebuild or modify this file with the latest versions of the included
  * software please visit:
- *   https://datatables.net/download/#bs4/jszip-2.5.0/pdfmake-0.1.36/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3
+ *   https://datatables.net/download/#bs5/jszip-2.5.0/pdfmake-0.1.36/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3
  *
  * Included libraries:
  *   JSZip 2.5.0, pdfmake 0.1.36, DataTables 1.13.1, Buttons 2.3.3, Column visibility 2.3.3, HTML5 export 2.3.3, Print view 2.3.3
@@ -73753,7 +73753,7 @@ this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {
 		 *
 		 *  @type string
 		 */
-		build:"bs4/jszip-2.5.0/pdfmake-0.1.36/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3",
+		build:"bs5/jszip-2.5.0/pdfmake-0.1.36/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3",
 	
 	
 		/**
@@ -75249,8 +75249,8 @@ this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {
 }));
 
 
-/*! DataTables Bootstrap 4 integration
- * ©2011-2017 SpryMedia Ltd - datatables.net/license
+/*! DataTables Bootstrap 5 integration
+ * 2020 SpryMedia Ltd - datatables.net/license
  */
 
 (function( factory ){
@@ -75294,7 +75294,7 @@ var DataTable = $.fn.dataTable;
 
 
 /**
- * DataTables integration for Bootstrap 4. This requires Bootstrap 4 and
+ * DataTables integration for Bootstrap 5. This requires Bootstrap 5 and
  * DataTables 1.10 or newer.
  *
  * This file sets the defaults and adds options to DataTables to style its
@@ -75306,7 +75306,7 @@ var DataTable = $.fn.dataTable;
 $.extend( true, DataTable.defaults, {
 	dom:
 		"<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
-		"<'row'<'col-sm-12'tr>>" +
+		"<'row dt-row'<'col-sm-12'tr>>" +
 		"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
 	renderer: 'bootstrap'
 } );
@@ -75314,9 +75314,9 @@ $.extend( true, DataTable.defaults, {
 
 /* Default class modification */
 $.extend( DataTable.ext.classes, {
-	sWrapper:      "dataTables_wrapper dt-bootstrap4",
+	sWrapper:      "dataTables_wrapper dt-bootstrap5",
 	sFilterInput:  "form-control form-control-sm",
-	sLengthSelect: "custom-select custom-select-sm form-control form-control-sm",
+	sLengthSelect: "form-select form-select-sm",
 	sProcessing:   "dataTables_processing card",
 	sPageButton:   "paginate_button page-item"
 } );
@@ -75413,6 +75413,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 		}
 	};
 
+	var hostEl = $(host);
 	// IE9 throws an 'unknown error' if document.activeElement is used
 	// inside an iframe or frame. 
 	var activeEl;
@@ -75422,17 +75423,26 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 		// elements, focus is lost on the select button which is bad for
 		// accessibility. So we want to restore focus once the draw has
 		// completed
-		activeEl = $(host).find(document.activeElement).data('dt-idx');
+		activeEl = hostEl.find(document.activeElement).data('dt-idx');
 	}
 	catch (e) {}
 
+	var paginationEl = hostEl.children('ul.pagination');
+
+	if (paginationEl.length) {
+		paginationEl.empty();
+	}
+	else {
+		paginationEl = hostEl.html('<ul/>').children('ul').addClass('pagination');
+	}
+
 	attach(
-		$(host).empty().html('<ul class="pagination"/>').children('ul'),
+		paginationEl,
 		buttons
 	);
 
 	if ( activeEl !== undefined ) {
-		$(host).find( '[data-dt-idx='+activeEl+']' ).trigger('focus');
+		hostEl.find('[data-dt-idx='+activeEl+']').trigger('focus');
 	}
 };
 
@@ -77975,7 +77985,7 @@ return DataTable;
 (function( factory ){
 	if ( typeof define === 'function' && define.amd ) {
 		// AMD
-		define( ['jquery', 'datatables.net-bs4', 'datatables.net-buttons'], function ( $ ) {
+		define( ['jquery', 'datatables.net-bs5', 'datatables.net-buttons'], function ( $ ) {
 			return factory( $, window, document );
 		} );
 	}
@@ -77995,7 +78005,7 @@ return DataTable;
 			}
 
 			if ( ! $.fn.dataTable ) {
-				require('datatables.net-bs4')(root, $);
+				require('datatables.net-bs5')(root, $);
 			}
 
 			if ( ! $.fn.dataTable.Buttons ) {
@@ -78051,7 +78061,7 @@ $.extend( true, DataTable.Buttons.defaults, {
 			tag: 'button',
 			className: 'dt-btn-split-drop-button btn btn-secondary',
 			closeButton: false
-		} 
+		}
 	},
 	buttonCreated: function ( config, button ) {
 		return config.buttons ?
