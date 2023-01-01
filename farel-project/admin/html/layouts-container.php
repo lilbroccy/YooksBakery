@@ -411,11 +411,13 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data Perusahaan /</span> Data Kategori</h4>
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Kategori</h5>
+                <h5 class="card-header"></h5>
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
