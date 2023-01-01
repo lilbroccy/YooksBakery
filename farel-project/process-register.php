@@ -25,6 +25,6 @@ if (isset($ambil)){
                window.location.href = 'index.php'
            })
    </script>";
-}
+    }
 }
 ?>

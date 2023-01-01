@@ -26,8 +26,9 @@ echo"</pre>";
 date_default_timezone_set('Asia/Jakarta');
 
 $total = $_POST['total'];
-$bayar = $_POST['bayar'];
-$kembalian = $_POST['kembalian'];
+// $bayar = $_POST['bayar'];
+// $kembalian = $_POST['kembalian'];
+$metode = $_POST['bank'];
 $telepon = $_POST['telepon'];
 $tanggal = date("Y-m-d H:i:s");
 $id_toko = $_SESSION['User']['id_toko'];
@@ -59,8 +60,8 @@ else {
 if(!empty($lokasifoto)){
     move_uploaded_file($lokasifoto, "../asset/image/image-admin/bukti/".$namafoto);
 $koneksi->query("INSERT INTO penjualan
-    (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan , bayar_penjualan, kembalian_penjualan, bukti) 
-    VALUES ('$id_toko', '$id_user', '$tanggal','$tanggal_ambil $jam','$total', '$bayar', '$kembalian', '$namafoto');
+    (id_toko, id_user, tanggal_penjualan ,tanggal_ambil_penjualan, total_penjualan , metode_pembayaran, bukti) 
+    VALUES ('$id_toko', '$id_user', '$tanggal','$tanggal_ambil $jam','$total', '$metode', '$namafoto');
     ");
 }
 // Dapatkan Id Penjualan Barusan
@@ -85,7 +86,6 @@ foreach ($_SESSION['keranjang'] as $id_produk => $jumlah) {
 
 // Kosongkan Keranjang
 unset($_SESSION['keranjang']);
-
 // Larikan ke halaman nota
-echo "<script>location='nota.php?id=$id_penjualan'</script>";
+echo "<script>location='nota_customer.php?id=$id_penjualan'</script>";
 ?>

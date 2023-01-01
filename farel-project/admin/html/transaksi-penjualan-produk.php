@@ -323,7 +323,7 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Detail Customers
+                <h5 class="card-header">Detail Pemesanan Customers
                 <?php 
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
@@ -343,46 +343,68 @@
                     $produk[] = $tiap; 
                 }
 
-                echo "<pre>";
-                print_r($penjualan);
-                print_r($produk );
-                echo "<pre>";
+                // echo "<pre>";
+                // print_r($penjualan);
+                // print_r($produk );
+                // echo "<pre>";
                 ?>
                 </h5>
               <div class="container">
                 <div class="table-responsive text-nowrap">
-                  <div class="row-md-5">
-                    <div class="col-md-5">
+                  <div class="row-md-9">
+                    <div class="col-md-9">
                       <div class="card border-1 shadow">
                         <div class="card-body">
-                          <table class="table mb-3">
-                            <tr>
-                                <td>Id Penjualan</td>
-                                <td><?php echo $penjualan['id_penjualan'] ?></td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal</td>
-                                <td><?php echo date("d M Y H:i", strtotime($penjualan["tanggal_penjualan"])) ?></td>
-                            </tr>
-                            <tr>
-                                <td>Customers</td>
-                                <td><?php echo $penjualan["nama_user"] ?> ( <?php echo $penjualan["telepon_user"] ?> )</td>
-                            </tr>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
+                        <table>
+        <tbody>
+            <tr>
+                <td>Yooks Bakery</td>
+            </tr>
+            <tr>
+                <td>Jalan Melon No. 5B, Kec. Patrang, Kab. Jember</td>
+            </tr>
+            <tr>
+                <td>Telp. 083857726588</td>
+            </tr>
+        </tbody>
+    </table>
 
-                  <br><br>
+        <hr width="50%" align="left">
 
-                  <table class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td>Id Pemesanan</td>
+                <td>:</td>
+                <td><?php echo $id_penjualan?></td>
+            <tr>
+                <td>Pelanggan</td>
+                <td>:</td>
+                <td><?php echo $penjualan['nama_user']?></td>
+            </tr>
+            <tr>
+                <td>No.Telp</td>
+                <td>:</td>
+                <td><?php echo $penjualan['telepon_user']?></td>
+            </tr>
+            <tr>
+                <td>Tanggal Pemesanan</td>
+                <td>:</td>
+                <td><?php echo $penjualan['tanggal_penjualan']?></td>
+            </tr>
+            <tr>
+                <td>Tanggal Pengambilan Pesanan</td>
+                <td>:</td>
+                <td><?php echo $penjualan['tanggal_ambil_penjualan']?></td>
+            </tr>
+        </tbody>
+    </table>
+</br>
+        <table class="table">
                     <thead>
-                        <th>No</th>
-                        <th>Produk</th>
-                        <th>Harga Produksi</th>
-                        <th>Harga Jual</th>
+                        <th>No.</th>
+                        <th>Nama Roti</th>
+                        <th>Harga</th>
                         <th>Jumlah</th>
                         <th>Subtotal</th>
                     </thead>
@@ -393,32 +415,29 @@
                       <tr>
                         <td><?php echo $key+1 ?></td>
                         <td><?php echo $value["nama_produk"] ?></td>
-                        <td>Rp. <?php echo number_format($value["biaya_produk"]) ?></td>
                         <td>Rp. <?php echo number_format($value["harga_produk"]) ?></td>
                         <td><?php echo $value["jumlah_produk"] ?></td>
                         <td>Rp. <?php echo number_format($value["subtotal_produk"]) ?></td>
                       </tr>
                       <?php endforeach ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5">Total</td>
-                            <td>Rp. <?php echo number_format($penjualan['total_penjualan']) ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="5">Bayar</td>
-                            <td>Rp. <?php echo number_format($penjualan['bayar_penjualan']) ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="5">Kembalian</td>
-                            <td>Rp. <?php echo number_format($penjualan['kembalian_penjualan']) ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="5">Keuntungan</td>
-                            <td>Rp. <?php echo number_format($keuntungan) ?></td>
-                        </tr>
-                    </tfoot>
-                  </table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>Total</b></td>
+                        <td>Rp. <?php echo number_format($penjualan['total_penjualan']) ?></td>
+                    </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td>Catatan :</td>
+        </tr>
+        <tr>
+            <td>-Simpan nota ini, kemudian tunjukkan kepada kami ketika mengambil pesanan</td>
+        </tr>
+    </table>
                 </div>
               </div>
               <!--/ Basic Bootstrap Table -->

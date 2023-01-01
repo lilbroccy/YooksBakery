@@ -24,7 +24,7 @@ while($tiap = $ambil -> fetch_assoc())
                             <div >
                                 <div class="d-flex justify-content-between">
                                     <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>"><?php echo $value["nama_produk"] ?></a>
-                                    <h5 class=""><s>Rp. 2000</s></h5>
+                                    <h5 class=""><s>Rp. <?php echo $value["harga_coret"]?></s></h5>
                                 </div>
                                 <div>
                                     <p><?php echo $value["keterangan_produk"]?></p>

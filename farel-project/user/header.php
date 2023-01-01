@@ -74,6 +74,8 @@ if (!isset($_SESSION['User'])) {
                         <a class="text-primary pl-3" href="https://youtube.com/@himanikapolije6995">
                             <i class="fab fa-youtube"></i>
                         </a>
+                        <a class="text-primary pl-3" href="logout.php">Logout
+                        </a> 
                     </div>
                 </div>
             </div>

@@ -391,8 +391,12 @@
                                             <input type="number" name="beli" class="form-control">
                                         </div>
                                         <div class="col-md-4 mb-3">
-                                            <label>Jual Produk</label>
+                                            <label>Harga Jual></label>
                                             <input type="number" name="jual" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Harga Coret</label>
+                                            <input type="number" name="coret" class="form-control">
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label>Stock Produk</label>
@@ -425,16 +429,18 @@
             $kode = $_POST['kode'];
             $beli = $_POST['beli'];
             $jual = $_POST['jual'];
+            $hargacoret = $_POST['coret'];
             $stock = $_POST['stock'];
             $keterangan = $_POST['keterangan'];
             $namafoto = $_FILES['foto']['name'];
             $lokasifoto = $_FILES['foto']['tmp_name'];
+            
 
             if(!empty($lokasifoto)){
                 move_uploaded_file($lokasifoto, "../../asset/image/image-admin/produk/".$namafoto);
                 $koneksi->query("INSERT INTO produk (id_toko, id_kategori, id_supplier, nama_produk, 
-                kode_produk, biaya_produk, jual_produk, stock_produk, foto_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
-                '$nama', '$kode', '$beli', '$jual', '$stock', '$namafoto', '$keterangan' )");    
+                kode_produk, biaya_produk, jual_produk, harga_coret, stock_produk, foto_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
+                '$nama', '$kode', '$beli', '$jual', '$hargacoret', '$stock', '$namafoto', '$keterangan' )");    
             }
             echo "<script>alert('data tersimpan')</script>";
             echo "<script>location='layouts-produk.php'</script>";

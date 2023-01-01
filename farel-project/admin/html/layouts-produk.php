@@ -445,6 +445,7 @@
                         <th>Nama</th>
                         <th>Biaya Produksi</th>
                         <th>Harga Jual Produk</th>
+                        <th>Harga Coret</th>
                         <th>Stock Produk</th>
                         <th>Foto Produk</th>
                         <th>Deskripsi Produk</th>
@@ -460,6 +461,7 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_produk"] ?></strong></td>
                         <td>Rp. <?php echo number_format($value["biaya_produk"]) ?></td>
                         <td>Rp. <?php echo number_format($value["jual_produk"]) ?></td>
+                        <td>Rp. <?php echo number_format($value["harga_coret"]) ?></td>
                         <td><?php echo $value["stock_produk"] ?></td>
                         <td><?php echo $value["foto_produk"] ?></td>
                         <td><?php echo $value["keterangan_produk"] ?></td>

@@ -468,12 +468,12 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Id Penjualan</th>
                         <th>Customers</th>
                         <th>Tanggal Pemesanan</th>
                         <th>Tanggal Pengambilan</th>
                         <th>Total</th>
-                        <th>Jumlah Bayar</th>
+                        <!-- <th>Jumlah Bayar</th> -->
+                        <th>Metode Pembayaran</th>
                         <th>Bukti Pembayaran</th>
                         <th>Status Pesanan</th>
                         <th>Actions</th>
@@ -485,12 +485,11 @@
                         <?php $grandtotal+=$value["total_penjualan"] ?>
                             <tr>
                                 <td><?php echo $key+1 ?></td>
-                                <td><?php echo $value["id_penjualan"]?></td>
                                 <td><?php echo $value["nama_user"] ?></td>
                                 <td><?php echo date("d M Y H:i", strtotime($value['tanggal_penjualan'])) ?></td>
                                 <td><?php echo date("d M Y H:i", strtotime($value['tanggal_ambil_penjualan'])) ?></td>
                                 <td><?php echo number_format($value["total_penjualan"]) ?></td>
-                                <td><?php echo number_format($value["bayar_penjualan"])?></td>
+                                <td><?php echo $value["metode_pembayaran"]?></td>
                                 <td><u><a href="../../asset/image/image-admin/bukti/<?php echo $value["bukti"]?>"><?php echo $value["bukti"]?></a></u></td>
                                 <td><?php echo $value["status_pesanan"]?></td>
                                 <td>

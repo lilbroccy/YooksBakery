@@ -507,6 +507,10 @@
                                             <input type="number" name="jual" class="form-control" value="<?php echo $produk['jual_produk'] ?>">
                                         </div>
                                         <div class="col-md-4 mb-3">
+                                            <label>Harga Coret</label>
+                                            <input type="number" name="coret" class="form-control" value="<?php echo $produk['harga_coret'] ?>">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <label>Stock Produk</label>
                                             <input type="stock" name="stock" class="form-control" value="<?php echo $produk['stock_produk'] ?>">
                                         </div>
@@ -541,6 +545,7 @@
             $kode = $_POST['kode'];
             $beli = $_POST['beli'];
             $jual = $_POST['jual'];
+            $hargacoret = $_POST['coret'];
             $stock = $_POST['stock'];
             $keterangan = $_POST['keterangan'];
             $namafoto = $_FILES['foto']['name'];
@@ -550,11 +555,11 @@
                 move_uploaded_file($lokasifoto, "../../asset/image/image-admin/produk/".$namafoto);
                 
                 $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
-                                kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
+                                kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
                                 WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
         } else {
             $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
-            kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', keterangan_produk='$keterangan'
+            kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', keterangan_produk='$keterangan'
             WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
         }
             // echo "<script>alert('data tersimpan')</script>";

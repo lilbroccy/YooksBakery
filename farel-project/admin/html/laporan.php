@@ -471,7 +471,7 @@
                         <th>Tanggal Pemesanan</th>
                         <th>Tanggal Pengambilan</th>
                         <th>Total</th>
-                        <th>Jumlah Bayar</th>
+                        <!-- <th>Jumlah Bayar</th> -->
                         <th>Status Pesanan</th>
                       </tr>
                     </thead>
@@ -485,7 +485,7 @@
                                 <td><?php echo date("d M Y H:i", strtotime($value['tanggal_penjualan'])) ?></td>
                                 <td><?php echo date("d M Y H:i", strtotime($value['tanggal_ambil_penjualan'])) ?></td>
                                 <td><?php echo number_format($value["total_penjualan"]) ?></td>
-                                <td><?php echo number_format($value["bayar_penjualan"])?></td>
+                                
                                 <td><?php echo $value["status_pesanan"]?></td>
                             </tr>
                         <?php endforeach ?>
