@@ -34,7 +34,8 @@
     <meta name="description" content="" />
 
     <!-- Link CSS Table -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables-5/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables-5/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -534,15 +535,46 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Table JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <!-- END Table JS -->
+    <!-- JQuery -->
+    <script src="../../asset/js/jquery.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Data Table-Bootstrap-5 -->
+    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- Sweet Alert -->
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
 
-    <!-- Fungsi Tabel JS -->
+    <!-- Button Bootstrap-5 -->
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/dataTables.buttons.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../asset/DataTables-5/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="../../asset/DataTables-5/pdfmake-0.1.36/pdfmake.js"></script>
+    <script src="../../asset/DataTables-5/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.html5.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.print.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.colVis.min.js"></script>
+
+    <!-- END Table JS -->
     <script>
-      $(document).ready(function () {
-        $('#produk').DataTable();
-      });
+      $(document).ready(function() {
+          var table = $('#produk').DataTable( {
+              buttons: [ 'excel', 'csv', 'pdf', 'print' ],
+              dom: 
+              "<'col-md-6 px-0 mb-4'B>"+
+              "<'row'<'col-md-4'l><'col-md-4'f>>"+
+              "<'row'<'col-md-12'tr>>"+
+              "<'row'<'col-md-5'i><'col-md-7'p>>",
+              lengthMenu:[
+                [6,10,25,50,100,-1],
+                [6,10,25,50,100,"All"]
+              ]
+          } );
+      
+          table.buttons().container()
+              .appendTo( '#produk_wrapper .col-md-6:eq(0)' );
+      } );
     </script>
     <!-- END Fungsi Table JS -->
   </body>
