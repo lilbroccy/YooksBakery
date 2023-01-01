@@ -66,6 +66,11 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
     
   </head>
 
@@ -145,7 +150,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item ">
               <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -157,7 +162,7 @@
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Data Perusahaan</div>
@@ -174,7 +179,7 @@
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="layouts-produk.php" class="menu-link">
                     <div data-i18n="Fluid">Data Produk</div>
                   </a>
@@ -436,8 +441,17 @@
                 kode_produk, biaya_produk, jual_produk, stock_produk, foto_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
                 '$nama', '$kode', '$beli', '$jual', '$stock', '$namafoto', '$keterangan' )");    
             }
-            echo "<script>alert('data tersimpan')</script>";
-            echo "<script>location='layouts-produk.php'</script>";
+            // echo "<script>alert('data tersimpan')</script>";
+            // echo "<script>location='layouts-produk.php'</script>";
+            echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'INPUT DATA PRODUK BERHASIL',
+                text: 'Data Produk Telah Bertambah'
+            }).then((result) => {
+                window.location.href = 'layouts-produk.php'
+            })
+        </script>";
         } /*else {
             $koneksi->query("INSERT INTO produk (id_toko, id_kategori, id_supplier, nama_produk, 
             kode_produk, biaya_produk, jual_produk, stock_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
@@ -505,6 +519,7 @@
       });
     </script>
     <!-- END Fungsi Table JS -->
+
   </body>
 </html>
 
