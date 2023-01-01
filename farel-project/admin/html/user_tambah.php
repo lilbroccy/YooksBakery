@@ -29,13 +29,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Produk</title>
+    <title>Tambah Produk</title>
 
     <meta name="description" content="" />
 
     <!-- Link CSS Table -->
-    <link rel="stylesheet" href="../../asset/DataTables-5/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../../asset/DataTables-5/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -67,6 +66,13 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+
+    <!-- Sweet Alert -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    
   </head>
 
   <body>
@@ -104,7 +110,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -130,10 +136,10 @@
                         </g>
                       </g>
                     </g>
-                  </g> -->
+                  </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder">Yooks Admin</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -174,12 +180,12 @@
                     <div data-i18n="Fluid">Data Supplier</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="layouts-produk.php" class="menu-link">
                     <div data-i18n="Fluid">Data Produk</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="layouts-user.php" class="menu-link">
                     <div data-i18n="Fluid">Data User</div>
                   </a>
@@ -216,94 +222,6 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <!-- <li class="menu-item">
-                  <a href="pages-account-settings-account.php" class="menu-link">
-                    <div data-i18n="Account">Account</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-notifications.php" class="menu-link">
-                    <div data-i18n="Notifications">Notifications</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-connections.php" class="menu-link">
-                    <div data-i18n="Connections">Connections</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Authentications</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="auth-login-basic.php" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-register-basic.php" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-forgot-password-basic.php" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Forgot Password</div>
-                  </a>
-                </li>
-              </ul>
-            </li>=
-
-            Forms & Tables
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <Forms
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Form Elements</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="forms-basic-inputs.php" class="menu-link">
-                    <div data-i18n="Basic Inputs">Basic Inputs</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="forms-input-groups.php" class="menu-link">
-                    <div data-i18n="Input groups">Input groups</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Layouts">Form Layouts</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="form-layouts-vertical.php" class="menu-link">
-                    <div data-i18n="Vertical Form">Vertical Form</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="form-layouts-horizontal.php" class="menu-link">
-                    <div data-i18n="Horizontal Form">Horizontal Form</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!Tables 
-            <li class="menu-item">
-              <a href="tables-basic.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table"></i>
-                <div data-i18n="Tables">Tables</div>
-              </a>
-            </li>
-          </ul> -->
         </aside>
         <!-- / Menu -->
 
@@ -312,7 +230,7 @@
           <!-- Navbar -->
 
           <nav
-            class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -325,13 +243,7 @@
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
+                  <i class="bx fs-4 lh-0"></i>
                 </div>
               </div>
               <!-- /Search -->
@@ -339,8 +251,8 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                <a>
-                    Hi, <?php echo $_SESSION['User']['nama_user'] ?>
+                  <a>
+                  Hi, <?php echo $_SESSION['User']['nama_user'] ?>
                   </a>
                 </li>
 
@@ -371,31 +283,16 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="pages-account-settings-account.php">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
                       </a>
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.php">
+                      <a class="dropdown-item" href="logout.php">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -413,84 +310,113 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-              <div class="card shadow">
-                <h5 class="card-header">Data Produk
+            <div class="card shadow">
+                <h5 class="card-header">Data User
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $produk =array();
-                $ambil = $koneksi ->query("SELECT * FROM produk WHERE id_toko='$id_toko' ");
+                $user =array();
+                $ambil = $koneksi ->query("SELECT * FROM user WHERE id_toko='$id_toko' ");
                 while($tiap = $ambil -> fetch_assoc()){
-                  $produk[] = $tiap;
+                  $user[] = $tiap;
                 }
 
                 // echo"<pre>";
-                // print_r($produk);
+                // print_r($supplier);
                 // echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0 px-2">
-                  <a href="produk_tambah.php" class="btn btn-primary">Tambah</a>
-                </div>
                 <div class="table-responsive text-nowrap p-2">
-                <table id="produk" class="table table-bordered display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Id Produk</th>
-                        <th>Kode Produk</th>
-                        <th>Nama</th>
-                        <th>Biaya Produksi</th>
-                        <th>Harga Jual Produk</th>
-                        <th>Stock Produk</th>
-                        <th>Foto Produk</th>
-                        <th>Deskripsi Produk</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($produk as $key => $value): ?>
-                    <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_produk"] ?></td>
-                        <td><?php echo $value["kode_produk"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_produk"] ?></strong></td>
-                        <td>Rp. <?php echo number_format($value["biaya_produk"]) ?></td>
-                        <td>Rp. <?php echo number_format($value["jual_produk"]) ?></td>
-                        <td><?php echo $value["stock_produk"] ?></td>
-                        <td><?php echo $value["foto_produk"] ?></td>
-                        <td><?php echo $value["keterangan_produk"] ?></td>
-                        <td>
-                        <div class='btn-group'>
-                          <a href="produk_edit.php?id=<?php echo $value["id_produk"] ?>" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
-                          <a href="produk_hapus.php?id=<?php echo $value["id_produk"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
-                        </div>
-                          <!-- <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href=""
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href=""
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">Tambah User</div>
+                            <div class="card-body">
+                                <form method="POST" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label>Nama</label>
+                                        <input type="text" name="nama" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Alamat</label>
+                                        <textarea class="form-control" name="alamat" cols="30" rows="5"></textarea>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label>Nomer Telepon</label>
+                                            <input type="number" name="nomer" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Email</label>
+                                            <input type="email" name="email" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Password</label>
+                                            <input type="password" name="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label>Deskripsi</label>
+                                            <select class="form-control" name="level">
+                                              <option value="">Pilih</option>
+                                              <option value="user">User</option>
+                                              <option value="admin">Admin</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label>Foto</label>
+                                            <input type="file" name="foto" class="form-control">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" name="simpan">Simpan</button>
+                                </form>
                             </div>
-                          </div> -->
-                        </td>
-                      </tr>
-                  <?php endforeach ?>
-                </tbody>
-                </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
             </div>
+        </div>
             <!-- / Content -->
+        <?php 
+        if(isset($_POST['simpan'])){
+            $id_toko = $_SESSION['User']['id_toko'];
+            $nama = $_POST['nama'];
+            $alamat = $_POST['alamat'];
+            $nomer = $_POST['nomer'];
+            $email = $_POST['email'];
+            $password = sha1($_POST['password']);
+            $level = $_POST['level'];
+            $namafoto = $_FILES['foto']['name'];
+            $lokasifoto = $_FILES['foto']['tmp_name'];
+
+            if(!empty($lokasifoto)){
+                move_uploaded_file($lokasifoto, "../assets/img/avatars/".$namafoto);
+                $hayo = $koneksi->query("INSERT INTO user (id_toko, nama_user, alamat_user, telepon_user, email_user, password_user, 
+                level_user, foto_user) VALUES ('$id_toko', '$nama', '$alamat', 
+                '$nomer', '$email', '$password', '$level', '$namafoto' )");    
+                if (isset($hayo)) {
+                  echo "<script>
+                          Swal.fire({
+                              icon: 'success',
+                              title: 'INPUT DATA USER BERHASIL',
+                              text: 'Data User Telah Bertambah'
+                          }).then((result) => {
+                              window.location.href = 'layouts-user.php'
+                          })
+                      </script>";
+                }
+            }
+            // echo "<script>alert('data tersimpan')</script>";
+            // echo "<script>location='layouts-user.php'</script>";
+        } /*else {
+            $koneksi->query("INSERT INTO produk (id_toko, id_kategori, id_supplier, nama_produk, 
+            kode_produk, biaya_produk, jual_produk, stock_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
+            '$nama', '$kode', '$beli', '$jual', '$stock', '$keterangan' )");    
+        }*/
+        ?>
+
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
@@ -534,57 +460,21 @@
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <!-- Table JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <!-- END Table JS -->
 
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    
-    <!-- Table JS -->
-    <!-- JQuery -->
-    <script src="../../asset/js/jquery.min.js"></script>
-    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Data Table-Bootstrap-5 -->
-    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    
-    <!-- Sweet Alert -->
-    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
-
-    <!-- Button Bootstrap-5 -->
-    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/dataTables.buttons.min.js"></script>
-    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.bootstrap5.min.js"></script>
-    <script src="../../asset/DataTables-5/JSZip-2.5.0/jszip.min.js"></script>
-    <script src="../../asset/DataTables-5/pdfmake-0.1.36/pdfmake.js"></script>
-    <script src="../../asset/DataTables-5/pdfmake-0.1.36/vfs_fonts.js"></script>
-    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.html5.min.js"></script>
-    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.print.min.js"></script>
-    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.colVis.min.js"></script>
-
-    <!-- END Table JS -->
+    <!-- Fungsi Tabel JS -->
     <script>
-      $(document).ready(function() {
-          var table = $('#produk').DataTable( {
-              buttons: [ 'excel', 'csv', 'pdf', 'print' ],
-              dom: 
-              "<'col-md-6 px-0 mb-4'B>"+
-              "<'row'<'col-md-8'l><'col-md-4'f>>"+
-              "<'row'<'col-md-12'tr>>"+
-              "<'row'<'col-md-5'i><'col-md-7'p>>",
-              lengthMenu:[
-                [6,10,25,50,100,-1],
-                [6,10,25,50,100,"All"]
-              ]
-          } );
-      
-          table.buttons().container()
-              .appendTo( '#produk_wrapper .col-md-6:eq(0)' );
-      } );
+      $(document).ready(function () {
+        $('#supplier').DataTable();
+      });
     </script>
     <!-- END Fungsi Table JS -->
   </body>

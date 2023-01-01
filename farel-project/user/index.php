@@ -168,6 +168,21 @@
     </div> -->
     <!--Feature End -->
 
+    <?php
+        //Mendapatkan ID Toko user yang login
+        $id_toko = $_SESSION['User']['id_toko'];
+
+        $kategori =array();
+        $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ORDER BY id_kategori DESC LIMIT 6 ");
+        while($tiap = $ambil -> fetch_assoc())
+        {
+            $kategori[] = $tiap;
+        }
+
+        // echo"<pre>";
+        // print_r($kategori);
+        // echo"</pre>";
+    ?>
 
     <!-- Destination Start -->
     <div class="container-fluid py-5">
@@ -177,60 +192,17 @@
                 <h1>Jenis Produk Kami</h1>
             </div>
             <div class="row">
+            <?php foreach ($kategori as $key => $value): ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/kuee.jpg" alt="">
+                        <img class="img-fluid" src="../asset/image/image-admin/kategori/<?php echo $value["foto_kategori"] ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Cake</h5>
+                            <h5 class="text-white"><?php echo $value["nama_kategori"] ?></h5>
                             <span></span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/kue kering.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Kue Kering</h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Jajanan Tradisional</h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-4.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">India</h5>
-                            <span>100 Cities</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-5.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">South Africa</h5>
-                            <span>100 Cities</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Indonesia</h5>
-                            <span>100 Cities</span>
-                        </a>
-                    </div>
-                </div> -->
+            <?php endforeach ?>    
             </div>
         </div>
     </div>
@@ -256,7 +228,7 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-award mx-auto mb-4"></i>
                         <h5 class="mb-2">Tersertifikasi</h5>
-                        <p class="m-0">Tentunya roti dari toko kami sudah tersertifikasi layak makan dan layak jual</p>
+                        <p class="m-0">Tentunya roti kami sudah tersertifikasi layak konsumsi</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">

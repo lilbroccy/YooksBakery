@@ -416,7 +416,7 @@
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data User
+                <h5 class="card-header">Data User</h5>
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
@@ -431,7 +431,9 @@
                 // print_r($user);
                 // echo"</pre>";
                 ?>
-                </h5>
+                <div class="container col-md-0 px-2">
+                  <a href="user_tambah.php" class="btn btn-primary">Tambah</a>
+                </div>
                 <div class="table-responsive text-nowrap p-2">
                 <table id="user" class="table table-bordered display" style="width:100%">
                 <thead>
@@ -462,8 +464,8 @@
                         <td><?php echo $value["foto_user"]?></td>
                         <td>
                         <div class='btn-group'>
-                          <a href="" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
-                          <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                          <a href="user_edit.php?id=<?php echo $value["id_user"] ?>" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
+                          <a href="user_hapus.php?id=<?php echo $value["id_user"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                         </div>
                           <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -498,7 +500,7 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Yooks Bakery</a>
                 </div>
               </div>
             </footer>

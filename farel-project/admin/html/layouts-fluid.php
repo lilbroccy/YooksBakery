@@ -489,7 +489,7 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
+                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Yooks Bakery</a>
                 </div>
               </div>
             </footer>
