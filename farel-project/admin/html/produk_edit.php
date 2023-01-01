@@ -511,9 +511,9 @@
                                             <input type="stock" name="stock" class="form-control" value="<?php echo $produk['stock_produk'] ?>">
                                         </div>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3 rounded-circle">
                                         <label>Foto Sebelumnya</label><br>
-                                        <img src="../../asset/image/image-admin/produk/<?php echo $produk['foto_produk'] ?>" width="200">
+                                        <img src="../../asset/image/image-admin/produk/<?php echo $produk['foto_produk'] ?>" width="200" >
                                     </div>
                                     <div class="mb-3">
                                         <label>Foto Produk</label>
