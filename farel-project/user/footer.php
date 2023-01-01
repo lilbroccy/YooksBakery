@@ -39,8 +39,8 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Jl. Melon 3 no. 5B, Krajan, Patrang, Kec. Patrang, Kabupaten Jember, Jawa Timur 68111</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+62 838 5772 6588</p>
+                <p><i class="fa fa-envelope mr-2"></i>yooksbakery@gmail.com</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
                 <div class="w-100">
                     <div class="input-group">
