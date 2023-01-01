@@ -495,7 +495,7 @@
                                 <td><?php echo $value["status_pesanan"]?></td>
                                 <td>
                                 <div class='btn-group'>
-                                  <a href="data-pending-tandaiselesai.php" class='btn btn-warning'><i class='bx bx-check'></i></a>
+                                  <a href="data-pesanan-pending-tandaiselesai.php" class='btn btn-warning'><i class='bx bx-check'></i></a>
                                   <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                                 </div>
                                   <!-- <div class="dropdown">
