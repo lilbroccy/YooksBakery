@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Data Kategori | Yooks Bakery</title>
+    <title>Data Kategori</title>
 
     <meta name="description" content="" />
 
@@ -724,7 +724,7 @@
             $nama = $_POST['edit-nama'];
             $id_toko = $_SESSION['User']['id_toko'];
 
-            $ambil = $koneksi->query("UPDATE kategori SET nama_kategori='$nama' WHERE id_kategori='$id_kategori' AND id_toko='$id_toko'");
+            $ambil = $koneksi->query("UPDATE kategori SET nama_kategori='$nama' WHERE id_kategori='$kategori' AND id_toko='$id_toko'");
 
             if (isset($ambil)) {
                 echo "<script>
