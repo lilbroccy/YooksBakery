@@ -103,7 +103,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -129,10 +129,10 @@
                         </g>
                       </g>
                     </g>
-                  </g>
+                  </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Yooks Admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -493,7 +493,11 @@
                                 <td><u><a href="../../asset/image/image-admin/bukti/<?php echo $value["bukti"]?>"><?php echo $value["bukti"]?></a></u></td>
                                 <td><?php echo $value["status_pesanan"]?></td>
                                 <td>
-                                  <div class="dropdown">
+                                <div class='btn-group'>
+                                  <a href="data-pending-tandaiselesai.php" class='btn btn-warning'><i class='bx bx-check'></i></a>
+                                  <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                                </div>
+                                  <!-- <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                       <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
@@ -503,7 +507,7 @@
                                       >
                                       <a class="dropdown-item" href=""
                                         ><i class="bx bx-trash me-1"></i>Hapus</a>
-                                    </div>
+                                    </div> -->
                                   </div>
                                 </td>
                             </tr>

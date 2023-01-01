@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Container - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Data Kategori | Yooks Bakery</title>
 
     <meta name="description" content="" />
 
@@ -453,7 +453,11 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong><?php echo $value["nama_kategori"] ?></strong></td>
                         <td><?php echo $value["foto_kategori"] ?></td>
                         <td>
-                          <div class="dropdown">
+                        <div class='btn-group'>
+                          <a href="kategori_edit.php" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
+                          <a href="kategori_hapus.php" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                        </div>
+                          <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
@@ -464,7 +468,7 @@
                               <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
-                            </div>
+                            </div> -->
                           </div>
                         </td>
                       </tr>

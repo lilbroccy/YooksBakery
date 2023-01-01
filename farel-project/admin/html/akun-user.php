@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Data Produk | Yooks Bakery</title>
+    <title>Edit Produk</title>
 
     <meta name="description" content="" />
 
@@ -66,6 +66,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    
   </head>
 
   <body>
@@ -103,7 +104,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -129,10 +130,10 @@
                         </g>
                       </g>
                     </g>
-                  </g> -->
+                  </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder">Yooks Admin</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -154,7 +155,7 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">PERUSAHAAN</span>
             </li>
-
+            
             <!-- Layouts -->
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -201,13 +202,8 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="data-pesanan-pending.php" class="menu-link">
-                    <div data-i18n="Fluid">Data Pesanan Pending</div>
-                  </a>
-                </li>
-                <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Data Pesanan Lunas</div>
+                    <div data-i18n="Account">Laporan Penjualan</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -254,11 +250,11 @@
                   </a>
                 </li>
               </ul>
-            </li>=
+            </li>
 
-            Forms & Tables
+            <!-- Forms & Tables                                                   
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <Forms
+            <!-- Forms 
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -295,7 +291,7 @@
                 </li>
               </ul>
             </li>
-            <!Tables 
+            <!-- Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
@@ -347,7 +343,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg" alt class="w-px-40 h-px-40 rounded-circle" />
+                      <img src="../assets/img/avatars/8.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -356,7 +352,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg" alt class="w-px-40 h-px-40 rounded-circle" />
+                              <img src="../assets/img/avatars/8.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -408,88 +404,148 @@
 
           <!-- / Navbar -->
 
+              <?php
+                //Mendapatkan ID Toko user yang login
+                $id_toko = $_SESSION['User']['id_toko'];
+
+                // <!-- Data Supplier -->
+                $supplier =array();
+                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
+                while($tiap = $ambil -> fetch_assoc()){
+                  $supplier[] = $tiap;
+                }
+                
+                // <!-- Data Kategori -->
+                $kategori =array();
+                $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ");
+                while($tiap = $ambil -> fetch_assoc()){
+                  $kategori[] = $tiap;
+                }
+
+                // echo"<pre>";
+                // print_r($supplier);
+                // echo"</pre>";
+              ?>
+
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-fluid flex-grow-1 container-p-y">
+        <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-              <div class="card shadow">
-                <h5 class="card-header">Data Produk
+            <div class="card shadow">
+                <h5 class="card-header">Data User
                 <?php
                 //Mendapatkan ID Toko user yang login
+                $id_user = $_GET['id_user'];
                 $id_toko = $_SESSION['User']['id_toko'];
 
-                $produk =array();
-                $ambil = $koneksi ->query("SELECT * FROM produk WHERE id_toko='$id_toko' ");
+                $ambil = $koneksi->query("SELECT * FROM user WHERE id_user='$id_user' ");
+                $user = $ambil->fetch_assoc();
+
+                $supplier =array();
+                $ambil = $koneksi ->query("SELECT * FROM supplier WHERE id_toko='$id_toko' ");
                 while($tiap = $ambil -> fetch_assoc()){
-                  $produk[] = $tiap;
+                  $supplier[] = $tiap;
                 }
 
                 // echo"<pre>";
-                // print_r($produk);
+                // print_r($supplier);
                 // echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0">
-                  <a href="produk_tambah.php" class="btn btn-primary">Tambah</a>
-                </div>
                 <div class="table-responsive text-nowrap p-2">
-                <table id="produk" class="table table-bordered display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Id Produk</th>
-                        <th>Kode Produk</th>
-                        <th>Nama</th>
-                        <th>Biaya Produksi</th>
-                        <th>Harga Jual Produk</th>
-                        <th>Stock Produk</th>
-                        <th>Foto Produk</th>
-                        <th>Deskripsi Produk</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($produk as $key => $value): ?>
-                    <tr>
-                        <td><?php echo $key+1 ?></td>
-                        <td><?php echo $value["id_produk"] ?></td>
-                        <td><?php echo $value["kode_produk"] ?></td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_produk"] ?></strong></td>
-                        <td>Rp. <?php echo number_format($value["biaya_produk"]) ?></td>
-                        <td>Rp. <?php echo number_format($value["jual_produk"]) ?></td>
-                        <td><?php echo $value["stock_produk"] ?></td>
-                        <td><?php echo $value["foto_produk"] ?></td>
-                        <td><?php echo $value["keterangan_produk"] ?></td>
-                        <td>
-                        <div class='btn-group'>
-                          <a href="" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
-                          <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
-                        </div>
-                          <!-- <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="produk_edit.php?id=<?php echo $value["id_produk"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="produk_hapus.php?id=<?php echo $value["id_produk"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">Edit User</div>
+                            <div class="card-body">
+                                <form method="POST" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label>Nama User</label>
+                                            <select class="form-control" name="id_user">
+                                                <option value="">Pilih</option>
+                                                <?php foreach ($user as $key => $value): ?>
+                                        
+                                                <option value="<?php echo $value["id_user"] ?>" <?php echo $value['id_supplier']==$produk['id_supplier']?"selected":"" ?>>
+                                                    <?php echo $value["nama_user"] ?>
+                                                </option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Alamat</label>
+                                            <input type="text" name="kode" class="form-control" value="<?php echo $produk['alamat_user'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Nomor Telepon</label>
+                                        <input type="text" name="nama" class="form-control" value="<?php echo $produk['telepon_user'] ?>">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label>Email</label>
+                                            <input type="number" name="beli" class="form-control" value="<?php echo $produk['email_user'] ?>">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Password</label>
+                                            <input type="text" name="jual" class="form-control" value="<?php echo $produk['jual_produk'] ?>">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label>Stock Produk</label>
+                                            <input type="stock" name="stock" class="form-control" value="<?php echo $produk['stock_produk'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Foto Sebelumnya</label><br>
+                                        <img src="../../asset/image/image-admin/produk/<?php echo $produk['foto_produk'] ?>" width="200">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Foto Produk</label>
+                                        <input type="file" name="foto" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Keterangan Produk</label>
+                                        <textarea class="form-control" name="keterangan" cols="30" rows="5"><?php echo $produk['keterangan_produk'] ?></textarea>
+                                    </div>
+                                    <button class="btn btn-primary" name="simpan">Simpan</button>
+                                </form>
                             </div>
-                          </div> -->
-                        </td>
-                      </tr>
-                  <?php endforeach ?>
-                </tbody>
-                </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
             </div>
+        </div>
             <!-- / Content -->
+        <?php 
+        if(isset($_POST['simpan'])){
+            $id_toko = $_SESSION['User']['id_toko'];
+            $nama = $_POST['nama'];
+            $id_supplier = $_POST['id_supplier'];
+            $id_kategori = $_POST['id_kategori'];
+            $kode = $_POST['kode'];
+            $beli = $_POST['beli'];
+            $jual = $_POST['jual'];
+            $stock = $_POST['stock'];
+            $keterangan = $_POST['keterangan'];
+            $namafoto = $_FILES['foto']['name'];
+            $lokasifoto = $_FILES['foto']['tmp_name'];
+
+            if(!empty($lokasifoto)){
+                move_uploaded_file($lokasifoto, "../../asset/image/image-admin/produk/".$namafoto);
+                
+                $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
+                                kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
+                                WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
+        } else {
+            $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
+            kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', keterangan_produk='$keterangan'
+            WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
+        }
+            echo "<script>alert('data tersimpan')</script>";
+            echo "<script>location='layouts-produk.php'</script>";
+    }
+        ?>
+
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
@@ -533,20 +589,20 @@
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <!-- Table JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <!-- END Table JS -->
 
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    
     <!-- Fungsi Tabel JS -->
     <script>
       $(document).ready(function () {
-        $('#produk').DataTable();
+        $('#supplier').DataTable();
       });
     </script>
     <!-- END Fungsi Table JS -->
