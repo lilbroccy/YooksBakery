@@ -168,6 +168,21 @@
     </div> -->
     <!--Feature End -->
 
+    <?php
+        //Mendapatkan ID Toko user yang login
+        $id_toko = $_SESSION['User']['id_toko'];
+
+        $kategori =array();
+        $ambil = $koneksi ->query("SELECT * FROM kategori WHERE id_toko='$id_toko' ORDER BY id_kategori DESC LIMIT 6 ");
+        while($tiap = $ambil -> fetch_assoc())
+        {
+            $kategori[] = $tiap;
+        }
+
+        // echo"<pre>";
+        // print_r($kategori);
+        // echo"</pre>";
+    ?>
 
     <!-- Destination Start -->
     <div class="container-fluid py-5">
@@ -177,60 +192,17 @@
                 <h1>Jenis Produk Kami</h1>
             </div>
             <div class="row">
+            <?php foreach ($kategori as $key => $value): ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/kuee.jpg" alt="">
+                        <img class="img-fluid" src="../asset/image/image-admin/kategori/<?php echo $value["foto_kategori"] ?>" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Cake</h5>
+                            <h5 class="text-white"><?php echo $value["nama_kategori"] ?></h5>
                             <span></span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/kue kering.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Kue Kering</h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/jajan pasar.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Jajanan Tradisional</h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-4.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">India</h5>
-                            <span>100 Cities</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-5.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">South Africa</h5>
-                            <span>100 Cities</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">Indonesia</h5>
-                            <span>100 Cities</span>
-                        </a>
-                    </div>
-                </div> -->
+            <?php endforeach ?>    
             </div>
         </div>
     </div>
@@ -256,7 +228,7 @@
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
                         <i class="fa fa-2x fa-award mx-auto mb-4"></i>
                         <h5 class="mb-2">Tersertifikasi</h5>
-                        <p class="m-0">Tentunya roti dari toko kami sudah tersertifikasi layak makan dan layak jual</p>
+                        <p class="m-0">Tentunya roti kami sudah tersertifikasi layak konsumsi</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -452,78 +424,46 @@
 
     <!-- Team Start -->
     <div class="container-fluid bg-registration py-5">
-        <div class="container pt-5 pb-3">
+    <div class="container py-5">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Guides</h6>
-                <h1 class="text-light">Our Travel Guides</h1>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
+                <h1 class="text-light">Testimonial dari pelanggan kami</h1>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="text-center pb-4">
+                    <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;" >
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">Pilihan Rotinya banyak, rasanya jangan ditanya lagi deh the best pokoknya @yooksbakery
+                        </p>
+                        <h5 class="text-truncate">@henrymaguire</h5>
+                        <!-- <span>Profession</span> -->
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
+                <div class="text-center">
+                    <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;" >
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">Rotinya sesuai sama yang direquest, rekomended buat acara-acara penting @yooksbakery #yooksbakery
+                        </p>
+                        <h5 class="text-truncate">@chindycndy</h5>
+                        <!-- <span>Profession</span> -->
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
+                <div class="text-center">
+                    <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">pelayanannya ramah bangett, pilihan rotinya juga banyak yang bikin ngiler... sukses terus @yooksbakery
+                        </p>
+                        <h5 class="text-truncate">@prssbudyy</h5>
+                        <!-- <span>Profession</span> -->
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                    <div class="team-item bg-white mb-4">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
-                        </div>
+                <div class="text-center">
+                    <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;" >
+                    <div class="testimonial-text bg-white p-4 mt-n5">
+                        <p class="mt-5">Harganya terjangkau, Rekomendasi dari aku sih Roti Bolunya.... empuk bangett @yooksbakery
+                        </p>
+                        <h5 class="text-truncate">@fernndodevyn</h5>
+                        <!-- <span>Profession</span> -->
                     </div>
                 </div>
             </div>
@@ -532,48 +472,48 @@
     <!-- Team End -->
 
 
-    <!-- Testimonial Start -->
+    <!-- Testimonial Start 
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
-                <h1>What Say Our Clients</h1>
+                <h1>Testimonial dari pelanggan kami</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
                 <div class="text-center pb-4">
                     <img class="img-fluid mx-auto" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                        <p class="mt-5">Pilihan Rotinya banyak, rasanya jangan ditanya lagi deh the best pokoknya @yooksbakery
                         </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                        <h5 class="text-truncate">@henrymaguire</h5>
+                        <!-- <span>Profession</span> 
                     </div>
                 </div>
                 <div class="text-center">
                     <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                        <p class="mt-5">Rotinya sesuai sama yang direquest, rekomended buat acara-acara penting @yooksbakery #yooksbakery
                         </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                        <h5 class="text-truncate">@chindycndy</h5>
+                        <!-- <span>Profession</span> 
                     </div>
                 </div>
                 <div class="text-center">
                     <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                        <p class="mt-5">pelayanannya ramah bangett, pilihan rotinya juga banyak yang bikin ngiler... sukses terus @yooksbakery
                         </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                        <h5 class="text-truncate">@prssbudyy</h5>
+                        <!-- <span>Profession</span>
                     </div>
                 </div>
                 <div class="text-center">
                     <img class="img-fluid mx-auto" src="img/testimonial-4.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                        <p class="mt-5">Harganya terjangkau, Rekomendasi dari aku sih Roti Bolunya.... empuk bangett @yooksbakery
                         </p>
-                        <h5 class="text-truncate">Client Name</h5>
-                        <span>Profession</span>
+                        <h5 class="text-truncate">@fernndodevyn</h5>
+                        <!-- <span>Profession</span> 
                     </div>
                 </div>
             </div>
