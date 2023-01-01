@@ -114,5 +114,6 @@
             <!-- / Content -->
         </div>
     <script>print()</script>
+    <script>location='testimonial_form.php'</script>
 </body>
 </html>

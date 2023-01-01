@@ -325,13 +325,12 @@
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
+                  <li class="menu-item col-md-0 px-0">
+                    <a href="logout.php" class="menu-link">
+                      <i class=""></i>
+                      <div data-i18n="Logout"><Button class="btn btn-primary bx bx-log-in-circle col-md-0 "> Logout</Button></div>
+                    </a>
+                  </li>
                 </div>
               </div>
               <!-- /Search -->
@@ -412,11 +411,13 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data Perusahaan /</span> Data User</h4>
 
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data User</h5>
+                <h5 class="card-header"></h5>
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_toko = $_SESSION['User']['id_toko'];
