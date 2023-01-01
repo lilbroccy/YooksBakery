@@ -465,18 +465,18 @@
                         <td>Rp. <?php echo number_format($value["kembalian_penjualan"]) ?></td>
                         <td>
                         <div class='btn-group'>
-                          <a href="transaksi-penjualan-produk.php" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
-                          <a href="transaksi-penjualan-hapus.php" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                          <a href="transaksi-penjualan-produk.php?id=<?php echo $value["id_penjualan"] ?>" class='btn btn-warning' data-target="#detailorder"><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
+                          <a href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                         </div>
                           <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" data-toggle="modal" data-target="#detailorder" href="transaksi-penjualan-produk.php?id=<?php echo $value["id_penjualan"] ?>"
+                              <a class="dropdown-item" data-toggle="modal" href="transaksi-penjualan-produk.php"
                                 ><i class="bx bx-edit-alt me-1"></i> Detail</a
                               >
-                              <a class="dropdown-item" href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>"
+                              <a class="dropdown-item" href="transaksi-penjualan-hapus.php"
                                 ><i class="bx bx-trash me-1"></i> Delete</a>
                             </div>
                           </div> -->

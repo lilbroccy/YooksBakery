@@ -448,22 +448,9 @@
                         <td><?php echo $value["foto_kategori"] ?></td>
                         <td>
                         <div class='btn-group'>
-                          <a href="kategori_edit.php" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
-                          <a href="kategori_hapus.php" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                          <a href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
+                          <a href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                         </div>
-                          <!-- <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div> -->
-                          </div>
                         </td>
                       </tr>
                       <?php endforeach ?>

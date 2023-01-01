@@ -67,6 +67,10 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
     
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <!-- Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -553,8 +557,17 @@
             kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', keterangan_produk='$keterangan'
             WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
         }
-            echo "<script>alert('data tersimpan')</script>";
-            echo "<script>location='layouts-produk.php'</script>";
+            // echo "<script>alert('data tersimpan')</script>";
+            // echo "<script>location='layouts-produk.php'</script>";
+            echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'EDIT PRODUK BERHASIL',
+                            text: 'Data Produk Telah Terupdate'
+                        }).then((result) => {
+                            window.location.href = 'layouts-produk.php'
+                        })
+                  </script>";
     }
         ?>
 

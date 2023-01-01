@@ -453,18 +453,18 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value["nama_supplier"] ?></strong></td>
                         <td>
                         <div class='btn-group'>
-                          <a href="" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
-                          <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                          <a href="supplier_edit.php?id=<?php echo $value["id_supplier"] ?>" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
+                          <a href="supplier_hapus.php?id=<?php echo $value["id_supplier"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                         </div>
                           <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="supplier_edit.php?id=<?php echo $value["id_supplier"] ?>"
+                              <a class="dropdown-item" href=""
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
-                              <a class="dropdown-item" href="supplier_hapus.php?id=<?php echo $value["id_supplier"] ?>"
+                              <a class="dropdown-item" href=""
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>

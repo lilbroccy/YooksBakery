@@ -462,7 +462,7 @@
                         <td><?php echo $value["foto_user"]?></td>
                         <td>
                         <div class='btn-group'>
-                          <a href="" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
+                          <a href="" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
                           <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                         </div>
                           <!-- <div class="dropdown">
