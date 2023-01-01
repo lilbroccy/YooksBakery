@@ -40,6 +40,8 @@ if (!isset($_SESSION['User'])) {
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+        <link rel="icon" href="Logo.png">
+        <title>Yooks Bakery</title>
         
     </head>
 
