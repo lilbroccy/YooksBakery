@@ -1,4 +1,11 @@
-<?php require("koneksi.php"); ?>
+<?php require("koneksi.php"); 
+if(isset($_GET['id_penjualan'])){
+  $id_penjualan=$_GET['id_penjualan'];
+}
+else {
+  die ("Error. No ID Selected!");    
+}
+?>
 
 <!DOCTYPE html>
 
@@ -29,7 +36,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Data Transaksi | Yooks Bakery</title>
+    <title>Data Pesanan Pending | Yooks Bakery</title>
 
     <meta name="description" content="" />
 
@@ -57,7 +64,16 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
     <!-- Page CSS -->
+
+            <!-- Sweet Alert 2 -->
+            <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 END -->
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
@@ -65,14 +81,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
-
-    <!-- Sweet Alert 2 -->
-    <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../asset/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
-    <!-- Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -110,7 +118,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -136,10 +144,10 @@
                         </g>
                       </g>
                     </g>
-                  </g> -->
+                  </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">yooks admin</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -202,12 +210,12 @@
                 <div data-i18n="Account Settings">Customers</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="transaksi-penjualan.php" class="menu-link">
                     <div data-i18n="Account">Customers</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="data-pesanan-pending.php" class="menu-link">
                     <div data-i18n="Fluid">Data Pesanan Pending</div>
                   </a>
@@ -222,7 +230,95 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
+                <!-- <li class="menu-item">
+                  <a href="pages-account-settings-account.php" class="menu-link">
+                    <div data-i18n="Account">Account</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-notifications.php" class="menu-link">
+                    <div data-i18n="Notifications">Notifications</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-account-settings-connections.php" class="menu-link">
+                    <div data-i18n="Connections">Connections</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Authentications">Authentications</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="auth-login-basic.php" class="menu-link" target="_blank">
+                    <div data-i18n="Basic">Login</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="auth-register-basic.php" class="menu-link" target="_blank">
+                    <div data-i18n="Basic">Register</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="auth-forgot-password-basic.php" class="menu-link" target="_blank">
+                    <div data-i18n="Basic">Forgot Password</div>
+                  </a>
+                </li>
+              </ul>
+            </li>=
 
+            Forms & Tables
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
+            <Forms
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Elements">Form Elements</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="forms-basic-inputs.php" class="menu-link">
+                    <div data-i18n="Basic Inputs">Basic Inputs</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="forms-input-groups.php" class="menu-link">
+                    <div data-i18n="Input groups">Input groups</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Layouts">Form Layouts</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="form-layouts-vertical.php" class="menu-link">
+                    <div data-i18n="Vertical Form">Vertical Form</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="form-layouts-horizontal.php" class="menu-link">
+                    <div data-i18n="Horizontal Form">Horizontal Form</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!Tables 
+            <li class="menu-item">
+              <a href="tables-basic.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="Tables">Tables</div>
+              </a>
+            </li>
+          </ul> -->
+        </aside>
         <!-- / Menu -->
 
         <!-- Layout container -->
@@ -266,7 +362,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/8.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg" alt class="w-px-40 h-px-40 rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -275,7 +371,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/8.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="../assets/img/avatars/<?php echo $_SESSION['User']['nama_user']?>.jpg" alt class="w-px-40 h-px-40 rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -313,7 +409,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.php">
+                      <a class="dropdown-item" href="logout.php">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -331,55 +427,45 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-        <div class="container-fluid flex-grow-1 container-p-y">
+            <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
-            <div class="card shadow">
+              <div class="card shadow">
                 <?php
-                //Mendapatkan ID Toko user yang login
-                $id_penjualan = $_GET['id'];
-                $id_toko = $_SESSION['User']['id_toko'];
-
-                $produk =array();
-                $ambil = $koneksi->query("SELECT * FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko'");
-                while($tiap = $ambil->fetch_assoc()){
-                    $id_produk = $tiap['id_produk'];
-                    $jumlah_produk = $tiap['jumlah_produk'];
-
-                    // Kembalikan Stock Dari Produk Ini
-                    $koneksi->query("UPDATE produk SET stock_produk = stock_produk+$jumlah_produk WHERE id_produk='$id_produk' ");
+                //Jika ada inputan tglm dan tgls
+                if (isset($_POST['tglm'])AND $_POST['tgls']) {
+                    $tglm = $_POST['tglm'];
+                    $tgls = $_POST['tgls'];
+                } else {
+                    $tgls = date("Y-m-d");
+                    $tglm = (new Datetime($tgls))->modify("-1 month")->format("Y-m-d");  
                 }
-                
-                $koneksi->query("DELETE FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
-                $koneksi->query("DELETE FROM penjualan WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
 
+                $laporan = array();
+                $id_toko = $_SESSION['User']['id_toko'];
+                $id_user = $_SESSION['User']['id_user'];
+                $ambil = $koneksi->query("SELECT * FROM penjualan 
+                                          LEFT JOIN user ON penjualan.id_user=user.id_user
+                                          WHERE (penjualan.id_toko='$id_toko' AND status_pesanan='pending') AND DATE(tanggal_penjualan) BETWEEN '$tglm' AND '$tgls' ");
+                while ($tiap = $ambil->fetch_assoc())
+                {
+                    $laporan[] = $tiap;
+                }
+                $koneksi->query("DELETE FROM penjualan WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
+                $koneksi->query("DELETE FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
                 echo "<script>
                         Swal.fire({
                             icon: 'success',
-                            title: 'HAPUS TRANSAKSI PENJUALAN BERHASIL',
-                            text: 'Data Transaksi Penjualan Telah Terhapus'
+                            title: 'HAPUS DATA PESANAN BERHASIL',
+                            text: 'Data Pesanan Telah Dihapus'
                         }).then((result) => {
-                            window.location.href = 'transaksi-penjualan.php'
+                            window.location.href = 'data-pesanan-pending.php'
                         })
                     </script>";
-                // echo"<pre>";
-                // print_r($supplier);
-                // echo"</pre>";
                 ?>
+                
             <!-- / Content -->
-
+            
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Farel-Comel</a>
-                </div>
-              </div>
-            </footer>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -393,6 +479,8 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
+
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
@@ -419,6 +507,13 @@
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <!-- END Table JS -->
 
+    <!-- Fungsi Tabel JS -->
+    <script>
+      $(document).ready(function () {
+        $('#produk').DataTable();
+      });
+    </script>
+    <!-- END Fungsi Table JS -->
   </body>
 </html>
 

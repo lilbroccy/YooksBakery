@@ -416,7 +416,7 @@
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Penjualan
+                <h5 class="card-header">Data Pesanan Pending
                 <?php
                 //Jika ada inputan tglm dan tgls
                 if (isset($_POST['tglm'])AND $_POST['tgls']) {
@@ -495,8 +495,8 @@
                                 <td><?php echo $value["status_pesanan"]?></td>
                                 <td>
                                 <div class='btn-group'>
-                                  <a href="data-pesanan-pending-tandaiselesai.php" class='btn btn-warning'><i class='bx bx-check'></i></a>
-                                  <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                                  <a href="data-pesanan-pending-tandaiselesai.php?id_penjualan=<?php echo $value["id_penjualan"]?>" class='btn btn-warning'><i class='bx bx-check'></i></a>
+                                  <a href="data-pesanan-pending-hapus.php?id_penjualan=<?php echo $value["id_penjualan"]?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
                                 </div>
                                   <!-- <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -506,7 +506,7 @@
                                       <a class="dropdown-item" href="data-pesanan-pending-tandaiselesai.php?id_penjualan=<?php echo $value["id_penjualan"]?>"
                                         ><i class="bx bx-check me-1"></i>Tandai Lunas</a
                                       >
-                                      <a class="dropdown-item" href=""
+                                      <a class="dropdown-item" href="data-pesanan-pending-hapus.php?id_penjualan=<?php echo $value["id_penjualan"]?>"
                                         ><i class="bx bx-trash me-1"></i>Hapus</a>
                                     </div> -->
                                   </div>
