@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Edit Produk</title>
 
     <meta name="description" content="" />
 
@@ -67,6 +67,10 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
     
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <!-- Sweet Alert 2 END -->
   </head>
 
   <body>
@@ -211,7 +215,7 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -252,9 +256,9 @@
               </ul>
             </li>
 
-            <!-- Forms & Tables -->
+            <!-- Forms & Tables                                                   
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <!-- Forms 
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -291,14 +295,14 @@
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!-- Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 
@@ -553,8 +557,17 @@
             kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', stock_produk='$stock', keterangan_produk='$keterangan'
             WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
         }
-            echo "<script>alert('data tersimpan')</script>";
-            echo "<script>location='layouts-produk.php'</script>";
+            // echo "<script>alert('data tersimpan')</script>";
+            // echo "<script>location='layouts-produk.php'</script>";
+            echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'EDIT PRODUK BERHASIL',
+                            text: 'Data Produk Telah Terupdate'
+                        }).then((result) => {
+                            window.location.href = 'layouts-produk.php'
+                        })
+                  </script>";
     }
         ?>
 

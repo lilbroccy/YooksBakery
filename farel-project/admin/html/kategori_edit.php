@@ -68,11 +68,8 @@
     <script src="../assets/js/config.js"></script>
     
     <!-- Sweet Alert 2 -->
-    <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../asset/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
     <!-- Sweet Alert 2 END -->
   </head>
 
@@ -218,7 +215,7 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -259,9 +256,9 @@
               </ul>
             </li>
 
-            <!-- Forms & Tables -->
+            <!-- Forms & Tables 
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <!-- Forms 
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -298,14 +295,14 @@
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!-- Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 

@@ -29,12 +29,13 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Penjualan - Transaksi | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Data Penjualan | Yooks Bakery</title>
 
     <meta name="description" content="" />
 
     <!-- Link CSS Table -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables-5/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../../asset/DataTables-5/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -103,7 +104,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -129,10 +130,10 @@
                         </g>
                       </g>
                     </g>
-                  </g>
+                  </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Yooks Admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -463,18 +464,22 @@
                         <td>Rp. <?php echo number_format($value["bayar_penjualan"]) ?></td>
                         <td>Rp. <?php echo number_format($value["kembalian_penjualan"]) ?></td>
                         <td>
-                          <div class="dropdown">
+                        <div class='btn-group'>
+                          <a href="transaksi-penjualan-produk.php?id=<?php echo $value["id_penjualan"] ?>" class='btn btn-warning' data-target="#detailorder"><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
+                          <a href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                        </div>
+                          <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" data-toggle="modal" data-target="#detailorder" href="transaksi-penjualan-produk.php?id=<?php echo $value["id_penjualan"] ?>"
+                              <a class="dropdown-item" data-toggle="modal" href="transaksi-penjualan-produk.php"
                                 ><i class="bx bx-edit-alt me-1"></i> Detail</a
                               >
-                              <a class="dropdown-item" href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>"
+                              <a class="dropdown-item" href="transaksi-penjualan-hapus.php"
                                 ><i class="bx bx-trash me-1"></i> Delete</a>
                             </div>
-                          </div>
+                          </div> -->
                         </td>
                       </tr>
                       <?php endforeach ?>
@@ -534,15 +539,46 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Table JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <!-- END Table JS -->
+    <!-- JQuery -->
+    <script src="../../asset/js/jquery.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Data Table-Bootstrap-5 -->
+    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../asset/DataTables-5/DataTables-1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- Sweet Alert -->
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
 
-    <!-- Fungsi Tabel JS -->
+    <!-- Button Bootstrap-5 -->
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/dataTables.buttons.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="../../asset/DataTables-5/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="../../asset/DataTables-5/pdfmake-0.1.36/pdfmake.js"></script>
+    <script src="../../asset/DataTables-5/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.html5.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.print.min.js"></script>
+    <script src="../../asset/DataTables-5/Buttons-2.3.3/js/buttons.colVis.min.js"></script>
+
+    <!-- END Table JS -->
     <script>
-      $(document).ready(function () {
-        $('#produk').DataTable();
-      });
+      $(document).ready(function() {
+          var table = $('#produk').DataTable( {
+              buttons: [ 'excel', 'csv', 'pdf', 'print' ],
+              dom: 
+              "<'col-md-6 px-0 mb-4'B>"+
+              "<'row'<'col-md-8'l><'col-md-4'f>>"+
+              "<'row'<'col-md-12'tr>>"+
+              "<'row'<'col-md-5'i><'col-md-7'p>>",
+              lengthMenu:[
+                [6,10,25,50,100,-1],
+                [6,10,25,50,100,"All"]
+              ]
+          } );
+      
+          table.buttons().container()
+              .appendTo( '#produk_wrapper .col-md-6:eq(0)' );
+      } );
     </script>
     <!-- END Fungsi Table JS -->
   </body>

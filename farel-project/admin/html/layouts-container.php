@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Container - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Data Kategori</title>
 
     <meta name="description" content="" />
 
@@ -325,13 +325,7 @@
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
+                  <i class="bx fs-4 lh-0"></i>
                 </div>
               </div>
               <!-- /Search -->
@@ -453,19 +447,10 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong><?php echo $value["nama_kategori"] ?></strong></td>
                         <td><?php echo $value["foto_kategori"] ?></td>
                         <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
+                        <div class='btn-group'>
+                          <a href="kategori_edit.php?id=<?php echo $value["id_kategori"] ?>" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;
+                          <a href="kategori_hapus.php?id=<?php echo $value["id_kategori"] ?>" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                        </div>
                         </td>
                       </tr>
                       <?php endforeach ?>
@@ -671,7 +656,7 @@
               buttons: [ 'excel', 'csv', 'pdf', 'print' ],
               dom: 
               "<'col-md-6 px-0 mb-4'B>"+
-              "<'row'<'col-md-4'l><'col-md-4'f>>"+
+              "<'row'<'col-md-8'l><'col-md-4'f>>"+
               "<'row'<'col-md-12'tr>>"+
               "<'row'<'col-md-5'i><'col-md-7'p>>",
               lengthMenu:[
@@ -720,7 +705,7 @@
             $nama = $_POST['edit-nama'];
             $id_toko = $_SESSION['User']['id_toko'];
 
-            $ambil = $koneksi->query("UPDATE kategori SET nama_kategori='$nama' WHERE id_kategori='$id_kategori' AND id_toko='$id_toko'");
+            $ambil = $koneksi->query("UPDATE kategori SET nama_kategori='$nama' WHERE id_kategori='$kategori' AND id_toko='$id_toko'");
 
             if (isset($ambil)) {
                 echo "<script>
