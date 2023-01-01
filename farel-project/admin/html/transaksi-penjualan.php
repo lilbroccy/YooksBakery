@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Penjualan - Transaksi | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Data Penjualan | Yooks Bakery</title>
 
     <meta name="description" content="" />
 
@@ -104,7 +104,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -130,10 +130,10 @@
                         </g>
                       </g>
                     </g>
-                  </g>
+                  </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Yooks Admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -464,7 +464,11 @@
                         <td>Rp. <?php echo number_format($value["bayar_penjualan"]) ?></td>
                         <td>Rp. <?php echo number_format($value["kembalian_penjualan"]) ?></td>
                         <td>
-                          <div class="dropdown">
+                        <div class='btn-group'>
+                          <a href="transaksi-penjualan-produk.php" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
+                          <a href="transaksi-penjualan-hapus.php" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                        </div>
+                          <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
@@ -475,7 +479,7 @@
                               <a class="dropdown-item" href="transaksi-penjualan-hapus.php?id=<?php echo $value["id_penjualan"] ?>"
                                 ><i class="bx bx-trash me-1"></i> Delete</a>
                             </div>
-                          </div>
+                          </div> -->
                         </td>
                       </tr>
                       <?php endforeach ?>

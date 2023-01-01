@@ -461,7 +461,11 @@
                         <td><?php echo $value["level_user"] ?></td>
                         <td><?php echo $value["foto_user"]?></td>
                         <td>
-                          <div class="dropdown">
+                        <div class='btn-group'>
+                          <a href="" class='btn btn-warning'><i class="bx bx-edit-alt me-1"></i></a>
+                          <a href="" class='btn btn-danger'><i class="bx bx-trash me-1"></i></i></a>
+                        </div>
+                          <!-- <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
@@ -473,7 +477,7 @@
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>
-                          </div>
+                          </div> -->
                         </td>
                       </tr>
                       <?php endforeach ?>

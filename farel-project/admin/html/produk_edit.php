@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fluid - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Edit Produk</title>
 
     <meta name="description" content="" />
 
@@ -211,7 +211,7 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -252,9 +252,9 @@
               </ul>
             </li>
 
-            <!-- Forms & Tables -->
+            <!-- Forms & Tables                                                   
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <!-- Forms 
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -291,14 +291,14 @@
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!-- Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 

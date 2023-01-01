@@ -29,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Container - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Data Transaksi | Yooks Bakery</title>
 
     <meta name="description" content="" />
 
@@ -100,7 +100,7 @@
                       id="path-5"
                     ></path>
                   </defs>
-                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -126,10 +126,10 @@
                         </g>
                       </g>
                     </g>
-                  </g>
+                  </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">yooks admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -198,8 +198,13 @@
                   </a>
                 </li>
                 <li class="menu-item">
+                  <a href="data-pesanan-pending.php" class="menu-link">
+                    <div data-i18n="Fluid">Data Pesanan Pending</div>
+                  </a>
+                </li>
+                <li class="menu-item">
                   <a href="laporan.php" class="menu-link">
-                    <div data-i18n="Account">Laporan Penjualan</div>
+                    <div data-i18n="Account">Data Pesanan Lunas</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -207,7 +212,7 @@
                     <div data-i18n="Account">Laporan Keuntungan</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="pages-account-settings-account.php" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
@@ -248,9 +253,9 @@
               </ul>
             </li>
 
-            <!-- Forms & Tables -->
+            <!-- Forms & Tables 
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <!-- Forms
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -287,14 +292,14 @@
                 </li>
               </ul>
             </li>
-            <!-- Tables -->
+            <!-- Tables 
             <li class="menu-item">
               <a href="tables-basic.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
             </li>\
-          </ul>
+          </ul> -->
         </aside>
         <!-- / Menu -->
 
