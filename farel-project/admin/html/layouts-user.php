@@ -532,12 +532,7 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <!-- Table JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <!-- END Table JS -->
-
-    <!-- Fungsi Tabel JS -->
+  
    <!-- Table JS -->
     <!-- JQuery -->
     <script src="../../asset/js/jquery.min.js"></script>
