@@ -47,8 +47,7 @@ else {
     $user = $ambil->fetch_assoc();
 
     if(empty($user)){
-        $id_penjualan_user = $id_user-1;
-        $koneksi->query("INSERT INTO user (telepon_user, id_penjualan) VALUES('$telepon', '$id_penjualan_user')");
+        $koneksi->query("INSERT INTO user (telepon_user) VALUES('$telepon')");
         $id_user = $koneksi->insert_id;
     }
     else {

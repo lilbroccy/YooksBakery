@@ -67,6 +67,14 @@ else {
 
     <!-- Page CSS -->
 
+            <!-- Sweet Alert 2 -->
+            <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 END -->
+
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
 
@@ -422,7 +430,6 @@ else {
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Penjualan
                 <?php
                 //Jika ada inputan tglm dan tgls
                 if (isset($_POST['tglm'])AND $_POST['tgls']) {
@@ -449,7 +456,7 @@ else {
                         Swal.fire({
                             icon: 'success',
                             title: 'UPDATE DATA PESANAN BERHASIL',
-                            text: 'Data Pesanan Telah Ditandai Lunas'
+                            text: 'Data Pesanan Telah Diverifikasi'
                         }).then((result) => {
                             window.location.href = 'data-pesanan-pending.php'
                         })
@@ -472,6 +479,8 @@ else {
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
+
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

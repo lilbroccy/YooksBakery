@@ -1,4 +1,11 @@
-<?php require("koneksi.php"); ?>
+<?php require("koneksi.php"); 
+if(isset($_GET['id_penjualan'])){
+  $id_penjualan=$_GET['id_penjualan'];
+}
+else {
+  die ("Error. No ID Selected!");    
+}
+?>
 
 <!DOCTYPE html>
 
@@ -59,6 +66,14 @@
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
+
+            <!-- Sweet Alert 2 -->
+            <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../asset/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../../asset/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 END -->
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
@@ -415,7 +430,6 @@
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
               <div class="card shadow">
-                <h5 class="card-header">Data Pesanan Pending
                 <?php
                 //Jika ada inputan tglm dan tgls
                 if (isset($_POST['tglm'])AND $_POST['tgls']) {
@@ -436,86 +450,21 @@
                 {
                     $laporan[] = $tiap;
                 }
-                // echo"<pre>";
-                // print_r($laporan);
-                // echo"</pre>";
+                $koneksi->query("DELETE FROM penjualan WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
+                $koneksi->query("DELETE FROM penjualan_produk WHERE id_penjualan='$id_penjualan' AND id_toko='$id_toko' ");
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'HAPUS DATA PESANAN BERHASIL',
+                            text: 'Data Pesanan Telah Dihapus'
+                        }).then((result) => {
+                            window.location.href = 'data-pesanan-pending.php'
+                        })
+                    </script>";
                 ?>
-                </h5>
-                <div class="card border-0">
-                    <div class="card-body">
-                        <form method="POST">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Mulai</label>
-                                    <input type="date" name="tglm" class="form-control" value="<?php echo $tglm ?>">
-                                </div>
-                                <div class="col-md-3">
-                                    <label>Selesai</label>
-                                    <input type="date" name="tglm" class="form-control" value="<?php echo $tgls ?>">
-                                </div>
-                                <div class="col-md-3">
-                                    <label>&nbsp;</label><br>
-                                    <button class="btn btn-primary" name="filter">Filter</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <hr>
-                <div class="table-responsive text-nowrap p-2">
-                <table id="produk" class="table table-bordered display" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id Penjualan</th>
-                        <th>Customers</th>
-                        <th>Tanggal Pemesanan</th>
-                        <th>Tanggal Pengambilan</th>
-                        <th>Total</th>
-                        <th>Jumlah Bayar</th>
-                        <th>Bukti Pembayaran</th>
-                        <th>Status Pesanan</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        <?php $grandtotal = 0; ?>
-                        <?php foreach ($laporan as $key => $value): ?>
-                        <?php $grandtotal+=$value["total_penjualan"] ?>
-                            <tr>
-                                <td><?php echo $key+1 ?></td>
-                                <td><?php echo $value["id_penjualan"]?></td>
-                                <td><?php echo $value["nama_user"] ?></td>
-                                <td><?php echo date("d M Y H:i", strtotime($value['tanggal_penjualan'])) ?></td>
-                                <td><?php echo date("d M Y H:i", strtotime($value['tanggal_ambil_penjualan'])) ?></td>
-                                <td><?php echo number_format($value["total_penjualan"]) ?></td>
-                                <td><?php echo number_format($value["bayar_penjualan"])?></td>
-                                <td><u><a href="../../asset/image/image-admin/bukti/<?php echo $value["bukti"]?>"><?php echo $value["bukti"]?></a></u></td>
-                                <td><?php echo $value["status_pesanan"]?></td>
-                                <td>
-                                  <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                      <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="data-pesanan-pending-tandaiselesai.php?id_penjualan=<?php echo $value["id_penjualan"]?>"
-                                        ><i class="bx bx-check me-1"></i>Tandai Lunas</a
-                                      >
-                                      <a class="dropdown-item" href="data-pesanan-pending-hapus.php?id_penjualan=<?php echo $value["id_penjualan"]?>"
-                                        ><i class="bx bx-trash me-1"></i>Hapus</a>
-                                    </div>
-                                  </div>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
-            </div>
+                
             <!-- / Content -->
-
+            
             <!-- Footer -->
             <!-- / Footer -->
 
@@ -530,6 +479,8 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
+
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
