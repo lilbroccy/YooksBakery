@@ -325,13 +325,7 @@
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
+                  <i class="bx fs-4 lh-0"></i>
                 </div>
               </div>
               <!-- /Search -->
@@ -671,7 +665,7 @@
               buttons: [ 'excel', 'csv', 'pdf', 'print' ],
               dom: 
               "<'col-md-6 px-0 mb-4'B>"+
-              "<'row'<'col-md-4'l><'col-md-4'f>>"+
+              "<'row'<'col-md-8'l><'col-md-4'f>>"+
               "<'row'<'col-md-12'tr>>"+
               "<'row'<'col-md-5'i><'col-md-7'p>>",
               lengthMenu:[

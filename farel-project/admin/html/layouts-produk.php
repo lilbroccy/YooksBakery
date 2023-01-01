@@ -432,7 +432,7 @@
                 // echo"</pre>";
                 ?>
                 </h5>
-                <div class="container col-md-0">
+                <div class="container col-md-0 px-2">
                   <a href="produk_tambah.php" class="btn btn-primary">Tambah</a>
                 </div>
                 <div class="table-responsive text-nowrap p-2">
@@ -569,7 +569,7 @@
               buttons: [ 'excel', 'csv', 'pdf', 'print' ],
               dom: 
               "<'col-md-6 px-0 mb-4'B>"+
-              "<'row'<'col-md-4'l><'col-md-4'f>>"+
+              "<'row'<'col-md-8'l><'col-md-4'f>>"+
               "<'row'<'col-md-12'tr>>"+
               "<'row'<'col-md-5'i><'col-md-7'p>>",
               lengthMenu:[
