@@ -446,8 +446,8 @@
                         <th>Tanggal Penjualan</th>
                         <th>Tanggal Ambil</th>
                         <th>Total</th>
-                        <th>Bayar</th>
-                        <th>Kembalian</th>
+                        <!-- <th>Bayar</th>
+                        <th>Kembalian</th> -->
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -462,8 +462,6 @@
                         <td><?php echo date("d M Y H:i", strtotime($value["tanggal_penjualan"])) ?></td>
                         <td><?php echo date("d M Y H:i", strtotime($value["tanggal_ambil_penjualan"])) ?></td>
                         <td>Rp. <?php echo number_format($value["total_penjualan"]) ?></td>
-                        <td>Rp. <?php echo number_format($value["bayar_penjualan"]) ?></td>
-                        <td>Rp. <?php echo number_format($value["kembalian_penjualan"]) ?></td>
                         <td>
                         <div class='btn-group'>
                           <a href="transaksi-penjualan-produk.php?id=<?php echo $value["id_penjualan"] ?>" class='btn btn-warning' data-target="#detailorder"><i class="bx bx-edit-alt me-1"></i></a>&emsp;&emsp;

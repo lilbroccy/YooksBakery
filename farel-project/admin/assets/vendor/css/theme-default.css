@@ -96,7 +96,7 @@
 }
 
 .text-primary {
-  color: #696cff !important;
+  color: #ff6309 !important;
 }
 
 .text-body[href]:hover {
@@ -237,21 +237,21 @@ button.list-group-item-primary.active {
 }
 
 .btn-outline-primary {
-  color: #696cff;
-  border-color: #696cff;
+  color: #ff6309;
+  border-color: #ff6309;
   background: transparent;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #5f61e6;
-  border-color: #5f61e6;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  background-color: #ff6309;
+  border-color: #ff6309;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 165, 105, 0.4);
   transform: translateY(-1px);
 }
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
   color: #fff;
-  background-color: #5f61e6;
-  border-color: #5f61e6;
+  background-color: #ff6309;
+  border-color: #ff6309;
   box-shadow: none;
   transform: translateY(0);
 }
