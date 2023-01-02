@@ -438,7 +438,7 @@
         <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Basic Bootstrap Table -->
             <div class="card shadow">
-                <h5 class="card-header">Data Supplier
+                <h5 class="card-header">Edit Data Produk
                 <?php
                 //Mendapatkan ID Toko user yang login
                 $id_produk = $_GET['id'];
@@ -466,7 +466,7 @@
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label>Supplier</label>
-                                            <select class="form-control" name="id_suppplier">
+                                            <select class="form-control" name="id_supplier">
                                                 <option value="">Pilih</option>
                                                 <?php foreach ($supplier as $key => $value): ?>
                                         
@@ -495,6 +495,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Nama Produk</label>
+                                        <input type="hidden" name="id_produk" value="<?= $id_produk ?>"> 
                                         <input type="text" name="nama" class="form-control" value="<?php echo $produk['nama_produk'] ?>">
                                     </div>
                                     <div class="row">
@@ -539,6 +540,7 @@
         <?php 
         if(isset($_POST['simpan'])){
             $id_toko = $_SESSION['User']['id_toko'];
+            $id_produk = $_POST['id_produk'];
             $nama = $_POST['nama'];
             $id_supplier = $_POST['id_supplier'];
             $id_kategori = $_POST['id_kategori'];
@@ -556,12 +558,13 @@
                 
                 $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
                                 kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
-                                WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
-        } else {
+                                WHERE id_produk='$id_produk' AND id_toko='$id_toko' ")or die(mysqli_error($koneksi));    
+          } 
+          else {
             $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
             kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', keterangan_produk='$keterangan'
-            WHERE id_produk='$id_produk' AND id_toko='$id_toko' ");    
-        }
+            WHERE id_produk='$id_produk' AND id_toko='$id_toko' ")or die(mysqli_error($koneksi));    
+          }
             // echo "<script>alert('data tersimpan')</script>";
             // echo "<script>location='layouts-produk.php'</script>";
             echo "<script>

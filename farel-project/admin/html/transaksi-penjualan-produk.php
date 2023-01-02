@@ -435,7 +435,7 @@
             <td>Catatan :</td>
         </tr>
         <tr>
-            <td>-Simpan nota ini, kemudian tunjukkan kepada kami ketika mengambil pesanan</td>
+            <td>Simpan nota ini, kemudian tunjukkan kepada kami ketika mengambil pesanan</td>
         </tr>
     </table>
                 </div>
