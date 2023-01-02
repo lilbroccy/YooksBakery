@@ -18,25 +18,30 @@
     ?>
     
     <!-- Packages Start -->
-    <div class="container-fluid py-1">
-        <div class="container pt-1 pb-3">
             <div class="row">
                 <?php foreach ($produk as $key => $value): ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2" >
                         <img class="img-fluid" src="../asset/image/image-admin/produk/<?php echo $value["foto_produk"] ?>" alt="" style="height:250px;width=650px;">
                         <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                                <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                            <div >
+                                <div class="d-flex justify-content-between">
+                                    <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>"><?php echo $value["nama_produk"] ?></a>
+                                    <h5 class=""><s>Rp. <?php echo $value["harga_coret"]?></s></h5>
+                                </div>
+                                <div>
+                                    <p><?php echo $value["keterangan_produk"]?></p>
+                                </div>
                             </div>
-                            <a class="h5 text-decoration-none link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>">
-                                <?php echo $value["nama_produk"] ?></a>
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>Stock <small>( <?php echo $value["stock_produk"] ?> )</small></h6>
                                     <h5 class="m-0">Rp. <?php echo number_format($value["jual_produk"]) ?></h5>
+                                </div>
+                            </div>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <button class ="btn-primary btn-sm link-produk" href="#" idnya="<?php echo $value["id_produk"] ?>">Masukkan Keranjang</button>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +49,5 @@
                 </div>
                 <?php endforeach ?>
             </div>
-        </div>
-    </div>
     
     <!-- Packages End -->

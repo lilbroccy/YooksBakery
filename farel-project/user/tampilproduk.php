@@ -5,7 +5,7 @@ $id_toko = $_SESSION['User']['id_toko'];
 
 //dapatkan produk sesuai id toko ini
 $produk =array();
-$ambil = $koneksi ->query("SELECT * FROM produk WHERE id_toko='$id_toko' ORDER BY id_produk DESC LIMIT 8 ");
+$ambil = $koneksi ->query("SELECT * FROM produk WHERE id_toko='$id_toko' ORDER BY id_produk");
 while($tiap = $ambil -> fetch_assoc())
 {
     $produk[] = $tiap;
