@@ -359,11 +359,11 @@
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label>Supplier</label>
-                                            <select class="form-control" name="id_suppplier">
+                                            <select class="form-control" name="id_supplier">
                                                 <option value="">Pilih</option>
                                                 <?php foreach ($supplier as $key => $value): ?>
                                         
-                                                <option value="<?php echo $value["id_supplier"] ?>">
+                                                <option value="<?php echo $value["id_supplier"]?>">
                                                     <?php echo $value["nama_supplier"] ?>
                                                 </option>
                                                 <?php endforeach ?>
