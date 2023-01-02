@@ -20,7 +20,7 @@
                 </div>
                 <h1>REGISTRASI</h1>
                 <p>Jelajahi toko kami sepuas anda!</p>
-                <form action="process-register.php" method="POST">
+                <form action="register.php" method="POST">
                     <div class="mb-3">
                         <label >Nama</label>
                         <input type="text" name="name" class="form-control" placeholder="Username">
@@ -46,7 +46,7 @@
                     </div>
                     <button class="btn btn-outline" name="register">Register</button>
                 </form>
-                <p>Sudah punya akun? log in</p>
+                <p>Sudah punya akun? Log in</p>
             </div>
         </div>
     </div>
