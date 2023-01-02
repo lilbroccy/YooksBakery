@@ -21,7 +21,7 @@
                 </div>
                 <h1>REGISTRASI</h1>
                 <p>Jelajahi toko kami sepuas anda!</p>
-                <form action="process-register.php" method="POST">
+                <form action="register.php" method="POST">
                     <div class="mb-3">
                         <label >Nama</label>
                         <input type="text" name="name" class="form-control" placeholder="Username">
