@@ -445,24 +445,13 @@
                 <h1 class="text-light">Testimonial dari pelanggan kami</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
-            <?php foreach ($user as $key => $value): ?>
-                <div class="text-center pb-4">
-                    <img class="img-fluid mx-auto" src="../../farel-project/admin/assets/img/avatars/<?php echo $value["foto_user"] ?>" alt="" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text bg-white p-4 mt-n5">
-                        <p class="mt-5">Pilihan Rotinya banyak, rasanya jangan ditanya lagi deh the best pokoknya @yooksbakery
-                        </p>
-                        <h5 class="text-truncate">@<?php echo $value["nama_user"] ?></h5>
-                        <!-- <span>Profession</span> -->
-                    </div>
-                </div>
-            <?php endforeach ?>
-                <!-- <div class="text-center">
+                <div class="text-center">
                     <img class="img-fluid mx-auto" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;" >
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">Rotinya sesuai sama yang direquest, rekomended buat acara-acara penting @yooksbakery #yooksbakery
                         </p>
                         <h5 class="text-truncate">@chindycndy</h5>
-                        <span>Profession</span>
+                        <!-- <span>Profession</span> -->
                     </div>
                 </div>
                 <div class="text-center">
@@ -471,7 +460,7 @@
                         <p class="mt-5">pelayanannya ramah bangett, pilihan rotinya juga banyak yang bikin ngiler... sukses terus @yooksbakery
                         </p>
                         <h5 class="text-truncate">@prssbudyy</h5>
-                        <span>Profession</span>
+                        <!-- <span>Profession</span> -->
                     </div>
                 </div>
                 <div class="text-center">
@@ -480,9 +469,9 @@
                         <p class="mt-5">Harganya terjangkau, Rekomendasi dari aku sih Roti Bolunya.... empuk bangett @yooksbakery
                         </p>
                         <h5 class="text-truncate">@fernndodevyn</h5>
-                        <span>Profession</span>
+                        <!-- <span>Profession</span> -->
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
