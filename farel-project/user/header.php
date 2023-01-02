@@ -24,7 +24,7 @@ if (!isset($_SESSION['User'])) {
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
         <!-- Favicon -->
-        <!-- <link href="img/favicon.ico" rel="icon"> -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -40,7 +40,7 @@ if (!isset($_SESSION['User'])) {
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-        <link rel="icon" type="image/x-icon" href="ico/favicon.ico" />
+        <!-- <link rel="icon" type="image/x-icon" href="ico/favicon.ico" /> -->
 
         <title>Yooks Bakery</title>
         
