@@ -29,7 +29,7 @@
                     </div>
                     <button class="btn btn-outline mb-1" name="login">Login</button>
                     <div>
-                    <a href="register.php" class="btn">Register</a>
+                    <p>Belum Punya akun? <a href="register.php">Register</a></p>
                     </div>
                 </form>
             </div>
