@@ -65,6 +65,7 @@ if (!isset($_SESSION['User'])) {
 
     <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 
+    <link rel="stylesheet" href="../../asset/Chart.js/Chart.min.js">
     <!-- Page CSS -->
     
     <!-- Helpers -->
@@ -320,7 +321,7 @@ if (!isset($_SESSION['User'])) {
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="row">
-                <div class="col-lg-8 mb-4 order-0">
+                <div class="col-lg-6 mb-4 order-0">
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
@@ -348,13 +349,75 @@ if (!isset($_SESSION['User'])) {
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 order-1">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <!-- ... -->
+                <?php
+                  //Mendapatkan ID Toko user yang login
+                  $id_toko = $_SESSION['User']['id_toko'];
+
+                  $user =array();
+                  $ambil = mysqli_num_rows($koneksi->query("SELECT * FROM user"));
+
+                  // echo"<pre>";
+                  // print_r($kategori);
+                  // echo"</pre>";
+                ?>
+                <div class="col-3 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                          <img src="../assets/img/icons/unicons/user.png" alt="Credit Card" class="rounded" />
+                        </div>
+                        <div class="dropdown">
+                          <button
+                            class="btn p-0"
+                            type="button"
+                            id="cardOpt4"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                          </button>
+                        </div>
+                      </div>
+                      <span class="d-block mb-1">Jumlah User</span>
+                      <h3 class="card-title text-nowrap mb-2"><?php echo $ambil ?></h3>
+                      <small class="text-danger fw-semibold">&nbsp;</small>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <!-- ... -->
+                  </div>
+                </div>
+                <?php
+                  //Mendapatkan ID Toko user yang login
+                  $id_toko = $_SESSION['User']['id_toko'];
+
+                  $user =array();
+                  $ambill = mysqli_num_rows($koneksi->query("SELECT * FROM penjualan_produk"));
+
+                  // echo"<pre>";
+                  // print_r($kategori);
+                  // echo"</pre>";
+                ?>
+                <div class="col-3 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                          <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                        </div>
+                        <div class="dropdown">
+                          <button
+                            class="btn p-0"
+                            type="button"
+                            id="cardOpt1"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                          </button>
+                        </div>
+                      </div>
+                      <span class="fw-semibold d-block mb-1">Jumlah Transaksi</span>
+                      <h3 class="card-title text-nowrap mb-2"><?php echo $ambill ?></h3>
+                      <small class="text-danger fw-semibold">&nbsp;</small>
                     </div>
                   </div>
                 </div>
@@ -363,13 +426,23 @@ if (!isset($_SESSION['User'])) {
                     <div class="row row-bordered g-0">
                       <div class="col-md-12">
                         <h5 class="card-header m-0 me-2 pb-3">Data Produksi</h5>
-                        <div id="totalRevenueChart" class="px-2"></canvas></div>
+                        <div id="totalproduksi" class="px-2" style="height: 500px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-8 col-lg-6 order-2 order-md-3 order-lg-2 mb-4">
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+                      <div class="col-md-12">
+                        <h5 class="card-header m-0 me-2 pb-3">Data Transaksi</h5>
+                        <div id="transaksitahunini" class="px-2" style="height: 500px;"></div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!--/ Total Revenue -->
-                <div class="col-12 col-md-8 col-lg-6 order-3 order-md-2">
+                <!-- <div class="col-12 col-md-8 col-lg-6 order-3 order-md-2">
                   <div class="row">
                     <div class="col-6 mb-4">
                       <div class="card">
@@ -431,8 +504,8 @@ if (!isset($_SESSION['User'])) {
                         </div>
                       </div>
                     </div>
-                    </div>
-    <div class="row">
+                    </div> -->
+                    <!-- <div class="row">
                     <div class="col-12 mb-4">
                       <div class="card">
                         <div class="card-body">
@@ -455,7 +528,7 @@ if (!isset($_SESSION['User'])) {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
             <!-- / Content -->
@@ -493,55 +566,13 @@ if (!isset($_SESSION['User'])) {
     <?php
     //Mendapatkan ID Toko user yang login
 
-    $data_produk = $koneksi ->query("SELECT * FROM produk");
+    $data_produk = $koneksi->query("SELECT * FROM produk");
 
     // echo"<pre>";
     // print_r($produk);
     // echo"</pre>";
     ?>
 
-    <script>
-      var ctx = document.getElementById("totalproduksi").getContext('2d');
-      var mychart = new Chart(ctx, {
-        type: 'bar',
-        data:{
-          labels:["Roti Anjay", "Roti Munaroh", "Roti Bolu", "Roti Susu"],
-          datasets:[
-            {
-              lavel: '# of Votes',
-              data: [
-                <?php $jumlah_anjay=mysqli_query($koneksi,"SELECT * FROM produk WHERE nama_produk='Roti Anjay'"); echo mysqli_num_rows($jumlah_anjay);?> 
-                <?php $jumlah_munaroh=mysqli_query($koneksi,"SELECT * FROM produk WHERE nama_produk='Roti Munaroh'"); echo mysqli_num_rows($jumlah_munaroh);?>
-                <?php $jumlah_bolu=mysqli_query($koneksi,"SELECT * FROM produk WHERE nama_produk='Roti Bolu'"); echo mysqli_num_rows($jumlah_bolu);?>
-                <?php $jumlah_susu=mysqli_query($koneksi,"SELECT * FROM produk WHERE nama_produk='Roti Susu'"); echo mysqli_num_rows($jumlah_susu);?>
-            ],
-              backgroundColor:[
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
-              ],
-              borderColor:[ 
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-              ],
-              borderWidth: 1,
-            }
-          ]
-        },
-        options: {
-          scales:{
-            yAxes: [{
-              ticks:{
-                beginAtZero:true
-              }
-            }]
-          }
-        }
-      });
-    </script>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
@@ -567,5 +598,247 @@ if (!isset($_SESSION['User'])) {
 
     <!-- CDN Grafik Dashboard -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.min.js" integrity="sha512-MC1YbhseV2uYKljGJb7icPOjzF2k6mihfApPyPhEAo3NsLUW0bpgtL4xYWK1B+1OuSrUkfOTfhxrRKCz/Jp3rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script>
+      am5.ready(function() {
+
+      // Create root element
+      // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+      var root = am5.Root.new("totalproduksi");
+
+
+      // Set themes
+      // https://www.amcharts.com/docs/v5/concepts/themes/
+      root.setThemes([
+        am5themes_Animated.new(root)
+      ]);
+
+
+      // Create chart
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/
+      var chart = root.container.children.push(am5xy.XYChart.new(root, {
+        panX: true,
+        panY: true,
+        wheelX: "panX",
+        wheelY: "zoomX",
+        pinchZoomX:true
+      }));
+
+      // Add cursor
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+      var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+      cursor.lineY.set("visible", false);
+
+
+      // Create axes
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+      var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+      xRenderer.labels.template.setAll({
+        rotation: -90,
+        centerY: am5.p50,
+        centerX: am5.p100,
+        paddingRight: 15
+      });
+
+      var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+        maxDeviation: 0.3,
+        categoryField: "country",
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {})
+      }));
+
+      var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+        maxDeviation: 0.3,
+        renderer: am5xy.AxisRendererY.new(root, {})
+      }));
+
+
+      // Create series
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+      var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+        name: "Series 1",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        sequencedInterpolation: true,
+        categoryXField: "country",
+        tooltip: am5.Tooltip.new(root, {
+          labelText:"{valueY}"
+        })
+      }));
+
+      series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+      series.columns.template.adapters.add("fill", function(fill, target) {
+        return chart.get("colors").getIndex(series.columns.indexOf(target));
+      });
+
+      series.columns.template.adapters.add("stroke", function(stroke, target) {
+        return chart.get("colors").getIndex(series.columns.indexOf(target));
+      });
+
+      <?php
+        $allData = mysqli_query($koneksi, "SELECT kategori.nama_kategori as nama, COUNT(produk.id_produk) as jumlah FROM produk LEFT JOIN kategori ON kategori.id_kategori = produk.id_kategori GROUP BY produk.id_kategori");
+      ?>
+
+      // Set data
+      var data = [];
+
+      
+      <?php while ($val = $allData->fetch_assoc()) { ?>
+        data.push({
+          country: "<?= $val['nama']; ?>",
+          value: <?= $val['jumlah']; ?>
+        });
+      <?php } ?>
+
+      xAxis.data.setAll(data);
+      series.data.setAll(data);
+
+
+      // Make stuff animate on load
+      // https://www.amcharts.com/docs/v5/concepts/animations/
+      series.appear(1000);
+      chart.appear(1000, 100);
+
+      }); // end am5.ready()
+    </script>
+        <script>
+      am5.ready(function() {
+
+      // Create root element
+      // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+       root = am5.Root.new("transaksitahunini");
+
+
+      // Set themes
+      // https://www.amcharts.com/docs/v5/concepts/themes/
+      root.setThemes([
+        am5themes_Animated.new(root)
+      ]);
+
+
+      // Create chart
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/
+       chart = root.container.children.push(am5xy.XYChart.new(root, {
+        panX: true,
+        panY: true,
+        wheelX: "panX",
+        wheelY: "zoomX",
+        pinchZoomX:true
+      }));
+
+      // Add cursor
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+       cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+      cursor.lineY.set("visible", false);
+
+
+      // Create axes
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+       xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+      xRenderer.labels.template.setAll({
+        rotation: -90,
+        centerY: am5.p50,
+        centerX: am5.p100,
+        paddingRight: 15
+      });
+
+       xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+        maxDeviation: 0.3,
+        categoryField: "country",
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {})
+      }));
+
+       yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+        maxDeviation: 0.3,
+        renderer: am5xy.AxisRendererY.new(root, {})
+      }));
+
+
+      // Create series
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+       series = chart.series.push(am5xy.ColumnSeries.new(root, {
+        name: "Series 1",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        sequencedInterpolation: true,
+        categoryXField: "country",
+        tooltip: am5.Tooltip.new(root, {
+          labelText:"{valueY}"
+        })
+      }));
+
+      series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+      series.columns.template.adapters.add("fill", function(fill, target) {
+        return chart.get("colors").getIndex(series.columns.indexOf(target));
+      });
+
+      series.columns.template.adapters.add("stroke", function(stroke, target) {
+        return chart.get("colors").getIndex(series.columns.indexOf(target));
+      });
+
+      <?php
+        $allData = mysqli_query($koneksi, "SELECT
+			  t1.bulan,
+			  IFNULL(t2.jumlah, 0) AS jumlah
+			FROM (
+			  SELECT 1 AS bulan UNION SELECT 2 AS bulan UNION SELECT 3 AS bulan
+			  UNION SELECT 4 AS bulan UNION SELECT 5 AS bulan UNION SELECT 6 AS bulan
+			  UNION SELECT 7 AS bulan UNION SELECT 8 AS bulan UNION SELECT 9 AS bulan
+			  UNION SELECT 10 AS bulan UNION SELECT 11 AS bulan UNION SELECT 12 AS bulan
+			) t1
+			LEFT JOIN (
+			  SELECT
+			    MONTH(tanggal_penjualan) AS bulan,
+			    COUNT(*) AS jumlah
+			  FROM penjualan
+			  WHERE YEAR(tanggal_penjualan) = YEAR(CURDATE())
+			  GROUP BY bulan
+			) t2 ON t1.bulan = t2.bulan
+			ORDER BY t1.bulan ASC");
+      ?>
+
+      // Set data
+       data = [];
+
+       let month = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+       ]
+      
+      <?php while ($val = $allData->fetch_assoc()) { ?>
+        data.push({
+          country: month[<?= $val['bulan']-1 ?>],
+          value: <?= $val['jumlah']; ?>
+        });
+      <?php } ?>
+
+      xAxis.data.setAll(data);
+      series.data.setAll(data);
+
+
+      // Make stuff animate on load
+      // https://www.amcharts.com/docs/v5/concepts/animations/
+      series.appear(1000);
+      chart.appear(1000, 100);
+
+      }); // end am5.ready()
+    </script>
   </body>
 </html>
