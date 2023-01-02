@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="../../asset/DataTables-5/Buttons-2.3.3/css/buttons.bootstrap5.min.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../asset/image/image-website/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
