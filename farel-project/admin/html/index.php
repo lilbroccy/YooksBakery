@@ -35,7 +35,8 @@ if (!isset($_SESSION['User'])) {
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    
     <title>Dashboard - Yooks Bakery</title>
 
     <meta name="description" content="" />
@@ -139,7 +140,7 @@ if (!isset($_SESSION['User'])) {
                   </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder">Yooks Admin</span>
+              <img src="../assets/img/favicon/favicon.ico" alt="..."><span class="app-brand-text demo menu-text fw-bolder">Admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

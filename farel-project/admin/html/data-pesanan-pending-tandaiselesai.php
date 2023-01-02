@@ -36,7 +36,7 @@ else {
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Data Pesanan Selesai | Yooks Bakery</title>
+    <title>Data Pesanan Selesai</title>
 
     <meta name="description" content="" />
 
@@ -147,7 +147,7 @@ else {
                   </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">yooks admin</span>
+              <img src="../assets/img/favicon/favicon.ico" alt="..."><span class="app-brand-text demo menu-text fw-bolder">Admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

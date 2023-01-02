@@ -36,7 +36,7 @@ else {
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Data Pesanan Pending | Yooks Bakery</title>
+    <title>Data Pesanan Pending</title>
 
     <meta name="description" content="" />
 
@@ -118,7 +118,7 @@ else {
                       id="path-5"
                     ></path>
                   </defs>
-                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <!-- <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
                       <g id="Icon" transform="translate(27.000000, 15.000000)">
                         <g id="Mask" transform="translate(0.000000, 8.000000)">
@@ -144,10 +144,10 @@ else {
                         </g>
                       </g>
                     </g>
-                  </g>
+                  </g> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <img src="../assets/img/favicon/favicon.ico" alt="..."><span class="app-brand-text demo menu-text fw-bolder">Admin</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
