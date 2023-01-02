@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title>Register</title>
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/style123.css">
@@ -25,7 +26,7 @@
                 </div>
                 <h1>REGISTRASI</h1>
                 <p>Jelajahi toko kami sepuas anda!</p>
-                <form method="POST">
+                <form action="register.php" method="POST">
                     <div class="mb-3">
                         <label >Nama</label>
                         <input type="text" name="name" class="form-control" placeholder="Username">
@@ -51,7 +52,7 @@
                     </div>
                     <button class="btn btn-outline" name="register">Register</button>
                 </form>
-                <p>Sudah punya akun? log in</p>
+                <p>Sudah punya akun? <a href="index.php">Log in</a></p>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title>Login</title>
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/style123.css">
@@ -28,7 +29,7 @@
                     </div>
                     <button class="btn btn-outline mb-1" name="login">Login</button>
                     <div>
-                    <a href="register.php" class="btn">Register</a>
+                    <p>Belum Punya akun? <a href="register.php">Register</a></p>
                     </div>
                 </form>
             </div>
