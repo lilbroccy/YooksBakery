@@ -1,3 +1,18 @@
+<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+  <script src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="bootstrap-datepicker/locales/bootstrap-datepicker.id.min.js"></script>
+
+  <script>
+  $( function() {
+    $( "#date" ).datepicker({
+      autoclose:true,
+      todayHighlight:true,
+      format:'yyyy-mm-dd',
+      language: 'id'
+    });
+  } );
+  </script>
+
 <?php require("koneksi.php"); ?>
 
 <!DOCTYPE html>
@@ -75,6 +90,7 @@
   </head>
 
   <body>
+  
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -383,34 +399,38 @@
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label>Kode Produk</label>
-                                            <input type="text" name="kode" class="form-control">
+                                            <input type="text" name="kode" class="form-control"></input>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label>Nama Produk</label>
-                                        <input type="text" name="nama" class="form-control">
+                                        <input type="text" name="nama" class="form-control"></input>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label>Biaya Produksi</label>
-                                            <input type="number" name="beli" class="form-control">
+                                            <input type="number" name="beli" class="form-control"></input>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label>Harga Jual></label>
-                                            <input type="number" name="jual" class="form-control">
+                                            <input type="number" name="jual" class="form-control"></input>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label>Harga Coret</label>
-                                            <input type="number" name="coret" class="form-control">
+                                            <input type="number" name="coret" class="form-control"></input>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label>Stock Produk</label>
-                                            <input type="stock" name="stock" class="form-control">
+                                            <input type="stock" name="stock" class="form-control"></input>
                                         </div>
                                     </div>
                                     <div class="mb-3">
+                                            <label>Tanggal Produksi</label>
+                                            <input type="text" name="date" id="date" class="form-control"></input>
+                                    <div>
+                                    <div class="mb-3">
                                         <label>Foto Produk</label>
-                                        <input type="file" name="foto" class="form-control">
+                                        <input type="file" name="foto" class="form-control"></input>
                                     </div>
                                     <div class="mb-3">
                                         <label>Keterangan Produk</label>
@@ -436,6 +456,7 @@
             $jual = $_POST['jual'];
             $hargacoret = $_POST['coret'];
             $stock = $_POST['stock'];
+            $tanggal_prod = $_POST['date'];
             $keterangan = $_POST['keterangan'];
             $namafoto = $_FILES['foto']['name'];
             $lokasifoto = $_FILES['foto']['tmp_name'];
@@ -444,8 +465,8 @@
             if(!empty($lokasifoto)){
                 move_uploaded_file($lokasifoto, "../../asset/image/image-admin/produk/".$namafoto);
                 $koneksi->query("INSERT INTO produk (id_toko, id_kategori, id_supplier, nama_produk, 
-                kode_produk, biaya_produk, jual_produk, harga_coret, stock_produk, foto_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
-                '$nama', '$kode', '$beli', '$jual', '$hargacoret', '$stock', '$namafoto', '$keterangan' )");    
+                kode_produk, biaya_produk, jual_produk, harga_coret, stock_produk, tanggal_produksi, foto_produk, keterangan_produk) VALUES ('$id_toko', '$id_kategori', '$id_supplier', 
+                '$nama', '$kode', '$beli', '$jual', '$hargacoret', '$stock', '$tanggal_prod', '$namafoto', '$keterangan' )");    
             }
             // echo "<script>alert('data tersimpan')</script>";
             // echo "<script>location='layouts-produk.php'</script>";
