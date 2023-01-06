@@ -423,7 +423,7 @@
                 $id_toko = $_SESSION['User']['id_toko'];
 
                 $produk =array();
-                $ambil = $koneksi ->query("SELECT * FROM user WHERE id_toko='$id_toko' ");
+                $ambil = $koneksi ->query("SELECT * FROM user WHERE id_toko='$id_toko' AND level_user='User'");
                 while($tiap = $ambil -> fetch_assoc()){
                   $user[] = $tiap;
                 }

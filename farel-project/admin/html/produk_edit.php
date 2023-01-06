@@ -558,7 +558,7 @@
                 
                 $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
                                 kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
-                                WHERE id_produk='$id_produk' AND id_toko='$id_toko' ")or die(mysqli_error($koneksi));    
+                                WHERE id_produk='$id_produk' AND id_toko='$id_toko' ")or die(mysqli_error($koneksi)); 
           } 
           else {
             $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 

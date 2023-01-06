@@ -424,6 +424,7 @@
 
                 $produk =array();
                 $ambil = $koneksi ->query("SELECT * FROM produk WHERE id_toko='$id_toko' ");
+                $koneksi->query("UPDATE produk SET stock_produk=0, keterangan='Kadaluarsa' WHERE DATEDIFF(CURDATE(), tanggal_produksi) > 3 ");
                 while($tiap = $ambil -> fetch_assoc()){
                   $produk[] = $tiap;
                 }
@@ -435,7 +436,9 @@
                 </h5>
                 <div class="container col-md-0 px-2">
                   <a href="produk_tambah.php" class="btn btn-primary">Tambah</a>
+                  <p class="text-muted">*Catatan : Keterangan roti dan stok roti akan berubah menjadi kadaluarsa dan 0 secara otomatis apabila roti telah melewati 3 hari dari tanggal produksi</p>
                 </div>
+                
                 <div class="table-responsive text-nowrap p-2">
                 <table id="produk" class="table table-bordered display" style="width:100%">
                 <thead>
@@ -448,6 +451,8 @@
                         <th>Harga Jual Produk</th>
                         <th>Harga Coret</th>
                         <th>Stock Produk</th>
+                        <th>Tanggal Produksi</th>
+                        <th>Keterangan</th>
                         <th>Foto Produk</th>
                         <th>Deskripsi Produk</th>
                         <th>Actions</th>
@@ -464,6 +469,8 @@
                         <td>Rp. <?php echo number_format($value["jual_produk"]) ?></td>
                         <td>Rp. <?php echo number_format($value["harga_coret"]) ?></td>
                         <td><?php echo $value["stock_produk"] ?></td>
+                        <td><?php echo $value["tanggal_produksi"] ?></td>
+                        <td><?php echo $value["keterangan"] ?></td>
                         <td><?php echo $value["foto_produk"] ?></td>
                         <td><?php echo $value["keterangan_produk"] ?></td>
                         <td>
