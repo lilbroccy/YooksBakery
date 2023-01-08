@@ -1,3 +1,17 @@
+<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+  <script src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="bootstrap-datepicker/locales/bootstrap-datepicker.id.min.js"></script>
+
+  <script>
+  $( function() {
+    $( "#date" ).datepicker({
+      autoclose:true,
+      todayHighlight:true,
+      format:'yyyy-mm-dd',
+      language: 'id'
+    });
+  } );
+  </script>
 <?php require("koneksi.php"); ?>
 
 <!DOCTYPE html>
@@ -516,6 +530,10 @@
                                             <input type="stock" name="stock" class="form-control" value="<?php echo $produk['stock_produk'] ?>">
                                         </div>
                                     </div>
+                                    <div class="mb-3">
+        <label>Tanggal Produksi</label>
+        <input type="text" name="date" id="date" class="form-control"></input>
+    </div>
                                     <div class="mb-3 rounded-circle">
                                         <label>Foto Sebelumnya</label><br>
                                         <img src="../../asset/image/image-admin/produk/<?php echo $produk['foto_produk'] ?>" width="200" >
@@ -539,7 +557,8 @@
             <!-- / Content -->
         <?php 
         if(isset($_POST['simpan'])){
-            $id_toko = $_SESSION['User']['id_toko'];
+          $date = $_POST['date'];  
+          $id_toko = $_SESSION['User']['id_toko'];
             $id_produk = $_POST['id_produk'];
             $nama = $_POST['nama'];
             $id_supplier = $_POST['id_supplier'];
