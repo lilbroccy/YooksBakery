@@ -532,7 +532,7 @@
                                     </div>
                                     <div class="mb-3">
         <label>Tanggal Produksi</label>
-        <input type="text" name="date" id="date" class="form-control"></input>
+        <input type="text" name="date" id="date" class="form-control" value="<?php echo $produk['tanggal_produksi']?>" placeholder="Contoh : 2023-01-31"></input>
     </div>
                                     <div class="mb-3 rounded-circle">
                                         <label>Foto Sebelumnya</label><br>
@@ -576,12 +576,12 @@
                 move_uploaded_file($lokasifoto, "../../asset/image/image-admin/produk/".$namafoto);
                 
                 $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
-                                kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan'
+                                kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', foto_produk='$namafoto', keterangan_produk='$keterangan', tanggal_produksi='$date', keterangan='Belum Kadaluarsa'
                                 WHERE id_produk='$id_produk' AND id_toko='$id_toko' ")or die(mysqli_error($koneksi)); 
           } 
           else {
             $koneksi->query("UPDATE produk SET id_kategori='$id_kategori', id_supplier='$id_supplier', nama_produk='$nama', 
-            kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', keterangan_produk='$keterangan'
+            kode_produk='$kode', biaya_produk='$beli', jual_produk='$jual', harga_coret='$hargacoret', stock_produk='$stock', keterangan_produk='$keterangan', tanggal_produksi='$date', keterangan='Belum Kadaluarsa'
             WHERE id_produk='$id_produk' AND id_toko='$id_toko' ")or die(mysqli_error($koneksi));    
           }
             // echo "<script>alert('data tersimpan')</script>";

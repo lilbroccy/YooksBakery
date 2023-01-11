@@ -424,7 +424,7 @@
 
                 $produk =array();
                 $ambil = $koneksi ->query("SELECT * FROM produk WHERE id_toko='$id_toko' ");
-                $koneksi->query("UPDATE produk SET stock_produk=0, keterangan='Kadaluarsa' WHERE DATEDIFF(CURDATE(), tanggal_produksi) > 3 ");
+
                 while($tiap = $ambil -> fetch_assoc()){
                   $produk[] = $tiap;
                 }
@@ -599,4 +599,3 @@
     <!-- END Fungsi Table JS -->
   </body>
 </html>
-

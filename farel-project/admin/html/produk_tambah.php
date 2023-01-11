@@ -426,7 +426,7 @@
                                     </div>
                                     <div class="mb-3">
                                             <label>Tanggal Produksi</label>
-                                            <input type="text" name="date" id="date" class="form-control"></input>
+                                            <input type="text" name="date" id="date" class="form-control" placeholder="Contoh : 2023-01-31"></input>
                                     <div>
                                     <div class="mb-3">
                                         <label>Foto Produk</label>
